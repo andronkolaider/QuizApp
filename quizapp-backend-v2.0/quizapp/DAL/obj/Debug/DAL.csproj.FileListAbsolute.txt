@@ -1,0 +1,16 @@
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\DAL.dll.config
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\DAL.dll
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\DAL.pdb
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\EntityFramework.dll
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\ModelClasses.dll
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\MoreLinq.Portable.dll
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\ModelClasses.pdb
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\EntityFramework.xml
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\MoreLinq.Portable.xml
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.dll
+D:\[download]\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.pdb

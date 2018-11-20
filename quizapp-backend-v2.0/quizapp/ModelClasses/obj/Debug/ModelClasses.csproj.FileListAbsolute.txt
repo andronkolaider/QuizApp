@@ -1,0 +1,6 @@
+D:\[download]\quizapp-backend-v2.0\quizapp\ModelClasses\bin\Debug\ModelClasses.dll
+D:\[download]\quizapp-backend-v2.0\quizapp\ModelClasses\bin\Debug\ModelClasses.pdb
+D:\[download]\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.csprojAssemblyReference.cache
+D:\[download]\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.csproj.CoreCompileInputs.cache
+D:\[download]\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.dll
+D:\[download]\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.pdb
