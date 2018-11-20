@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/http/http.service';
 import { LoginViewModel } from '/Users/Leobit user/Stuff/quiz/angular-quiz-app-frontend/src/assets/Models/LoginViewModel';
 import { Title } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
+import { NgForOf } from '@angular/common'
+import { TestingResultViewModel } from 'src/assets/Models/Managing/TestingResultViewModel';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,8 +19,8 @@ export class LoginComponent implements OnInit {
   LoginInput: string;
   PasswordInput: string;
   IsLoginSuccessfull: boolean = false;
-  IsLoginFailed: boolean = false;
   IsAdmin: boolean = false;
+  Tests: TestViewModel[]=[];
   ngOnInit() {
   }
 
@@ -38,12 +42,9 @@ export class LoginComponent implements OnInit {
     this.PasswordInput = '';
   }
 
-  ReturnZalupa(User: LoginViewModel)
+  ReturnZalupa()
   {
-    this.http.ReturnZalupa(User).subscribe((x: LoginViewModel) => {
-    this.CurrentUser = x;
-      this.title.setTitle(this.CurrentUser.Username);
-    });
+    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.Tests = x);
 
   }
 

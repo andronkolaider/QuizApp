@@ -39,3 +39,4 @@ testem.log
 Thumbs.db
 /
 angular-quiz-app-frontend/node_modules/
+quizapp-backend-v2.0/quizapp/packages/

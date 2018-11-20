@@ -18,7 +18,7 @@ using Services;
 namespace QuizApp.Controllers
 {
    // [Authorize(Users ="admin")]
-    [AllowCrossSiteJson]
+   // [AllowCrossSiteJson]
     public class AdminController : Controller
     {
         private readonly IGetInfoService _getInfoService;
@@ -34,12 +34,12 @@ namespace QuizApp.Controllers
             _advancedLogicService = advancedLogicService;
             _mapper = mapper;
         }
-           [HttpGet] 
-        public ActionResult ReturnTest(LoginViewModel user)
-        {
-            user.Username = "Zalupa";
-            return Json(user, JsonRequestBehavior.AllowGet);
-        }
+        //   [HttpGet] 
+        //public ActionResult ReturnTest(LoginViewModel user)
+        //{
+        //    user.Username = "Zalupa";
+        //    return Json(user, JsonRequestBehavior.AllowGet);
+        //}
 
         public ActionResult Index()
         {
