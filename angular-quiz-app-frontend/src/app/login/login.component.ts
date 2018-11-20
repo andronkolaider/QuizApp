@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
 import { NgForOf } from '@angular/common'
 import { TestingResultViewModel } from 'src/assets/Models/Managing/TestingResultViewModel';
+import { AnswerViewModel } from 'src/assets/Models/Managing/AnswerViewModel';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -41,11 +42,12 @@ export class LoginComponent implements OnInit {
     this.LoginInput = '';
     this.PasswordInput = '';
   }
-
+  answer: AnswerViewModel = { Guid: '1', IsCorrect: true, Instance: "Faggot" };
   ReturnZalupa()
   {
-    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.Tests = x);
-
+    
+    this.http.CreateAnswer().subscribe();
+    // '1', this.answer
   }
 
 }

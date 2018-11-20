@@ -22,7 +22,7 @@
 <div *ngIf='IsLoginSuccessfull' class='CredInput'>
   <label>Current user: {{CurrentUser.Username}}</label>
   <button style='margin-left: 7px;' type='submit' (click)='Logout()'>Log out</button>
-  <button type='submit' (click)='ReturnZalupa(CurrentUser)'></button>
+  <button type='submit' (click)='ReturnZalupa()'>test</button>
 </div>
 <div>
   <ul *ngFor='let x of Tests'>

@@ -13,7 +13,7 @@ using Services;
 
 namespace QuizApp.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class ApilikeController : Controller
     {
         private readonly IGetInfoService _getInfoService;
