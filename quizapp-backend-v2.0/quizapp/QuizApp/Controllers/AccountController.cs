@@ -9,9 +9,11 @@ using System.Web.UI.WebControls;
 using QuizApp.ViewModel;
 using Services;
 using DAL.DataAccess;
+using QuizApp.Models;
 
 namespace QuizApp.Controllers
 {
+    [AllowCrossSiteJson]
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
@@ -36,7 +38,7 @@ namespace QuizApp.Controllers
             {
                 if(model.Username=="admin")
                 {
-                    FormsAuthentication.SetAuthCookie(model.Username, true);
+                    FormsAuthentication.SetAuthCookie(model.Username, false);
                 }
             
                 return Json(model, JsonRequestBehavior.AllowGet);

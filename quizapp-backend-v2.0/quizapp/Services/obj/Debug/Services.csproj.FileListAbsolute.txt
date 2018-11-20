@@ -18,3 +18,23 @@ D:\[download]\quizapp-backend-v2.0\quizapp\Services\obj\Debug\Services.csproj.Co
 D:\[download]\quizapp-backend-v2.0\quizapp\Services\obj\Debug\Services.csproj.CopyComplete
 D:\[download]\quizapp-backend-v2.0\quizapp\Services\obj\Debug\Services.dll
 D:\[download]\quizapp-backend-v2.0\quizapp\Services\obj\Debug\Services.pdb
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\Services.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\Services.pdb
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\CsvHelper.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\DAL.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\FileHelpers.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\ModelClasses.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\EntityFramework.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\MoreLinq.Portable.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\DAL.pdb
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\DAL.dll.config
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\ModelClasses.pdb
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\CsvHelper.xml
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\FileHelpers.xml
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\EntityFramework.xml
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\bin\Debug\MoreLinq.Portable.xml
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\obj\Debug\Services.csprojAssemblyReference.cache
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\obj\Debug\Services.csproj.CoreCompileInputs.cache
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\obj\Debug\Services.csproj.CopyComplete
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\obj\Debug\Services.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\Services\obj\Debug\Services.pdb

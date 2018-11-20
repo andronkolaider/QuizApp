@@ -4,3 +4,9 @@ D:\[download]\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.c
 D:\[download]\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.csproj.CoreCompileInputs.cache
 D:\[download]\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.dll
 D:\[download]\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.pdb
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\ModelClasses\bin\Debug\ModelClasses.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\ModelClasses\bin\Debug\ModelClasses.pdb
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.csprojAssemblyReference.cache
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.csproj.CoreCompileInputs.cache
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\ModelClasses\obj\Debug\ModelClasses.pdb

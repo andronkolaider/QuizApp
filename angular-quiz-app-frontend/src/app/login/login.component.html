@@ -1,0 +1,25 @@
+<form #loginForm='ngForm' *ngIf='!IsLoginSuccessfull'>
+  <div >
+    <div class='CredInput'>
+      <button [disabled]='!loginForm.form.valid' type='submit' (click)='Login(LoginInput,PasswordInput)' tabindex='3'>Log in</button>
+    </div>
+
+    <div class='CredInput'>
+      <label>Password: </label>
+      <input required name='password' class='form-control' type='password' placeholder="Password"
+        [(ngModel)]='PasswordInput' tabindex='2'>
+    </div>
+
+    <div class='CredInput'>
+      <label>Login: </label>
+      <input required name='login' type='text' class='form-control' placeholder="Login"
+        [(ngModel)]='LoginInput' tabindex='1'>
+    </div>
+   
+  </div>
+</form>
+<div *ngIf='IsLoginSuccessfull' class='CredInput'>
+  <label>Current user: {{CurrentUser.Username}}</label>
+  <button  style='margin-left: 7px;' type='submit' (click)='Logout()'>Log out</button>
+  <button type='submit' (click)='ReturnZalupa(CurrentUser)'></button>
+</div>

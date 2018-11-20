@@ -14,3 +14,19 @@ D:\[download]\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.csproj.CoreCompileI
 D:\[download]\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\[download]\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.dll
 D:\[download]\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.pdb
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\DAL.dll.config
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\DAL.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\DAL.pdb
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\ModelClasses.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\MoreLinq.Portable.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\ModelClasses.pdb
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\bin\Debug\MoreLinq.Portable.xml
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.dll
+C:\Users\Leobit user\Stuff\quiz\quizapp-backend-v2.0\quizapp\DAL\obj\Debug\DAL.pdb

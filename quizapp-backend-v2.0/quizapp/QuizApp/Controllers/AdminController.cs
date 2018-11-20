@@ -9,6 +9,7 @@ using AutoMapper;
 using ModelClasses.Entities.Testing;
 using ModelClasses.Entities.TestParts;
 using MoreLinq;
+using QuizApp.Models;
 using QuizApp.ViewModel;
 using QuizApp.ViewModel.Managing;
 using QuizApp.ViewModel.Mapping;
@@ -16,7 +17,8 @@ using Services;
 
 namespace QuizApp.Controllers
 {
-    [Authorize]
+   // [Authorize(Users ="admin")]
+    [AllowCrossSiteJson]
     public class AdminController : Controller
     {
         private readonly IGetInfoService _getInfoService;
@@ -32,9 +34,10 @@ namespace QuizApp.Controllers
             _advancedLogicService = advancedLogicService;
             _mapper = mapper;
         }
-           [HttpGet]
+           [HttpGet] 
         public ActionResult ReturnTest(LoginViewModel user)
-        { user.Username = "Zalupa";
+        {
+            user.Username = "Zalupa";
             return Json(user, JsonRequestBehavior.AllowGet);
         }
 
