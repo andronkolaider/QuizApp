@@ -19,7 +19,7 @@ namespace Services
         void UpdateQuestion(string questionGuid, TestQuestion updatedQuestion);
 
         bool CreateAnswerForQuestion(string questionGuid, TestAnswer answer);
-        void RemoveAnswer(string answerGuid);
+        bool RemoveAnswer(string answerGuid);
     }
 
     public class LowLevelLowLevelTestManagementService : ILowLevelTestManagementService
@@ -69,9 +69,10 @@ namespace Services
             question.TestAnswers.Add(answer);
            return _questionRepository.Update(question);
         }
-        public void RemoveAnswer(string answerGuid)
+        public bool RemoveAnswer(string answerGuid)
         {
             _answerRepository.Delete(a => a.Guid == answerGuid);
+            return true;
         }
     }
 }

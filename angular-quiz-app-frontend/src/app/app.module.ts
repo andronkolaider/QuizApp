@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
-import { CreateAnswerComponent } from './create-answer/create-answer.component'
+import { CreateAnswerComponent } from './create-answer/create-answer.component';
+import { RemoveAnswerComponent } from './remove-answer/remove-answer.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AdminPanelComponent,
-    CreateAnswerComponent
+    CreateAnswerComponent,
+    RemoveAnswerComponent
   ],
   imports: [
     BrowserModule,

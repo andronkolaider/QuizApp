@@ -41,5 +41,10 @@ export class HttpService {
    return this.http.post('http://localhost:53029/Apilike/CreateAnswer/', body);
   }
 
+  removeAnswer(_answerGuid: string)
+  {
+    
+  return  this.http.post('http://localhost:53029/Apilike/RemoveAnswer', { answerGuid: _answerGuid });
+  }
 
 }

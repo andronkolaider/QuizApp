@@ -58,9 +58,10 @@ namespace QuizApp.Controllers
             
         }
         [HttpPost]
-        public void RemoveAnswer(string answerGuid)
+        public ActionResult RemoveAnswer(string answerGuid)
         {
-            _lowLevelTestManagementService.RemoveAnswer(answerGuid);
+            bool result   = _lowLevelTestManagementService.RemoveAnswer(answerGuid); 
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
