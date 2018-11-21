@@ -7,7 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { CreateAnswerComponent } from './create-answer/create-answer.component';
-import { RemoveAnswerComponent } from './remove-answer/remove-answer.component'
+import { RemoveAnswerComponent } from './remove-answer/remove-answer.component';
+import { GetQuestionsByTestComponent } from './get-questions-by-test/get-questions-by-test.component'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RemoveAnswerComponent } from './remove-answer/remove-answer.component'
     LoginComponent,
     AdminPanelComponent,
     CreateAnswerComponent,
-    RemoveAnswerComponent
+    RemoveAnswerComponent,
+    GetQuestionsByTestComponent
   ],
   imports: [
     BrowserModule,

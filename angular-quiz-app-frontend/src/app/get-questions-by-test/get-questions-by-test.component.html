@@ -1,0 +1,14 @@
+<div *ngIf='testsList'>
+  <div>
+    <ul *ngFor='let test of testsList'>
+      <li (click)='isShowTestAnswersValueChange(test)'>{{test.Name}}</li>
+    </ul>
+  </div>
+  <div *ngIf='isShowTestAnswers'>
+<ul *ngFor='let question of selectedTest.Questions'>
+  <li>
+    {{question.Instance}}
+  </li>
+</ul>
+  </div>
+</div>
