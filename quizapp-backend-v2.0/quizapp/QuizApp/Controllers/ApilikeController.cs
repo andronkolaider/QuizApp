@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using ModelClasses.Entities.Testing;
 using ModelClasses.Entities.TestParts;
+using QuizApp.Models;
 using QuizApp.ViewModel;
 using QuizApp.ViewModel.Managing;
 using QuizApp.ViewModel.Mapping;
@@ -14,6 +15,7 @@ using Services;
 namespace QuizApp.Controllers
 {
    // [Authorize]
+   [AllowCrossSiteJson]
     public class ApilikeController : Controller
     {
         private readonly IGetInfoService _getInfoService;

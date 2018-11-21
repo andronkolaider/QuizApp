@@ -1,3 +1,55 @@
-<p>
-  admin-panel works!
-</p>
+<div>
+  <div style='width: 300px;float: right;'>
+    <ul>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='1'>CreateAnswer</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='2'>RemoveAnswer</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='3'>GetQuestionsByTest</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='4'>CreateQuestion</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='5'>RemoveQuestion</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='6'>UpdateQuestion</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='7'>CreateTest</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='8'>UpdateTest</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='9'>RemoveTest</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='10'>CreateTestingUrl</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='11'>RemoveTestingUrl</li>
+      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='12'>RemoveTestingResult</li>
+    </ul>
+  </div>
+  
+  <div *ngIf="adminSelection===1">
+
+  </div>
+  <div *ngIf="adminSelection===2">
+
+  </div>
+  <div *ngIf="adminSelection===3">
+
+  </div>
+  <div *ngIf="adminSelection===4">
+
+  </div>
+  <div *ngIf="adminSelection===5">
+
+  </div>
+  <div *ngIf="adminSelection===6">
+
+  </div>
+  <div *ngIf="adminSelection===7">
+
+  </div>
+  <div *ngIf="adminSelection===8">
+
+  </div>
+  <div *ngIf="adminSelection===9">
+
+  </div>
+  <div *ngIf="adminSelection===10">
+
+  </div>
+  <div *ngIf="adminSelection===11">
+
+  </div>
+  <div *ngIf="adminSelection===12">
+
+  </div>
+</div>

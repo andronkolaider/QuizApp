@@ -39,7 +39,7 @@ export class HttpService {
     //   }questionGuid: string, answer: AnswerViewModel
     // }
     let body = {
-      questionGuid: 'test', answer: {
+      questionGuid: '1', answer: {
       Instance: 'text',
       IsCorrect: true,
       Guid: 'test'

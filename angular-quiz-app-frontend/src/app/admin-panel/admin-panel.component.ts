@@ -10,7 +10,8 @@ export class AdminPanelComponent implements OnInit {
 
   constructor(private http:HttpService) { }
 
+  adminSelection: number;
+
   ngOnInit() {
   }
-
 }

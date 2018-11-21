@@ -4,12 +4,14 @@
 
 <body>
     <div class='MainPageLoginDiv'>
-        <app-login></app-login>
+        <app-login (IsAdminEvent)='receiveIsAdmin($event)'></app-login>
     </div>
 
     <h1 class='HomePageHeader'>My QuizApp</h1>
 
-
+    <div *ngIf='isAdmin'>
+        <app-admin-panel ></app-admin-panel>
+    </div>
 
 
 </body>

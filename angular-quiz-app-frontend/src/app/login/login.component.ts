@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, ViewChild } from '@angular/core';
 import { HttpService } from '../services/http/http.service';
 import { LoginViewModel } from '/Users/Leobit user/Stuff/quiz/angular-quiz-app-frontend/src/assets/Models/LoginViewModel';
 import { Title } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
-import { NgForOf } from '@angular/common'
-import { TestingResultViewModel } from 'src/assets/Models/Managing/TestingResultViewModel';
-import { AnswerViewModel } from 'src/assets/Models/Managing/AnswerViewModel';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +19,14 @@ export class LoginComponent implements OnInit {
   PasswordInput: string;
   IsLoginSuccessfull: boolean = false;
   IsAdmin: boolean = false;
-  Tests: TestViewModel[]=[];
+  @Output() IsAdminEvent = new EventEmitter<boolean>();
+  Tests: TestViewModel[] = [];
+ 
+  sendIsAdmin()
+  {
+    this.IsAdminEvent.emit(this.IsAdmin);
+  }
+
   ngOnInit() {
   }
 
@@ -38,16 +43,14 @@ export class LoginComponent implements OnInit {
     this.http.Login(LoginInput, PasswordInput).subscribe((x: LoginViewModel) => {
       this.CurrentUser = x;
       this.IsLoginSuccessfull = true;
+      if (this.CurrentUser.Username == 'admin')
+      {
+        this.IsAdmin = true;
+      }
+      this.sendIsAdmin();
     });
+
     this.LoginInput = '';
     this.PasswordInput = '';
   }
-  answer: AnswerViewModel = { Guid: '1', IsCorrect: true, Instance: "Faggot" };
-  ReturnZalupa()
-  {
-    
-    this.http.CreateAnswer().subscribe();
-    // '1', this.answer
-  }
-
 }

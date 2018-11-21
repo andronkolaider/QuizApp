@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'angulat-quiz-app-frontend';
+export class AppComponent  {
+
+  isAdmin: boolean;
+
+ 
+
+  constructor() { }
+
+  receiveIsAdmin($event) {
+    this.isAdmin = $event;
+}
+
 }
