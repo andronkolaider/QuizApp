@@ -27,10 +27,18 @@ namespace DAL.DataAccess
             _dataContext.SaveChanges();
         }
 
-        public virtual void Update(TEntity entity)
+        public virtual bool Update(TEntity entity)
         {
             _dataContext.Entry(entity).State = EntityState.Modified;
-            _dataContext.SaveChanges();
+           int result= _dataContext.SaveChanges();
+            if(result>0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public virtual void Delete(TEntity entity)

@@ -11,5 +11,5 @@ export class TestPassingViewModel{
   QuestionTried: number;
   Score: number;
   AttemptGuid: string;
-  Questions: Observable<ChoicePassingViewModel>[];
+  Questions: ChoicePassingViewModel[];
 }

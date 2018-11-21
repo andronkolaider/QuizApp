@@ -15,9 +15,8 @@
       <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='12'>RemoveTestingResult</li>
     </ul>
   </div>
-  
   <div *ngIf="adminSelection===1">
-
+    <app-create-answer></app-create-answer>
   </div>
   <div *ngIf="adminSelection===2">
 

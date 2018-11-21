@@ -30,22 +30,16 @@ export class HttpService {
     return this.http.get('http://localhost:53029/Apilike/GetAnswersByQuestionGuid/', { params });
   }
 
-  CreateAnswer()
+  CreateAnswer(_questionGuid:string,_answer:AnswerViewModel)
   {
-    // let body: NavigationExtras = {
-    //   queryParams: {
-    //     "questionGuid": questionGuid,
-    //     "answer": JSON.stringify(answer)
-    //   }questionGuid: string, answer: AnswerViewModel
-    // }
     let body = {
-      questionGuid: '1', answer: {
-      Instance: 'text',
-      IsCorrect: true,
-      Guid: 'test'
+      questionGuid:_questionGuid , answer: {
+      Instance: _answer.Instance,
+      IsCorrect: _answer.IsCorrect,
+      Guid: _answer.Guid
     } };
    return this.http.post('http://localhost:53029/Apilike/CreateAnswer/', body);
-
   }
+
 
 }

@@ -8,7 +8,7 @@ namespace DAL.DataAccess
     {
         void Add(TEntity entity);
         //void AddOrCreate(TEntity entity);
-        void Update(TEntity entity);
+        bool Update(TEntity entity);
         void Delete(TEntity entity);
         void Delete(Expression<Func<TEntity, bool>> where);
         //void AttachToContext(TEntity entity);

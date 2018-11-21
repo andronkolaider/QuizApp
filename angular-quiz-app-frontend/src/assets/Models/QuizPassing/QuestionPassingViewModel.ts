@@ -6,7 +6,7 @@ export class QuestionPassingViewModel{
   Hint:string;
   Multiple: boolean;
   Answered: boolean;
-  Answers: Observable<AnswerPassingViewModel>[];
+  Answers: AnswerPassingViewModel[];
   SelectedOne: string;
   Guid: string;
 }

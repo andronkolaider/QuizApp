@@ -18,7 +18,7 @@ namespace Services
         void RemoveQuestion(string questionGuid);
         void UpdateQuestion(string questionGuid, TestQuestion updatedQuestion);
 
-        void CreateAnswerForQuestion(string questionGuid, TestAnswer answer);
+        bool CreateAnswerForQuestion(string questionGuid, TestAnswer answer);
         void RemoveAnswer(string answerGuid);
     }
 
@@ -63,11 +63,11 @@ namespace Services
             _questionRepository.Update(question);
         }
 
-        public void CreateAnswerForQuestion(string questionGuid, TestAnswer answer)
+        public bool CreateAnswerForQuestion(string questionGuid, TestAnswer answer)
         {
             var question  = _questionRepository.Get(q => q.Guid == questionGuid);
             question.TestAnswers.Add(answer);
-            _questionRepository.Update(question);
+           return _questionRepository.Update(question);
         }
         public void RemoveAnswer(string answerGuid)
         {

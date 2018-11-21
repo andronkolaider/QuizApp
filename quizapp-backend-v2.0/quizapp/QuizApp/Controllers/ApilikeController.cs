@@ -49,10 +49,13 @@ namespace QuizApp.Controllers
             return Json(answerViewModelList, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
-        public void CreateAnswer(string questionGuid, AnswerViewModel answer)
+        public ActionResult CreateAnswer(string questionGuid, AnswerViewModel answer)
         {
+          
             var testAnswer = _mapper.Map<TestAnswer>(answer);
-            _lowLevelTestManagementService.CreateAnswerForQuestion(questionGuid, testAnswer);
+            bool result=  _lowLevelTestManagementService.CreateAnswerForQuestion(questionGuid, testAnswer); ;
+            return Json(result, JsonRequestBehavior.AllowGet);
+            
         }
         [HttpPost]
         public void RemoveAnswer(string answerGuid)

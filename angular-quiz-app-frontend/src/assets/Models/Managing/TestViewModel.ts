@@ -1,4 +1,3 @@
-import { Observable } from "rxjs";
 import { QuestionViewModel } from "./QuestionViewModel";
 
 export class TestViewModel{
@@ -6,7 +5,7 @@ export class TestViewModel{
   Description: string;
   TestTimeLimit: string;
   QuestionTimeLimit: string;
-  Questions: Observable<QuestionViewModel>[];
+  Questions: QuestionViewModel[];
   Guid: string;
   IsValid: boolean;
 }
