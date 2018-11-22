@@ -48,6 +48,7 @@ namespace QuizApp.Controllers
 
             return Json(answerViewModelList, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public ActionResult CreateAnswer(string questionGuid, AnswerViewModel answer)
         {
@@ -57,6 +58,7 @@ namespace QuizApp.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
             
         }
+
         [HttpPost]
         public ActionResult RemoveAnswer(string answerGuid)
         {
@@ -75,17 +77,22 @@ namespace QuizApp.Controllers
 
             return Json(questionViewModelList, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
-        public void CreateQuestion(string testGuid, QuestionViewModel question)
+        public ActionResult CreateQuestion(string testGuid, QuestionViewModel question)
         {
+            question.Guid = Guid.NewGuid().ToString();
             var testQuestion = _mapper.Map<TestQuestion>(question);
-            _lowLevelTestManagementService.CreateQuestionForTest(testGuid, testQuestion);
+            var result = _mapper.Map<QuestionViewModel>(_lowLevelTestManagementService.CreateQuestionForTest(testGuid, testQuestion));
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
-        public void RemoveQuestion(string testGuid, string questionGuid)
+        public ActionResult RemoveQuestion(string testGuid, string questionGuid)
         {
-            _lowLevelTestManagementService.RemoveQuestion(questionGuid);
+          return Json(_lowLevelTestManagementService.RemoveQuestion(questionGuid),JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public void UpdateQuestion(string questionGuid, QuestionViewModel question)
         {
@@ -93,19 +100,20 @@ namespace QuizApp.Controllers
             _lowLevelTestManagementService.UpdateQuestion(questionGuid, testQuestion);
         }
 
-
         [HttpPost]
         public void CreateTest(TestViewModel test)
         {
             var testFromDomain = _advancedMapper.MapTestViewModel(test);
             _highLevelTestManagementService.CreateTest(testFromDomain);
         }
+
         [HttpPost]
         public void UpdateTest(string testGuid, TestViewModel test)
         {
             var testFromDomain = _advancedMapper.MapTestViewModel(test);
             _highLevelTestManagementService.UpdateTest(testGuid, testFromDomain);
         }
+
         [HttpPost]
         public void RemoveTest(string testGuid)
         {

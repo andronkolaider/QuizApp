@@ -5,6 +5,7 @@ import { stripGeneratedFileSuffix } from '@angular/compiler/src/aot/util';
 import { stringify } from 'querystring';
 import { AnswerViewModel } from 'src/assets/Models/Managing/AnswerViewModel';
 import { NavigationExtras } from '@angular/router';
+import { QuestionViewModel } from 'src/assets/Models/Managing/QuestionViewModel';
 
 
 @Injectable({
@@ -36,14 +37,30 @@ export class HttpService {
       questionGuid:_questionGuid , answer: {
       Instance: _answer.Instance,
       IsCorrect: _answer.IsCorrect,
-      Guid: _answer.Guid
+      Guid: _answer.Guid //fix
     } };
    return this.http.post('http://localhost:53029/Apilike/CreateAnswer/', body);
   }
 
-  removeAnswer(_answerGuid: string)
+  createQuestion(_testGuid: string, _question: QuestionViewModel)
   {
-    
+    let body = {
+      testGuid: _testGuid,
+      question: {
+        Instance: _question.Instance,
+        Hint: _question.Hint,
+        Answers: null,
+        IsValid: false
+      }
+    };
+    return this.http.post('http://localhost:53029/Apilike/CreateQuestion/', body);
+  }
+
+  removeQuestion(_testGuid: string, _questionGuid:string) {
+   return this.http.post('http://localhost:53029/Apilike/RemoveQuestion/', { testGuid: _testGuid, questionGuid: _questionGuid });
+}
+
+  removeAnswer(_answerGuid: string) {
   return  this.http.post('http://localhost:53029/Apilike/RemoveAnswer', { answerGuid: _answerGuid });
   }
 

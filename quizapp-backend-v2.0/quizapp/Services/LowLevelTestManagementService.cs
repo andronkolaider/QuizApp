@@ -14,8 +14,8 @@ namespace Services
     /// </summary>
     public interface ILowLevelTestManagementService
     {
-        void CreateQuestionForTest(string testGuid, TestQuestion question);
-        void RemoveQuestion(string questionGuid);
+        TestQuestion CreateQuestionForTest(string testGuid, TestQuestion question);
+        bool RemoveQuestion(string questionGuid);
         void UpdateQuestion(string questionGuid, TestQuestion updatedQuestion);
 
         bool CreateAnswerForQuestion(string questionGuid, TestAnswer answer);
@@ -36,13 +36,14 @@ namespace Services
             _testRepository = testRepository;
         }
         
-        public void CreateQuestionForTest(string testGuid, TestQuestion question)
+        public TestQuestion CreateQuestionForTest(string testGuid, TestQuestion question)
         {
             var test = _testRepository.Get(t => t.Guid == testGuid);
             test.TestQuestions.Add(question);
             _testRepository.Update(test);
+            return question;
         }
-        public void RemoveQuestion(string questionGuid)
+        public bool RemoveQuestion(string questionGuid)
         {
             //TODO remove answers automatically after removing question
             //var test = _testRepository.Get(t => t.Guid == testGuid);
@@ -50,6 +51,7 @@ namespace Services
 
             //TODO need to think about this logic and question-test relationship
             _questionRepository.Delete(question);
+            return true;
         }
         public void UpdateQuestion(string questionGuid, TestQuestion updatedQuestion)
         {

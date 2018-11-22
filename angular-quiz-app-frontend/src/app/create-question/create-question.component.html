@@ -1,0 +1,49 @@
+<div *ngIf='testsList'>
+  <div>
+    <ul *ngFor='let test of testsList'>
+      <li (click)='selectTest(test)'>{{test.Name}}</li>
+      <div *ngIf='selectedTest'>
+        <div>
+          <ul *ngFor='let question of selectedTest.Questions'>
+            <li (click)='selectQuestion(question)'>
+              <div>
+                {{question.Instance}} <button type='button' (click)='removeQuestion(selectedTest.Guid,question.Guid)'>-</button>
+              </div>
+              <div>
+                <label>Answers: {{question.Answers.length}}</label><button type='button' (click)='isShowAddAnswerValueChange()'>Add</button>
+              </div>              
+            </li>
+          </ul>
+           <div *ngIf='isShowAddAnswer'>
+            <div>
+                <label>Instance: </label>
+                <input type='text' [(ngModel)]='newAnswer.Instance'>
+              </div>
+              <div>
+                <label>Is correct:</label>
+                <input type='radio' value='true' [(ngModel)]='newAnswer.IsCorrect'>True
+                <input type='radio' value='false' [(ngModel)]='newAnswer.IsCorrect'>False
+              </div>
+              <button type='button' (click)='addAnswer(selectedQuestion.Guid)'>Confirm</button>
+            </div>
+        </div>
+        <div *ngIf='isShowAddQuestionDiv'>
+          <div>
+            <label>Instance:</label>
+            <input type='text' [(ngModel)]='newQuestion.Instance'>
+          </div>
+          <div>
+            <label>Hint:</label>
+            <input type='text' [(ngModel)]='newQuestion.Hint'>
+          </div>
+          <div>
+            <button type='button' (click)='confirmAddQuestion(newQuestion)'>Confirm</button>
+          </div>
+        </div>
+        <div>
+          <button type='button' (click)='addQuestion()'>+</button>
+        </div>
+      </div>
+    </ul>
+  </div>
+</div>

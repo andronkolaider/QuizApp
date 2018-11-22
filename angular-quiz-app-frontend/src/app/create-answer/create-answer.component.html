@@ -2,33 +2,39 @@
   <div>
     <ul *ngFor='let test of testsList'>
       <li (click)='isShowTestQuestionsValueChange(test)'>
-        <span>{{test.Name}}</span>{{test.Description}}
+        <span>{{test.Name}}<br></span>
+        <span>{{test.Description}}</span>
+        <div *ngIf='isShowTestQuestions'>
+            <ul *ngFor='let question of selectedTest.Questions' >
+              <li (click)='isShowAddAnswerDivValueChange()' (click)='selectedQuestionGetAnswers(question)'>{{question.Instance}}</li>
+             
+            </ul>
+          </div>
       </li>
     </ul>
+    <h3>{{selectedQuestion.Instance}}</h3>
+    <div *ngIf='selectedQuestionAnswers'>
+        <ul *ngFor='let answer of selectedQuestionAnswers'>
+          <li >
+            {{answer.Instance}}                     
+          </li>
+        </ul>               
+      </div>
+    <div *ngIf='isShowAddAnswerDiv'>
+        <div>
+          <label>Instance: </label>
+          <input type='text' [(ngModel)]='_instance'>
+        </div>
+        <div>
+          <label>Is correct:</label>
+          <input type='radio' value='true'>True
+          <input type='radio' value='false'>False
+        </div>
+        <button type='button' (click)='CreateAnswer()'>Add</button>
+      </div>
+    
   </div>
-  <div *ngIf='isShowTestQuestions'>
-    <ul *ngFor='let question of selectedTest.Questions' (click)='selectedQuestionGetAnswers(question)'>
-      <li>{{question.Instance}}</li>
-    </ul>
-  </div>
-  <div *ngIf='selectedQuestionAnswers'>
-    <ul *ngFor='let answer of selectedQuestionAnswers'>
-      <li>
-        {{answer.Instance}}
-      </li>
-    </ul>
-  </div>
-  <div *ngIf='selectedQuestionAnswers'>
-    <div>
-      <label>Instance: </label>
-      <input type='text' [(ngModel)]='_instance'>
-    </div>
-    <div>
-      <label>Is correct:</label>
-      <input type='radio' value='true'>True
-      <input type='radio' value='false'>False
-    </div>
-    <button type='button' (click)='CreateAnswer()'>Add</button>
-  </div>
+ 
+ 
 
 </div>

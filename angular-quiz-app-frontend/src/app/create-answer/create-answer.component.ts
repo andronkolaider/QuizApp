@@ -17,18 +17,24 @@ export class CreateAnswerComponent implements OnInit {
   questionsList: QuestionViewModel[];
   selectedTest: TestViewModel;
   isShowTestQuestions: boolean = false;
-  selectedQuestionAnswers: AnswerViewModel[];
+  selectedQuestionAnswers: AnswerViewModel[]=[];
   _instance: string;
   _isCorrect: boolean;
+  isShowAddAnswerDiv: boolean;
   constructor(private http:HttpService) { }
+
+  isShowAddAnswerDivValueChange()
+  {
+    if (this.isShowAddAnswerDiv == false)
+    {
+      this.isShowAddAnswerDiv = true;
+    }
+
+  }
 
   isShowTestQuestionsValueChange(test:TestViewModel)
   {
-    if (this.isShowTestQuestions == true)
-    {
-      this.isShowTestQuestions = false;
-    }
-    else
+    if (this.isShowTestQuestions == false)
     {
       this.isShowTestQuestions = true;
     }
