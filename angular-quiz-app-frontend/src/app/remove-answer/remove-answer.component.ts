@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
-import { QuestionViewModel } from 'src/assets/Models/Managing/QuestionViewModel';
-import { AnswerViewModel } from 'src/assets/Models/Managing/AnswerViewModel';
+import { Component, OnInit, Input } from '@angular/core';
+import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
+import { QuestionViewModel } from '../../assets/Models/Managing/QuestionViewModel';
+import { AnswerViewModel } from '../../assets/Models/Managing/AnswerViewModel';
 import { HttpService } from '../services/http/http.service';
 
 @Component({
@@ -10,12 +10,13 @@ import { HttpService } from '../services/http/http.service';
   styleUrls: ['./remove-answer.component.css']
 })
 export class RemoveAnswerComponent implements OnInit {
-  testsList: TestViewModel[];
+ testsList: TestViewModel[];
+
+ questionsList: QuestionViewModel[];
+ selectedTest: TestViewModel;
+ isShowTestQuestions: boolean = false;
   selectedQuestion:QuestionViewModel;
-  questionsList: QuestionViewModel[];
-  selectedTest: TestViewModel;
-  isShowTestQuestions: boolean = false;
-  selectedQuestionAnswers: AnswerViewModel[];
+ selectedQuestionAnswers: AnswerViewModel[];
   _instance: string;
   _isCorrect: boolean;
   constructor(private http:HttpService) { }

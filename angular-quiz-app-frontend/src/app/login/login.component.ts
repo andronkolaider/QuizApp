@@ -1,8 +1,8 @@
 import { Component, OnInit, Output,EventEmitter, ViewChild } from '@angular/core';
 import { HttpService } from '../services/http/http.service';
-import { LoginViewModel } from '/Users/Leobit user/Stuff/quiz/angular-quiz-app-frontend/src/assets/Models/LoginViewModel';
+import { LoginViewModel } from '../../assets/Models/LoginViewModel'
 import { Title } from '@angular/platform-browser';
-import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
+import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
 
 
 @Component({

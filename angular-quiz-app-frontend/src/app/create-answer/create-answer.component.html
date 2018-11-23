@@ -1,40 +1,36 @@
-<div *ngIf='testsList'>
+<!-- <div *ngIf='testsList'>
   <div>
     <ul *ngFor='let test of testsList'>
       <li (click)='isShowTestQuestionsValueChange(test)'>
         <span>{{test.Name}}<br></span>
         <span>{{test.Description}}</span>
         <div *ngIf='isShowTestQuestions'>
-            <ul *ngFor='let question of selectedTest.Questions' >
-              <li (click)='isShowAddAnswerDivValueChange()' (click)='selectedQuestionGetAnswers(question)'>{{question.Instance}}</li>
-             
-            </ul>
-          </div>
+          <ul *ngFor='let question of selectedTest.Questions'>
+            <li (click)='isShowAddAnswerDivValueChange()' (click)='selectedQuestionGetAnswers(question)'>{{question.Instance}}</li>
+
+          </ul>
+        </div>
       </li>
     </ul>
-    <h3>{{selectedQuestion.Instance}}</h3>
-    <div *ngIf='selectedQuestionAnswers'>
-        <ul *ngFor='let answer of selectedQuestionAnswers'>
-          <li >
-            {{answer.Instance}}                     
-          </li>
-        </ul>               
-      </div>
-    <div *ngIf='isShowAddAnswerDiv'>
-        <div>
-          <label>Instance: </label>
-          <input type='text' [(ngModel)]='_instance'>
-        </div>
-        <div>
-          <label>Is correct:</label>
-          <input type='radio' value='true'>True
-          <input type='radio' value='false'>False
-        </div>
-        <button type='button' (click)='CreateAnswer()'>Add</button>
-      </div>
-    
   </div>
- 
- 
-
+</div> -->
+<div *ngIf='isShowAddAnswerDiv'>
+  <h3>{{selectedQuestion.Instance}}</h3>
+  <div>
+    <label>Instance: </label>
+    <input type='text' [(ngModel)]='_instance'>
+  </div>
+  <div>
+    <label>Is correct:</label>
+    <input type='radio' [(ngModel)]='_isCorrect' value='true'>True
+    <input type='radio' [(ngModel)]='_isCorrect' value='false'> False
+  </div>
+</div>
+<button type='button' (click)='CreateAnswer()'>Confirm</button>
+<div>
+  <ul *ngFor='let answer of selectedQuestionAnswers'>
+    <li>
+      {{answer.Instance}}<button type='button' (click)='removeAnswer(answer.Guid)'>Remove</button>
+    </li>
+  </ul>
 </div>

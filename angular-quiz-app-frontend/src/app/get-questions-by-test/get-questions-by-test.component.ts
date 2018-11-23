@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
+import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
 import { HttpService } from '../services/http/http.service';
 
 @Component({

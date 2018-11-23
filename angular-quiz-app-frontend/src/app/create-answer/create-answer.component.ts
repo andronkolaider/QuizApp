@@ -1,76 +1,105 @@
-import { Component, OnInit } from '@angular/core';
-import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
-import { QuestionViewModel } from 'src/assets/Models/Managing/QuestionViewModel';
-import { AnswerViewModel } from 'src/assets/Models/Managing/AnswerViewModel';
+import { Component, OnInit, Output, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { QuestionViewModel } from '../../assets/Models/Managing/QuestionViewModel';
+import { AnswerViewModel } from '../../assets/Models/Managing/AnswerViewModel';
 import { HttpService } from '../services/http/http.service';
-import { Guid } from 'guid-typescript';
-import { ConvertActionBindingResult } from '@angular/compiler/src/compiler_util/expression_converter';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-create-answer',
   templateUrl: './create-answer.component.html',
   styleUrls: ['./create-answer.component.css']
 })
-export class CreateAnswerComponent implements OnInit {
-  testsList: TestViewModel[];
-  selectedQuestion:QuestionViewModel;
-  questionsList: QuestionViewModel[];
-  selectedTest: TestViewModel;
-  isShowTestQuestions: boolean = false;
-  selectedQuestionAnswers: AnswerViewModel[]=[];
+export class CreateAnswerComponent implements OnInit, OnChanges {
+  //  testsList: TestViewModel[];
+  @Input()
+  selectedQuestion!: QuestionViewModel;
+  //  questionsList: QuestionViewModel[];
+  //  selectedTest: TestViewModel;
+  // isShowTestQuestions: boolean = false;
+  newAnswer: AnswerViewModel;
+  @Input() selectedQuestionAnswers!: AnswerViewModel[];
   _instance: string;
   _isCorrect: boolean;
-  isShowAddAnswerDiv: boolean;
-  constructor(private http:HttpService) { }
+  @Input() isShowAddAnswerDiv!: boolean;
 
-  isShowAddAnswerDivValueChange()
-  {
-    if (this.isShowAddAnswerDiv == false)
-    {
+  constructor(private http: HttpService, private title: Title) { }
+
+  isShowAddAnswerDivValueChange() {
+    if (this.isShowAddAnswerDiv == false) {
       this.isShowAddAnswerDiv = true;
     }
-
   }
 
-  isShowTestQuestionsValueChange(test:TestViewModel)
-  {
-    if (this.isShowTestQuestions == false)
-    {
-      this.isShowTestQuestions = true;
-    }
-    this.selectedTest = test;
-  }
+  // isShowTestQuestionsValueChange(test:TestViewModel)
+  // {
+  //   if (this.isShowTestQuestions == false)
+  //   {
+  //     this.isShowTestQuestions = true;
+  //   }
+  //   this.selectedTest = test;
+  // }
 
-  selectedQuestionGetAnswers(question: QuestionViewModel)
-  {
-    this.selectedQuestion = question;
-    this.selectedQuestionAnswers = question.Answers;
-  }
+  // selectedQuestionGetAnswers(question: QuestionViewModel)
+  // {
+  //   this.selectedQuestion = question;
+  //   this.selectedQuestionAnswers = question.Answers;
+  // }
 
-  GetAllTests()
-  {
-    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
-  }
+  // GetAllTests()
+  // {
+  //   this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
+  // }
 
-  CreateAnswer()
-  {
+  CreateAnswer() {
+    this.newAnswer = new AnswerViewModel();
     var actionResult;
-    var newAnswer = new AnswerViewModel();
-    newAnswer.Guid = Guid.create().toString();
-    newAnswer.Instance = this._instance;
-    newAnswer.IsCorrect = this._isCorrect;
-    this.http.CreateAnswer(this.selectedQuestion.Guid, newAnswer).subscribe((x: boolean) => {
+    this.newAnswer.Instance = this._instance;
+    this.newAnswer.IsCorrect = this._isCorrect;
+    this.http.CreateAnswer(this.selectedQuestion.Guid, this.newAnswer).subscribe((x: boolean) => {
       actionResult = x;
-      if (actionResult == true)
-      {
-        this.selectedQuestion.Answers.push(newAnswer);
+      if (actionResult == true) {
+        this.selectedQuestionAnswers.push(this.newAnswer);
+        this.selectedQuestion.Answers = this.selectedQuestion.Answers;
+        this._instance = '';
+        this._isCorrect = null;
       }
     });
-    
+
+  }
+
+  removeAnswer(_answerGuid: string)
+  {
+    var result;
+    this.http.removeAnswer(_answerGuid).subscribe((x: boolean) => {
+      result = x;
+      if (result == true) {
+        var deletedAnswer = this.selectedQuestionAnswers.find(x => x.Guid === _answerGuid);
+        var deletedAnswerIndex = this.selectedQuestionAnswers.indexOf(deletedAnswer);
+        if (deletedAnswerIndex !== -1)
+        {
+          this.selectedQuestionAnswers.splice(deletedAnswerIndex,1);
+          }
+        
+      }
+    });
+  }
+
+  addAnswer() {
+    this.newAnswer = new AnswerViewModel();
+    this.isShowAddAnswerDiv = true;
   }
 
   ngOnInit() {
-    this.GetAllTests();
+    // this.GetAllTests();
+    //  this.selectedQuestionAnswers = this.selectedQuestion.Answers;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.selectedQuestion) {
+      this.selectedQuestion = changes.selectedQuestion.currentValue;
+
+      this.selectedQuestionAnswers = changes.selectedQuestionAnswers.currentValue;
+    }
   }
 
 }

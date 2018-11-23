@@ -7,15 +7,19 @@
           <ul *ngFor='let question of selectedTest.Questions'>
             <li (click)='selectQuestion(question)'>
               <div>
-                {{question.Instance}} <button type='button' (click)='removeQuestion(selectedTest.Guid,question.Guid)'>-</button>
+                {{question.Instance}}
+                <button type='button' (click)='removeQuestion(selectedTest.Guid,question.Guid)'>Remove</button>
+                <div>
+                  <!-- <label>Answers: {{question.Answers.length}}</label> -->
+                  <button [value]='question' type='button' 
+                  (click)='selectQuestion(question)'
+                   (click)='isShowAddAnswerValueChange()'>Add</button>
+                </div>
               </div>
-              <div>
-                <label>Answers: {{question.Answers.length}}</label><button type='button' (click)='isShowAddAnswerValueChange()'>Add</button>
-              </div>              
             </li>
           </ul>
-           <div *ngIf='isShowAddAnswer'>
-            <div>
+          <div *ngIf='isShowAddAnswer'>
+            <!-- <div>
                 <label>Instance: </label>
                 <input type='text' [(ngModel)]='newAnswer.Instance'>
               </div>
@@ -24,8 +28,14 @@
                 <input type='radio' value='true' [(ngModel)]='newAnswer.IsCorrect'>True
                 <input type='radio' value='false' [(ngModel)]='newAnswer.IsCorrect'>False
               </div>
-              <button type='button' (click)='addAnswer(selectedQuestion.Guid)'>Confirm</button>
+              <button type='button' (click)='addAnswer(selectedQuestion.Guid)'>Confirm</button>-->
+            <div *ngIf='isShowAddAnswer'>
+              <app-create-answer [selectedQuestion]=selectedQuestion [selectedQuestionAnswers]=selectedQuestionAnswers
+                [isShowAddAnswerDiv]=isShowAddAnswer></app-create-answer>
             </div>
+
+          </div>
+
         </div>
         <div *ngIf='isShowAddQuestionDiv'>
           <div>
@@ -41,7 +51,7 @@
           </div>
         </div>
         <div>
-          <button type='button' (click)='addQuestion()'>+</button>
+          <button type='button' (click)='addQuestion()'>Add question</button>
         </div>
       </div>
     </ul>

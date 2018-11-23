@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpRequest, HttpHandler } from '@angular/common/http'
-import { LoginViewModel } from '/Users/Leobit user/Stuff/quiz/angular-quiz-app-frontend/src/assets/Models/LoginViewModel'
-import { stripGeneratedFileSuffix } from '@angular/compiler/src/aot/util';
-import { stringify } from 'querystring';
 import { AnswerViewModel } from 'src/assets/Models/Managing/AnswerViewModel';
-import { NavigationExtras } from '@angular/router';
 import { QuestionViewModel } from 'src/assets/Models/Managing/QuestionViewModel';
 
 

@@ -1,20 +1,20 @@
-<div *ngIf='testsList'>
-    <div>
-      <ul *ngFor='let test of testsList'>
-        <li (click)='isShowTestQuestionsValueChange(test)'>
-          <span>{{test.Name}}</span>{{test.Description}}
-        </li>
-      </ul>
-    </div>
-    <div *ngIf='isShowTestQuestions'>
-      <ul *ngFor='let question of selectedTest.Questions' (click)='selectedQuestionGetAnswers(question)'>
-        <li>{{question.Instance}}</li>
-      </ul>
-    </div>
-    <div *ngIf='selectedQuestionAnswers'>
-      <ul *ngFor='let answer of selectedQuestionAnswers'>
-        <li>
-        <button (click)='removeAnswer(answer.Guid)'>Remove</button>  {{answer.Instance}}
-        </li>
-      </ul>
-    </div>
+<div>
+  <div>
+    <ul *ngFor='let test of testsList'>
+      <li (click)='isShowTestQuestionsValueChange(test)'>
+        <span>{{test.Name}}</span>{{test.Description}}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf='isShowTestQuestions'>
+    <ul *ngFor='let question of selectedTest.Questions' (click)='selectedQuestionGetAnswers(question)'>
+      <li>{{question.Instance}}</li>
+    </ul>
+  </div>
+  <div *ngIf='selectedQuestionAnswers'>
+    <ul *ngFor='let answer of selectedQuestionAnswers'>
+      <li>
+        <button (click)='removeAnswer(answer.Guid)'>Remove</button> {{answer.Instance}}
+      </li>
+    </ul>
+  </div>
