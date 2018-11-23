@@ -1,8 +1,12 @@
 .HomePageHeader{
- margin: auto;
 text-align: center;
+color:white;
+-webkit-text-stroke-color: black;
+-webkit-text-stroke-width: 1px;
 }
 .MainPageLoginDiv
 {
-    height: 30px;
+    height: 50px;
 }
+
+

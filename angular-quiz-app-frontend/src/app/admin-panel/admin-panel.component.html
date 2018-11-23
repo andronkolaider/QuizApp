@@ -1,35 +1,25 @@
 <div>
-  <div style='width: 300px;float: right;'>
-    <ul>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='1'>CreateAnswer</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='2'>RemoveAnswer</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='3'>GetQuestionsByTest</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='4'>CreateQuestion</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='5'>RemoveQuestion</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='6'>UpdateQuestion</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='7'>CreateTest</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='8'>UpdateTest</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='9'>RemoveTest</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='10'>CreateTestingUrl</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='11'>RemoveTestingUrl</li>
-      <li> <input type='radio' name='adminSelection' [(ngModel)]='adminSelection' [value]='12'>RemoveTestingResult</li>
-    </ul>
+  <div>
+       <input id='adminSelection4' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='4'> CreateQuestion
+       <!-- <label for="adminSelection4"><span><span></span></span>CreateQuestion</label> -->
+       <input id='adminSelection6' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='6'>UpdateQuestion
+       <!-- <label for="adminSelection6"><span><span></span></span>UpdateQuestion</label> -->
+       <input id='adminSelection7' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='7'>CreateTest
+       <!-- <label for="adminSelection7"><span><span></span></span>CreateTest</label> -->
+       <input id='adminSelection8' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='8'>UpdateTest
+       <!-- <label for="adminSelection8"><span><span></span></span>UpdateTest</label> -->
+       <input id='adminSelection9' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='9'>RemoveTest
+       <!-- <label for="adminSelection9"><span><span></span></span>RemoveTest</label> -->
+       <input id='adminSelection10' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='10'>CreateTestingUrl
+       <!-- <label for="adminSelection10"><span><span></span></span>CreateTestingUrl</label> -->
+       <input id='adminSelection11' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='11'>RemoveTestingUrl
+       <!-- <label for="adminSelection11"><span><span></span></span>RemoveTestingUrl</label> -->
+       <input id='adminSelection12' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='12'>RemoveTestingResult
+       <!-- <label for="adminSelection12"><span><span></span></span>RemoveTestingResult</label> -->
   </div>
-  <div *ngIf="adminSelection===1">
-    <app-create-answer></app-create-answer>
-  </div>
-  <div *ngIf="adminSelection===2">
-<app-remove-answer></app-remove-answer>
-  </div>
-  <div *ngIf="adminSelection===3">
-<app-get-questions-by-test></app-get-questions-by-test>
-  </div>
-  <div *ngIf="adminSelection===4">
-<app-create-question></app-create-question>
-  </div>
-  <div *ngIf="adminSelection===5">
-
-  </div>
+  <span *ngIf="adminSelection===4">
+    <app-create-question></app-create-question>
+  </span>
   <div *ngIf="adminSelection===6">
 
   </div>
