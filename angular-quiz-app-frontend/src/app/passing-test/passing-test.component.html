@@ -1,0 +1,13 @@
+<div>
+  <div>
+    <ul *ngFor='let question of selectedTest.Questions'>
+      <li>{{question.Instance}}</li>
+      <div *ngFor='let answer of question.Answers'>
+        <div> 
+          <input type='radio' value='answer.Guid' name='question.Guid'>
+          <label>{{answer.Instance}}</label>
+        </div>
+      </div>
+    </ul>
+  </div>
+</div>

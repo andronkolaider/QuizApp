@@ -15,8 +15,5 @@ export class AdminPanelComponent implements OnInit {
   ngOnInit() {
   }
 
-  GetAnswersByQuestionGuid(Guid: string)
-  {
 
-  }
 }

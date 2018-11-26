@@ -1,0 +1,22 @@
+<div>
+  <div>
+    <ul *ngFor='let test of testsList'>
+      <li >
+        <input type='radio' value=test.Guid (click)="selectTest(test)">
+        <label>{{test.Name}}<br></label>
+        <label>{{test.Description}}</label>
+        <!-- <div>
+        <ul *ngFor='let question of test.Questions'>
+          <li>{{question.Instance}}</li>
+        </ul>
+      </div> -->
+      </li>
+    </ul>
+  </div>
+  <div *ngIf='!isTestStarted'>
+    <button type='button' (click)='startTest()'>Start test</button>
+  </div>
+  <div *ngIf='isTestStarted'>
+<app-passing-test [selectedTest]='selectedTest'></app-passing-test>
+  </div>
+</div>

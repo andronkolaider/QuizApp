@@ -101,10 +101,11 @@ namespace QuizApp.Controllers
         }
 
         [HttpPost]
-        public void CreateTest(TestViewModel test)
+        public ActionResult CreateTest(TestViewModel test)
         {
+            test.Guid = Guid.NewGuid().ToString();
             var testFromDomain = _advancedMapper.MapTestViewModel(test);
-            _highLevelTestManagementService.CreateTest(testFromDomain);
+           return Json(_highLevelTestManagementService.CreateTest(testFromDomain),JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -115,9 +116,9 @@ namespace QuizApp.Controllers
         }
 
         [HttpPost]
-        public void RemoveTest(string testGuid)
+        public ActionResult RemoveTest(string testGuid)
         {
-            _highLevelTestManagementService.RemoveTest(testGuid);
+            return Json(_highLevelTestManagementService.RemoveTest(testGuid),JsonRequestBehavior.AllowGet);
         }
 
 

@@ -1,0 +1,31 @@
+<div>
+  <div>
+    <div>
+      <ul *ngFor='let test of testsList'>
+        <li>{{test.Name}}</li>
+        <button (click)='removeTest(test)'>Remove</button>
+      </ul>
+    </div>
+    <button (click)='showAddTestValueChange()'>Add test</button>
+    <div *ngIf='showAddTest'>
+      <div>
+        <label>Name: </label>
+        <input type='text' [(ngModel)]='newTest.Name'>
+      </div>
+      <div>
+        <label>Description: </label>
+        <input type='text' [(ngModel)]='newTest.Description'>
+      </div>
+      <div>
+        <label>Test Time Limit: </label>
+        <input type='time' [(ngModel)]='newTest.TestTimeLimit'>
+      </div>
+      <div>
+        <label>Question Time Limit: </label>
+        <input type='time' [(ngModel)]='newTest.QuestionTimeLimit'>
+      </div>
+      <button (click)='confirmAddTest()'>Comfirm</button>
+    </div>
+  </div>
+
+</div>

@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,21 @@ import { Component} from '@angular/core';
 })
 export class AppComponent  {
 
-  isAdmin: boolean;
-
+  isAdmin: boolean=false;
+  isUser: boolean = false;
  
-
-  constructor() { }
+  constructor(private location:Location) { }
 
   receiveIsAdmin($event) {
-    this.isAdmin = $event;
+    this.isAdmin = $event;  
 }
 
+  reveiveIsUser($event) {
+    this.isUser = $event;
+  }
+
+  back() {
+    this.location.back();
+  }
+  
 }

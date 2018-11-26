@@ -13,9 +13,9 @@ namespace Services
     /// </summary>
     public interface IHighLevelTestManagementService
     {
-        void CreateTest(Test test);
+        bool CreateTest(Test test);
         void UpdateTest(string testGuid, Test test);
-        void RemoveTest(string testGuid);
+        bool RemoveTest(string testGuid);
 
         void CreateTestingUrl(TestingUrl testingUrl);
         void RemoveTestingUrl(string testingUrlGuid);
@@ -37,9 +37,10 @@ namespace Services
             _testingResultRepository = testingResultRepository;
         }
 
-        public void CreateTest(Test test)
+        public bool CreateTest(Test test)
         {
             _testRepository.Add(test);
+            return true;
         }
         public void UpdateTest(string testGuid, Test test)
         {
@@ -51,9 +52,10 @@ namespace Services
 
             _testRepository.Update(testFromDb);
         }
-        public void RemoveTest(string testGuid)
+        public bool RemoveTest(string testGuid)
         {
             _testRepository.Delete(test => test.Guid == testGuid);
+            return true;
         }
 
         public void CreateTestingUrl(TestingUrl testingUrl)

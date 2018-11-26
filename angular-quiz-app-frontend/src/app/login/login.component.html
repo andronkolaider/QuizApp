@@ -4,7 +4,8 @@
       <button [disabled]='!loginForm.form.valid'
        type='submit'
        (click)='Login(LoginInput,PasswordInput)' 
-       tabindex='3'>Log in</button>
+       tabindex='3'
+       >Log in</button>
 
     </div>
 
@@ -24,5 +25,5 @@
 </form>
 <div *ngIf='IsLoginSuccessfull' class='currentUserDiv'>
   <label class='currentUserLabel'>Current user: {{CurrentUser.Username}}</label>
-  <button type='submit' (click)='Logout()'>Log out</button>
+  <button type='submit'  (click)='Logout()' [routerLink]="['../']">Log out</button>
 </div>

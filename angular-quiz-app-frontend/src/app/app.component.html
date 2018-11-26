@@ -4,13 +4,24 @@
 
 <body>
     <div class='MainPageLoginDiv'>
-        <app-login (IsAdminEvent)='receiveIsAdmin($event)'></app-login>
+        <app-login (IsAdminEvent)='receiveIsAdmin($event)' (isUserEvent)='reveiveIsUser($event)'></app-login>
     </div>
-
     <h1 class='HomePageHeader'>My QuizApp</h1>
-
     <div *ngIf='isAdmin'>
-        <app-admin-panel></app-admin-panel>
+        <button routerLink='/AdminPanel'>Manage</button>
+        <button type='button' (click)='back()'>Back</button>
+    </div>
+    <div *ngIf='isUser'>
+        <div>
+            <h1>Welcome to QuizApp</h1>
+        </div>
+        <div>
+            <button routerLink='/UserPanel'>Path a test</button>
+            <button>Show results</button>
+        </div>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
     </div>
 </body>
 

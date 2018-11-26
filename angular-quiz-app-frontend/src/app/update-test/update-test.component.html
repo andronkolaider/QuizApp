@@ -1,0 +1,21 @@
+<div>
+  <div *ngIf='testsList'>
+    <ul *ngFor='let test of testsList'>
+      <li (click)='selectTest(test)'>{{test.Name}}</li>
+      <div *ngIf='selectedTest && test===selectedTest'>
+        <button (click)='isShowTestEditDivValueChange()'>Edit</button>
+      </div>
+    </ul>
+  </div>
+  <div>
+    <div>
+      <label>Name: </label>
+      <input type='text' [(ngModel)]='selectedTest.Name'>
+    </div>
+    <div>
+      <label>Description: </label>
+      <input type='text' [(ngModel)]='selectedTest.Description'>
+    </div>
+    <button type='button'>Confirm</button>
+  </div>
+</div>

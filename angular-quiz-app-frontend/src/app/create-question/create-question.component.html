@@ -3,57 +3,58 @@
     <ul *ngFor='let test of testsList'>
       <li (click)='selectTest(test)'>{{test.Name}}</li>
       <div *ngIf='selectedTest'>
-        <div>
+        <div *ngIf='selectedTest.Questions'>
           <ul *ngFor='let question of selectedTest.Questions'>
-            <li (click)='selectQuestion(question)'>
+            <li (click)='selectQuestion(question)'*ngIf='selectedTest===test'>
               <div>
                 {{question.Instance}}
                 <button type='button' (click)='removeQuestion(selectedTest.Guid,question.Guid)'>Remove</button>
                 <div>
-                  <!-- <label>Answers: {{question.Answers.length}}</label> -->
-                  <button [value]='question' type='button' 
-                  (click)='selectQuestion(question)'
-                   (click)='isShowAddAnswerValueChange()'>Add</button>
+                  <button [value]='question' type='button' (click)='selectQuestion(question)'>Add</button>
                 </div>
               </div>
             </li>
-          </ul>
-          <div *ngIf='isShowAddAnswer'>
-            <!-- <div>
-                <label>Instance: </label>
-                <input type='text' [(ngModel)]='newAnswer.Instance'>
-              </div>
-              <div>
-                <label>Is correct:</label>
-                <input type='radio' value='true' [(ngModel)]='newAnswer.IsCorrect'>True
-                <input type='radio' value='false' [(ngModel)]='newAnswer.IsCorrect'>False
-              </div>
-              <button type='button' (click)='addAnswer(selectedQuestion.Guid)'>Confirm</button>-->
             <div *ngIf='isShowAddAnswer'>
-              <app-create-answer [selectedQuestion]=selectedQuestion [selectedQuestionAnswers]=selectedQuestionAnswers
-                [isShowAddAnswerDiv]=isShowAddAnswer></app-create-answer>
-            </div>
+                <div>
+                  <label>Instance: </label>
+                  <input type='text' [(ngModel)]='newAnswer.Instance'>
+                </div>
+                <div>
+                  <label>Is correct:</label>
+                  <input type='radio' value='true' [(ngModel)]='newAnswer.IsCorrect'>True
+                  <input type='radio' value='false' [(ngModel)]='newAnswer.IsCorrect'>False
+                </div>
+                <button type='button' (click)='addAnswer(selectedQuestion.Guid)'>Confirm</button>
+                <!-- <div *ngIf='isShowAddAnswer'>
+                    <app-create-answer [selectedQuestion]=selectedQuestion [selectedQuestionAnswers]=selectedQuestionAnswers
+                      [isShowAddAnswerDiv]=isShowAddAnswer></app-create-answer>
+                  </div> -->
+              </div>
+          </ul>
+        
+        </div>
+       <div *ngIf='selectedTest.Questions.length===0 &&selectedTest===test'>
+         <label>No questions</label>
+       </div>
 
-          </div>
-
-        </div>
-        <div *ngIf='isShowAddQuestionDiv'>
-          <div>
-            <label>Instance:</label>
-            <input type='text' [(ngModel)]='newQuestion.Instance'>
-          </div>
-          <div>
-            <label>Hint:</label>
-            <input type='text' [(ngModel)]='newQuestion.Hint'>
-          </div>
-          <div>
-            <button type='button' (click)='confirmAddQuestion(newQuestion)'>Confirm</button>
-          </div>
-        </div>
-        <div>
-          <button type='button' (click)='addQuestion()'>Add question</button>
-        </div>
       </div>
+
     </ul>
+      
+    <button (click)='isShowAddQuestionValueChange()'>Add question</button>
+    <div *ngIf='isShowAddQuestionDiv'>
+      <div>
+        <label>Instance:</label>
+        <input type='text' [(ngModel)]='newQuestion.Instance'>
+      </div>
+      <div>
+        <label>Hint:</label>
+        <input type='text' [(ngModel)]='newQuestion.Hint'>
+      </div>
+      <div>
+        <button type='button' (click)='confirmAddQuestion(newQuestion)'>Confirm</button>
+      </div>
+
+    </div>
   </div>
 </div>

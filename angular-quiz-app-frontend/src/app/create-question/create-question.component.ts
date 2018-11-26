@@ -37,15 +37,15 @@ export class CreateQuestionComponent implements OnInit {
     this.selectedTest = _test;
   }
 
-  addQuestion() {
+
+  addAnswer() {
+    this.isShowAddAnswer = true; 
+  }
+
+  isShowAddQuestionValueChange() {
     this.isShowAddQuestionDiv = true;
     this.newQuestion = new QuestionViewModel();
     this.isShowAddAnswer = false;
-  }
-
-  addAnswer() {
-    this.isShowAddAnswer = true;
-    
   }
 
 //   addAnswer(_questionGuid) {

@@ -1,44 +1,18 @@
 <div>
+
   <div>
-       <input id='adminSelection4' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='4'> CreateQuestion
-       <!-- <label for="adminSelection4"><span><span></span></span>CreateQuestion</label> -->
-       <input id='adminSelection6' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='6'>UpdateQuestion
-       <!-- <label for="adminSelection6"><span><span></span></span>UpdateQuestion</label> -->
-       <input id='adminSelection7' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='7'>CreateTest
-       <!-- <label for="adminSelection7"><span><span></span></span>CreateTest</label> -->
-       <input id='adminSelection8' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='8'>UpdateTest
-       <!-- <label for="adminSelection8"><span><span></span></span>UpdateTest</label> -->
-       <input id='adminSelection9' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='9'>RemoveTest
-       <!-- <label for="adminSelection9"><span><span></span></span>RemoveTest</label> -->
-       <input id='adminSelection10' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='10'>CreateTestingUrl
-       <!-- <label for="adminSelection10"><span><span></span></span>CreateTestingUrl</label> -->
-       <input id='adminSelection11' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='11'>RemoveTestingUrl
-       <!-- <label for="adminSelection11"><span><span></span></span>RemoveTestingUrl</label> -->
-       <input id='adminSelection12' type='radio'class='radioButton' name='adminSelection' [(ngModel)]='adminSelection' [value]='12'>RemoveTestingResult
-       <!-- <label for="adminSelection12"><span><span></span></span>RemoveTestingResult</label> -->
-  </div>
-  <span *ngIf="adminSelection===4">
-    <app-create-question></app-create-question>
-  </span>
-  <div *ngIf="adminSelection===6">
+    <button  type='button' routerLink='/AdminPanel/ManageQuestions'>Manage Questions</button>
+    <button type='button' routerLink='/AdminPanel/UpdateQuestion'>Update Question</button>
+    <button type='button' routerLink='/AdminPanel/ManageTests'>Manage Tests</button>
+    <button type='button'routerLink='/AdminPanel/EditTest'>Update Test</button>
+    <!-- <button type='button'>RemoveTest</button>
+    <button type='button'>CreateTestingUrl</button>
+    <button type='button'>RemoveTestingUrl</button>
+    <button type='button'>RemoveTestingResult</button> -->
 
   </div>
-  <div *ngIf="adminSelection===7">
-
+  <div >
+      <router-outlet></router-outlet>
   </div>
-  <div *ngIf="adminSelection===8">
-
-  </div>
-  <div *ngIf="adminSelection===9">
-
-  </div>
-  <div *ngIf="adminSelection===10">
-
-  </div>
-  <div *ngIf="adminSelection===11">
-
-  </div>
-  <div *ngIf="adminSelection===12">
-
-  </div>
+  
 </div>
