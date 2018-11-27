@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
 import { HttpService } from '../services/http/http.service';
 import { QuestionViewModel } from '../../assets/Models/Managing/QuestionViewModel';
 import { AnswerViewModel } from '../../assets/Models/Managing/AnswerViewModel';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-question',
@@ -12,19 +13,15 @@ import { Title } from '@angular/platform-browser';
   
 })
 export class CreateQuestionComponent implements OnInit {
-  testsList: TestViewModel[];
-  selectedTest: TestViewModel;
+ // testsList: TestViewModel[];
+@Input()  selectedTest: TestViewModel;
   isShowAddQuestionDiv: boolean = false;
   isShowAddAnswer: boolean = false;
   newQuestion: QuestionViewModel;
   newAnswer: AnswerViewModel = new AnswerViewModel();
   selectedQuestion: QuestionViewModel;
   selectedQuestionAnswers: AnswerViewModel[];
-  constructor(private http: HttpService, private title: Title) {
-  }
-
-  getAllTests() {
-    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
+  constructor(private http: HttpService, private router:Router) {
   }
 
   selectQuestion(_question: QuestionViewModel) {
@@ -33,13 +30,8 @@ export class CreateQuestionComponent implements OnInit {
    // this.title.setTitle(this.selectedQuestion.Answers.length.toString());
   }
 
-  selectTest(_test: TestViewModel) {
-    this.selectedTest = _test;
-  }
-
-
-  addAnswer() {
-    this.isShowAddAnswer = true; 
+  editAnswers(_testGuid:string,_questionGuid:string) {
+    this.router.navigate(['EditAnswers/'+_testGuid+'/'+_questionGuid]);
   }
 
   isShowAddQuestionValueChange() {
@@ -47,17 +39,6 @@ export class CreateQuestionComponent implements OnInit {
     this.newQuestion = new QuestionViewModel();
     this.isShowAddAnswer = false;
   }
-
-//   addAnswer(_questionGuid) {
-//     this.isShowAddAnswer = false;
-//     this.http.CreateAnswer(_questionGuid, this.newAnswer).subscribe((x: boolean)=>{
-//       if (x == true)
-//       {
-//         this.selectedQuestion.Answers.push(this.newAnswer);
-//         this.newAnswer = new AnswerViewModel();
-//         }
-//     });
-// }
 
   isShowAddAnswerValueChange() {
     this.isShowAddAnswer = true;
@@ -89,7 +70,6 @@ export class CreateQuestionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllTests();
   }
 
 }

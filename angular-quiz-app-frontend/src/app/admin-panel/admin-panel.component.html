@@ -1,16 +1,14 @@
 <div>
 
-  <div>
-    <button  type='button' routerLink='/AdminPanel/ManageQuestions'>Manage Questions</button>
-    <button type='button' routerLink='/AdminPanel/UpdateQuestion'>Update Question</button>
-    <button type='button' routerLink='/AdminPanel/ManageTests'>Manage Tests</button>
-    <button type='button'routerLink='/AdminPanel/EditTest'>Update Test</button>
+  <nav>
+    <a  routerLink='/ManageTests'>Manage Tests</a>
+    <a routerLink='/ManageTestingUrls'>Manage URLs</a>
     <!-- <button type='button'>RemoveTest</button>
     <button type='button'>CreateTestingUrl</button>
     <button type='button'>RemoveTestingUrl</button>
     <button type='button'>RemoveTestingResult</button> -->
 
-  </div>
+  </nav>
   <div >
       <router-outlet></router-outlet>
   </div>

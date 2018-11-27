@@ -1,0 +1,39 @@
+<div>
+  <table *ngIf='testingUrlList'>
+    <tr>
+      <td><label>URL</label></td>
+      <td><label>Test Name</label></td>
+      <td><label>Interviewee</label></td>
+      <td><label>Number of runs</label></td>
+      <td><label>Allowed start date</label></td>
+      <td><label>Allowed end date</label></td>
+      <td><label>Valid</label></td>
+    </tr>
+    <tr *ngFor='let testingUrl of testingUrlList'>
+      <td><label>{{testingUrl.UrlInstance}}</label></td>
+      <td><label>{{testingUrl.TestName}}</label></td>
+      <td><label>{{testingUrl.Interviewee}}</label></td>
+      <td><label>{{testingUrl.NumberOfRuns}}</label></td>
+      <td><label>{{testingUrl.AllowedStartDate}}</label></td>
+      <td><label>{{testingUrl.AllowedEndDate}}</label></td>
+      <td><label>{{testingUrl.IsValid}}</label></td>
+      <td><input type='button'>Delete</td>
+    </tr>
+    <tr *ngIf='newTestingUrl'>
+      <td></td>
+      <td *ngIf='selectedTest'>{{selectedTest.Name}}</td>
+      <td></td>
+      <td></td>
+      <td><input type="date" [(ngModel)]='allowedStartDate'> <input type='time' [(ngModel)]='allowedStartTime'></td>
+      <td><input type="date" [(ngModel)]='allowedEndDate'> <input type='time' [(ngModel)]='allowedEndTime'></td>
+      <td></td>
+      <td *ngIf='selectedTest'>{{selectedTest.IsValid}}</td>
+    </tr>
+  </table>
+  <div>
+    <button (click)='createTestUrl()'>Create testing URL</button>
+  </div>
+  <div *ngIf='testsList'>
+    <label *ngFor='let test of testsList' (click)='selectTest(test)'>{{test.Name}}</label>
+  </div>
+</div>

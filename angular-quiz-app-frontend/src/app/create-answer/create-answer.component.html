@@ -14,23 +14,55 @@
     </ul>
   </div>
 </div> -->
-<div *ngIf='isShowAddAnswerDiv'>
+<div *ngIf='selectedQuestion'>
   <h3>{{selectedQuestion.Instance}}</h3>
-  <div>
-    <label>Instance: </label>
-    <input type='text' [(ngModel)]='_instance'>
+  <form #createAnswerForm='ngForm'>
+    <table>
+
+      <tr>
+        <td><label>Instance</label></td>
+        <td><label>True</label></td>
+        <td><label>False</label></td>
+      </tr>
+      <tr>
+        <td><input type='text' name='answerInstanceInput' [(ngModel)]='_instance' required></td>
+        <td><input type='radio'  name='isCorrectAnswerRadio'  [(ngModel)]='_isCorrect' value='true' required></td>
+        <td> <input type='radio' name='isCorrectAnswerRadio' [(ngModel)]='_isCorrect' value='false' required></td>
+      </tr>
+  
+      <tr> <button name='confirmCreateAnswerButton' [disabled]='!createAnswerForm.form.valid' type='button' (click)='CreateAnswer()'>Confirm</button></tr>
+
+    </table>
+  </form>
+  <h2>Answers</h2>
+  <table>
+    <tr *ngFor='let answer of selectedQuestion.Answers'>
+      <td>
+        <label>{{answer.Instance}}</label>
+      </td>
+      <td>
+        <button type='button' (click)='removeAnswer(answer.Guid)'>Remove</button>
+      </td>
+    </tr>
+  </table>
+  <!-- <div>
+    
+    <div>
+      <label>Instance: </label>
+      <input type='text' [(ngModel)]='_instance'>
+    </div>
+    <div>
+      <label>Is correct:</label>
+      <input type='radio' [(ngModel)]='_isCorrect' value='true'>True
+      <input type='radio' [(ngModel)]='_isCorrect' value='false'> False
+    </div>
   </div>
+  <button type='button' (click)='CreateAnswer()'>Confirm</button>
   <div>
-    <label>Is correct:</label>
-    <input type='radio' [(ngModel)]='_isCorrect' value='true'>True
-    <input type='radio' [(ngModel)]='_isCorrect' value='false'> False
-  </div>
-</div>
-<button type='button' (click)='CreateAnswer()'>Confirm</button>
-<div>
-  <ul *ngFor='let answer of selectedQuestionAnswers'>
-    <li>
-      {{answer.Instance}}<button type='button' (click)='removeAnswer(answer.Guid)'>Remove</button>
-    </li>
-  </ul>
+    <div *ngFor='let answer of selectedQuestion.Answers'>
+      <label>{{answer.Instance}}</label>
+      <button type='button' (click)='removeAnswer(answer.Guid)'>Remove</button>
+
+    </div>
+  </div> -->
 </div>

@@ -1,9 +1,9 @@
 import { Component, OnInit, Output, EventEmitter,  } from '@angular/core';
 import { HttpService } from '../services/http/http.service';
 import { LoginViewModel } from '../../assets/Models/LoginViewModel'
-import { Title } from '@angular/platform-browser';
 import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
 import { Location } from '@angular/common'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ import { Location } from '@angular/common'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpService, private title: Title,private location:Location) { }
+  constructor(private http: HttpService, private router: Router,private location:Location) { }
 
   CurrentUser: LoginViewModel = { Username: '', Password: '' };
   LoginInput: string;
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   Logout() {
@@ -55,6 +56,12 @@ export class LoginComponent implements OnInit {
       if (this.CurrentUser.Username == 'admin') {
         this.IsAdmin = true;
         this.sendIsAdmin();
+        if (this.IsAdmin == true) {
+          this.router.navigate(['AdminPanel']);
+        }
+        else if (this.isUser == true) {
+          this.router.navigate(['UserPanel']);
+        }
       }
 
       else {

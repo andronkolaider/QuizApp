@@ -13,7 +13,7 @@ namespace Services
     /// </summary>
     public interface IHighLevelTestManagementService
     {
-        bool CreateTest(Test test);
+        Test CreateTest(Test test);
         void UpdateTest(string testGuid, Test test);
         bool RemoveTest(string testGuid);
 
@@ -37,10 +37,10 @@ namespace Services
             _testingResultRepository = testingResultRepository;
         }
 
-        public bool CreateTest(Test test)
+        public Test CreateTest(Test test)
         {
             _testRepository.Add(test);
-            return true;
+            return test;
         }
         public void UpdateTest(string testGuid, Test test)
         {

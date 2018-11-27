@@ -16,6 +16,7 @@ import { PassingTestComponent } from './passing-test/passing-test.component';
 import { UpdateQuestionComponent } from './update-question/update-question.component';
 import { ManageTestsComponent } from './manage-tests/manage-tests.component';
 import { UpdateTestComponent } from './update-test/update-test.component';
+import { ManageTestingUrlComponent } from './manage-testing-url/manage-testing-url.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { UpdateTestComponent } from './update-test/update-test.component';
     PassingTestComponent,
     UpdateQuestionComponent,
     ManageTestsComponent,
-    UpdateTestComponent
+    UpdateTestComponent,
+    ManageTestingUrlComponent
   ],
   imports: [
     BrowserModule,
@@ -38,14 +40,16 @@ import { UpdateTestComponent } from './update-test/update-test.component';
     FormsModule,
     RouterModule.forRoot(
       [
-         { path: '', redirectTo: '', pathMatch: 'prefix' },
+        { path: '', redirectTo: '', pathMatch: 'prefix' },
         // { path: 'Home', component: AppComponent },
         { path: 'AdminPanel', component: AdminPanelComponent },
         { path: 'UserPanel', component: UserPanelComponent },
-        { path: 'AdminPanel/ManageQuestions', component: CreateQuestionComponent },
-        { path: 'AdminPanel/UpdateQuestion', component: UpdateQuestionComponent },
-        { path: 'AdminPanel/ManageTests', component: ManageTestsComponent },
-        {path:'AdminPanel/EditTest',component:UpdateTestComponent}
+        { path: 'ManageQuestions', component: CreateQuestionComponent },
+        { path: 'UpdateQuestion', component: UpdateQuestionComponent },
+        { path: 'ManageTests', component: ManageTestsComponent },
+        { path: 'EditTest/:guid', component: UpdateTestComponent },
+        { path: 'EditAnswers/:testGuid/:questionGuid', component: CreateAnswerComponent },
+        {path:'ManageTestingUrls',component:ManageTestingUrlComponent}
       ])
   ],
   providers: [],

@@ -1,18 +1,17 @@
-
-    <form #editQuestionForm="ngForm">
-      <div>
+<form #editQuestionForm="ngForm">
   <div>
-    <ul *ngFor='let test of testsList'>
-      <li (click)='selectTest(test)'>{{test.Name}}</li>
-
-      <ul *ngFor='let question of questionsList'>
-        <li (click)='selectQuestion(question)' *ngIf='selectedTest===test'>{{question.Instance}}</li>
-      </ul>
-
-    </ul>
-  </div>
-  <div *ngIf='selectedQuestion'>
-
+    <div>
+      <div *ngFor='let test of testsList'>
+        <span (click)='selectTest(test)'>{{test.Name}}</span>
+        <!-- <ul >
+        <li (click)='selectQuestion(question)' *ngFor='let question of questionsList' *ngIf='selectedTest===test'>{{question.Instance}}</li>
+      </ul> -->
+        <div *ngFor='let question of questionsList'>
+          <label (click)='selectQuestion(question)' *ngIf='selectedTest===test'>{{question.Instance}}</label>
+        </div>
+      </div>
+    </div>
+    <div *ngIf='selectedQuestion'>
       <div>
         <label>Instance: </label>
         <input type='text' name='instanceInput' [(ngModel)]='selectedQuestion.Instance' class='form-control' required>
@@ -22,6 +21,6 @@
         <input type='text' class='form-control' name='hintInput' [(ngModel)]='selectedQuestion.Hint' required>
       </div>
       <button [disabled]='!editQuestionForm.form.valid' (click)='confirmEdit()'>Confirm</button>
+    </div>
   </div>
-</div>
 </form>

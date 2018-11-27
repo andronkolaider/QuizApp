@@ -31,7 +31,7 @@ namespace QuizApp.Controllers
 
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
-        {
+        {           
             //if (!ModelState.IsValid) return View(model);
             var userValid = _userService.IsLoginDataCorrect(model.Username, model.Password);
             if (userValid)

@@ -52,7 +52,7 @@ namespace QuizApp.Controllers
         [HttpPost]
         public ActionResult CreateAnswer(string questionGuid, AnswerViewModel answer)
         {
-          
+            answer.Guid = Guid.NewGuid().ToString();
             var testAnswer = _mapper.Map<TestAnswer>(answer);
             bool result=  _lowLevelTestManagementService.CreateAnswerForQuestion(questionGuid, testAnswer); ;
             return Json(result, JsonRequestBehavior.AllowGet);
@@ -105,7 +105,8 @@ namespace QuizApp.Controllers
         {
             test.Guid = Guid.NewGuid().ToString();
             var testFromDomain = _advancedMapper.MapTestViewModel(test);
-           return Json(_highLevelTestManagementService.CreateTest(testFromDomain),JsonRequestBehavior.AllowGet);
+          var result =  _advancedMapper.MapTest(_highLevelTestManagementService.CreateTest(testFromDomain));
+           return Json(result,JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -128,6 +129,7 @@ namespace QuizApp.Controllers
             var testUrlDomain = _advancedMapper.MapTestingUrlViewModel(testingUrl);
             _highLevelTestManagementService.CreateTestingUrl(testUrlDomain);
         }
+
         [HttpPost]
         public void RemoveTestingUrl(string testingUrlGuid)
         {

@@ -1,46 +1,33 @@
-<div *ngIf='testsList'>
+<div *ngIf='selectedTest'>
   <div>
-    <ul *ngFor='let test of testsList'>
-      <li (click)='selectTest(test)'>{{test.Name}}</li>
-      <div *ngIf='selectedTest'>
-        <div *ngIf='selectedTest.Questions'>
-          <ul *ngFor='let question of selectedTest.Questions'>
-            <li (click)='selectQuestion(question)'*ngIf='selectedTest===test'>
-              <div>
-                {{question.Instance}}
-                <button type='button' (click)='removeQuestion(selectedTest.Guid,question.Guid)'>Remove</button>
-                <div>
-                  <button [value]='question' type='button' (click)='selectQuestion(question)'>Add</button>
-                </div>
-              </div>
-            </li>
-            <div *ngIf='isShowAddAnswer'>
-                <div>
-                  <label>Instance: </label>
-                  <input type='text' [(ngModel)]='newAnswer.Instance'>
-                </div>
-                <div>
-                  <label>Is correct:</label>
-                  <input type='radio' value='true' [(ngModel)]='newAnswer.IsCorrect'>True
-                  <input type='radio' value='false' [(ngModel)]='newAnswer.IsCorrect'>False
-                </div>
-                <button type='button' (click)='addAnswer(selectedQuestion.Guid)'>Confirm</button>
-                <!-- <div *ngIf='isShowAddAnswer'>
-                    <app-create-answer [selectedQuestion]=selectedQuestion [selectedQuestionAnswers]=selectedQuestionAnswers
-                      [isShowAddAnswerDiv]=isShowAddAnswer></app-create-answer>
-                  </div> -->
-              </div>
-          </ul>
-        
+    <div *ngIf='selectedTest'>
+      <div *ngIf='selectedTest.Questions'>
+        <div *ngFor='let question of selectedTest.Questions'>
+          <div  (click)='selectQuestion(question)'>
+            <label> {{question.Instance}}</label>
+            <button  type='button' (click)='editAnswers(selectedTest.Guid,question.Guid)'  >Edit</button>
+            <button type='button' (click)='removeQuestion(selectedTest.Guid,question.Guid)'>Remove</button>
+          </div>
+          <!-- <div *ngIf='isShowAddAnswer'>
+            <div>
+              <label>Instance: </label>
+              <input type='text' [(ngModel)]='newAnswer.Instance' routerLink='EditAnswers/{{question.Guid}}'>
+            </div>
+            <div>
+              <label>Is correct:</label>
+              <input type='radio' value='true' [(ngModel)]='newAnswer.IsCorrect'>True
+              <input type='radio' value='false' [(ngModel)]='newAnswer.IsCorrect'>False
+            </div>
+            <button type='button' (click)='addAnswer(selectedQuestion.Guid)'>Confirm</button>
+          </div> -->
         </div>
-       <div *ngIf='selectedTest.Questions.length===0 &&selectedTest===test'>
-         <label>No questions</label>
-       </div>
 
       </div>
+      <div *ngIf='selectedTest.Questions.length===0'>
+        <label>No questions</label>
+      </div>
+    </div>
 
-    </ul>
-      
     <button (click)='isShowAddQuestionValueChange()'>Add question</button>
     <div *ngIf='isShowAddQuestionDiv'>
       <div>
@@ -54,7 +41,6 @@
       <div>
         <button type='button' (click)='confirmAddQuestion(newQuestion)'>Confirm</button>
       </div>
-
     </div>
   </div>
 </div>

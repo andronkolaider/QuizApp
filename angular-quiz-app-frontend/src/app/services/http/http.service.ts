@@ -3,8 +3,7 @@ import { HttpClient, HttpParams, HttpRequest, HttpHandler } from '@angular/commo
 import { AnswerViewModel } from 'src/assets/Models/Managing/AnswerViewModel';
 import { QuestionViewModel } from 'src/assets/Models/Managing/QuestionViewModel';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
-import { noConflict } from 'q';
-
+import { TestingUrlViewModel } from 'src/assets/Models/Managing/TestingUrlViewModel';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +21,7 @@ export class HttpService {
   }
 
   GetAnswersByQuestionGuid(questionGuid: string) {
-    const params = new HttpParams().set('string', questionGuid);
+    const params = new HttpParams().set('questionGuid', questionGuid);
     return this.http.get('http://localhost:53029/Apilike/GetAnswersByQuestionGuid/', { params });
   }
 
@@ -31,7 +30,7 @@ export class HttpService {
       questionGuid: _questionGuid, answer: {
         Instance: _answer.Instance,
         IsCorrect: _answer.IsCorrect,
-        Guid: _answer.Guid //fix
+        Guid: null
       }
     };
     return this.http.post('http://localhost:53029/Apilike/CreateAnswer/', body);
@@ -92,5 +91,45 @@ export class HttpService {
     });
   }
 
+  getAllTestingUrls() {
+    return this.http.get('http://localhost:53029/Admin/GetAllTestingUrls/');
+}
+
+  updateTest(_testGuid: string, _test: TestViewModel) {
+    const body = {
+      testGuid: _testGuid,
+      test: {
+        Name: _test.Name,
+        Description: _test.Description,
+        TestTimeLimit: _test.TestTimeLimit,
+        QuestionTimeLimit: _test.QuestionTimeLimit,
+        Questions: null,
+        Guid: null,
+        IsValid: null
+      }
+    };
+    return this.http.post('http://localhost:53029/Apilike/UpdateTest/', body);
+  }
+
+  createTestingUrl(_testingUrl: TestingUrlViewModel) {
+    const body = {
+      testingUrl: {
+        UrlInstance: _testingUrl.UrlInstance,
+        Guid: null,
+        TestGuid: _testingUrl.TestGuid,
+        TestName: _testingUrl.TestName,
+        Interviewee: null,
+        NumberOfRuns: 0,
+        AllowedStartDate: _testingUrl.AllowedStartDate,
+        AllowedEndDate: _testingUrl.AllowedEndDate
+      }
+    };
+    return this.http.post('http://localhost:53029/Apilike/CreateTestingUrl/', body);
+}
+
+  getQuestionsByTestGuid(testGuid: string) {
+    const params = new HttpParams().set('testGuid', testGuid);
+    return this.http.get('http://localhost:53029/Apilike/GetQuestionsByTestGuid/',{params});
+  }
 
 }

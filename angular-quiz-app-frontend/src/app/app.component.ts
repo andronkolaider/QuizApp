@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
 
   isAdmin: boolean=false;
   isUser: boolean = false;
@@ -25,4 +25,8 @@ export class AppComponent  {
     this.location.back();
   }
   
+  ngOnInit() {
+
+  }
+
 }

@@ -3,6 +3,7 @@ import { QuestionViewModel } from '../../assets/Models/Managing/QuestionViewMode
 import { AnswerViewModel } from '../../assets/Models/Managing/AnswerViewModel';
 import { HttpService } from '../services/http/http.service';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-answer',
@@ -13,16 +14,16 @@ export class CreateAnswerComponent implements OnInit, OnChanges {
   //  testsList: TestViewModel[];
   @Input()
   selectedQuestion!: QuestionViewModel;
-  //  questionsList: QuestionViewModel[];
+    answersList: AnswerViewModel[];
   //  selectedTest: TestViewModel;
   // isShowTestQuestions: boolean = false;
   newAnswer: AnswerViewModel;
-  @Input() selectedQuestionAnswers!: AnswerViewModel[];
   _instance: string;
   _isCorrect: boolean;
   @Input() isShowAddAnswerDiv!: boolean;
-
-  constructor(private http: HttpService, private title: Title) { }
+  questionGuid: string;
+  testGuid: string;
+  constructor(private http: HttpService, private route:ActivatedRoute) { }
 
   isShowAddAnswerDivValueChange() {
     if (this.isShowAddAnswerDiv == false) {
@@ -58,8 +59,7 @@ export class CreateAnswerComponent implements OnInit, OnChanges {
     this.http.CreateAnswer(this.selectedQuestion.Guid, this.newAnswer).subscribe((x: boolean) => {
       actionResult = x;
       if (actionResult == true) {
-        this.selectedQuestionAnswers.push(this.newAnswer);
-        this.selectedQuestion.Answers = this.selectedQuestion.Answers;
+        this.selectedQuestion.Answers.push(this.newAnswer);
         this._instance = '';
         this._isCorrect = null;
       }
@@ -69,18 +69,15 @@ export class CreateAnswerComponent implements OnInit, OnChanges {
 
   removeAnswer(_answerGuid: string)
   {
-    var result;
+
     this.http.removeAnswer(_answerGuid).subscribe((x: boolean) => {
-      result = x;
-      if (result == true) {
-        var deletedAnswer = this.selectedQuestionAnswers.find(x => x.Guid === _answerGuid);
-        var deletedAnswerIndex = this.selectedQuestionAnswers.indexOf(deletedAnswer);
+      if (x == true) {
+        var deletedAnswer = this.selectedQuestion.Answers.find(z => z.Guid === _answerGuid);
+        var deletedAnswerIndex = this.selectedQuestion.Answers.indexOf(deletedAnswer);
         if (deletedAnswerIndex !== -1)
         {
-          this.selectedQuestionAnswers.splice(deletedAnswerIndex,1);
-          }
-        
-      }
+          this.selectedQuestion.Answers.splice(deletedAnswerIndex,1);
+          }}
     });
   }
 
@@ -92,14 +89,29 @@ export class CreateAnswerComponent implements OnInit, OnChanges {
   ngOnInit() {
     // this.GetAllTests();
     //  this.selectedQuestionAnswers = this.selectedQuestion.Answers;
+    this.route.params.subscribe(params => {
+      this.testGuid = params['testGuid'];
+      this.questionGuid = params['questionGuid'];
+      this.http.getQuestionsByTestGuid(this.testGuid).subscribe((x: QuestionViewModel[])=>{
+        for (var i = 0; i < x.length; i++){
+          if (x[i].Guid === this.questionGuid) {
+            this.selectedQuestion = x[i];
+          }
+        }
+        this.http.GetAnswersByQuestionGuid(this.selectedQuestion.Guid).subscribe((x: AnswerViewModel[]) => {
+          this.selectedQuestion.Answers = x;
+        });
+      });
+    });
+ 
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.selectedQuestion) {
-      this.selectedQuestion = changes.selectedQuestion.currentValue;
+    // if (changes.selectedQuestion) {
+    //   this.selectedQuestion = changes.selectedQuestion.currentValue;
 
-      this.selectedQuestionAnswers = changes.selectedQuestionAnswers.currentValue;
-    }
+    //   this.selectedQuestionAnswers = changes.selectedQuestionAnswers.currentValue;
+    // }
   }
 
 }
