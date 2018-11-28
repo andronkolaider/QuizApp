@@ -17,6 +17,7 @@ import { UpdateQuestionComponent } from './update-question/update-question.compo
 import { ManageTestsComponent } from './manage-tests/manage-tests.component';
 import { UpdateTestComponent } from './update-test/update-test.component';
 import { ManageTestingUrlComponent } from './manage-testing-url/manage-testing-url.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { ManageTestingUrlComponent } from './manage-testing-url/manage-testing-u
         { path: 'ManageTests', component: ManageTestsComponent },
         { path: 'EditTest/:guid', component: UpdateTestComponent },
         { path: 'EditAnswers/:testGuid/:questionGuid', component: CreateAnswerComponent },
-        {path:'ManageTestingUrls',component:ManageTestingUrlComponent}
+        { path: 'ManageTestingUrls', component: ManageTestingUrlComponent },
+        { path:'TestPassing/:guid',component:PassingTestComponent}
       ])
   ],
   providers: [],

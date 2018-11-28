@@ -2,13 +2,20 @@
   <form #createTestUrlForm='ngForm'>
     <div *ngIf='isShowTests' class='testListDiv'>
       <h1>Please select test</h1>
-      <select (ngModelChange)='selectTest($event)' [ngModel]='selectedTest' name='testListSelect' class='testListSelect'>
-        <option *ngFor='let test of testsList' [ngValue]='test'  required name='selectTestButton'>{{test.Name}}</option>
-      </select>
+
     </div>
     <table *ngIf='testingUrlList'>
       <tr>
-        <button (click)='addTestUrl()'>Create testing URL</button>
+        <td>
+          <button (click)='addTestUrl()'>Create testing URL</button>
+        </td>
+
+        <td *ngIf='isShowTests'>
+          <select (ngModelChange)='selectTest($event)' [ngModel]='selectedTest' name='testListSelect' class='testListSelect'
+            required>
+            <option *ngFor='let test of testsList' [ngValue]='test' name='selectTestButton'>{{test.Name}}</option>
+          </select>
+        </td>
       </tr>
       <tr>
         <th class='bigColumns'><label>URL</label></th>
@@ -21,17 +28,15 @@
       </tr>
 
       <tr *ngIf='isShowAddTestUrl' class='testingUrlTableData'>
-
         <td></td>
         <td>{{selectedTest.Name}}</td>
         <td></td>
         <td></td>
-        <td><input name='startDateInput' type="date" [(ngModel)]='allowedStartDate'> <input name='startDateInput' type='time'
-            [(ngModel)]='allowedStartTime' required></td>
-        <td><input name='endDateInput' type="date" [(ngModel)]='allowedEndDate'> <input type='time' name='endDateInput'
+        <td><input name='startDateInput' type="date" [(ngModel)]='allowedStartDate' required> <input name='startDateInput'
+            type='time' [(ngModel)]='allowedStartTime' required></td>
+        <td><input name='endDateInput' type="date" [(ngModel)]='allowedEndDate' required> <input type='time' name='endDateInput'
             [(ngModel)]='allowedEndTime' required></td>
         <td><button [disabled]='!createTestUrlForm.form.valid' name='createTestUrlButtonConfirm' (click)='createTestUrl()'>Confirm</button></td>
-
       </tr>
 
       <tr *ngFor='let testingUrl of testingUrlList' class='testingUrlTableData'>

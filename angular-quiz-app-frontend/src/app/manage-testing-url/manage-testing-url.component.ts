@@ -3,7 +3,6 @@ import { TestingUrlViewModel } from 'src/assets/Models/Managing/TestingUrlViewMo
 import { HttpService } from '../services/http/http.service';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
 
-
 @Component({
   selector: 'app-manage-testing-url',
   templateUrl: './manage-testing-url.component.html',
@@ -41,6 +40,7 @@ export class ManageTestingUrlComponent implements OnInit {
       this.selectedTest.Name = '';
       this.isShowAddTestUrl = false;
       this.isShowTests = false;
+      
     });
   }
   
@@ -48,6 +48,7 @@ export class ManageTestingUrlComponent implements OnInit {
   {
     this.isShowAddTestUrl = true;
     this.isShowTests = true;
+    this.selectedTest = new TestViewModel();
   }
 
   removeTestingUrl(_testingUrlGuid: string) {
