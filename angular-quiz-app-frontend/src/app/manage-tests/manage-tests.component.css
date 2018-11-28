@@ -1,0 +1,29 @@
+table{
+    /* table-layout: fixed;
+    width: 75%;
+    border-collapse: collapse;
+    border: 2px solid black; */
+    table-layout: fixed;
+    margin: auto;
+    padding: 10px;
+    border-collapse: collapse;
+  }
+.addTestDiv{
+    margin: auto;
+    padding: 10px;
+}
+
+tr.tableRowHeaders th{
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+tr.tableRowData td{
+    width: 220px;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+input{
+    width: 215px;
+}

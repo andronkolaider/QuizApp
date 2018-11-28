@@ -14,8 +14,8 @@ using Services;
 
 namespace QuizApp.Controllers
 {
-   // [Authorize]
-   [AllowCrossSiteJson]
+    // [Authorize]
+    [AllowCrossSiteJson]
     public class ApilikeController : Controller
     {
         private readonly IGetInfoService _getInfoService;
@@ -54,15 +54,15 @@ namespace QuizApp.Controllers
         {
             answer.Guid = Guid.NewGuid().ToString();
             var testAnswer = _mapper.Map<TestAnswer>(answer);
-            bool result=  _lowLevelTestManagementService.CreateAnswerForQuestion(questionGuid, testAnswer); ;
+            bool result = _lowLevelTestManagementService.CreateAnswerForQuestion(questionGuid, testAnswer); ;
             return Json(result, JsonRequestBehavior.AllowGet);
-            
+
         }
 
         [HttpPost]
         public ActionResult RemoveAnswer(string answerGuid)
         {
-            bool result   = _lowLevelTestManagementService.RemoveAnswer(answerGuid); 
+            bool result = _lowLevelTestManagementService.RemoveAnswer(answerGuid);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -90,7 +90,7 @@ namespace QuizApp.Controllers
         [HttpPost]
         public ActionResult RemoveQuestion(string testGuid, string questionGuid)
         {
-          return Json(_lowLevelTestManagementService.RemoveQuestion(questionGuid),JsonRequestBehavior.AllowGet);
+            return Json(_lowLevelTestManagementService.RemoveQuestion(questionGuid), JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -105,8 +105,8 @@ namespace QuizApp.Controllers
         {
             test.Guid = Guid.NewGuid().ToString();
             var testFromDomain = _advancedMapper.MapTestViewModel(test);
-          var result =  _advancedMapper.MapTest(_highLevelTestManagementService.CreateTest(testFromDomain));
-           return Json(result,JsonRequestBehavior.AllowGet);
+            var result = _advancedMapper.MapTest(_highLevelTestManagementService.CreateTest(testFromDomain));
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -119,7 +119,7 @@ namespace QuizApp.Controllers
         [HttpPost]
         public ActionResult RemoveTest(string testGuid)
         {
-            return Json(_highLevelTestManagementService.RemoveTest(testGuid),JsonRequestBehavior.AllowGet);
+            return Json(_highLevelTestManagementService.RemoveTest(testGuid), JsonRequestBehavior.AllowGet);
         }
 
 
@@ -128,6 +128,7 @@ namespace QuizApp.Controllers
         {
             var testUrlDomain = _advancedMapper.MapTestingUrlViewModel(testingUrl);
             _highLevelTestManagementService.CreateTestingUrl(testUrlDomain);
+            //     return Json(_advancedMapper.MapTestingUrl(result), JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

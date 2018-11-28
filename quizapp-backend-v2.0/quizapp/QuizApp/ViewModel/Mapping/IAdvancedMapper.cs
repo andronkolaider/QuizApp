@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using DAL.DataAccess;
 using ModelClasses.Entities.Testing;
 using ModelClasses.Entities.TestParts;
 using QuizApp.ViewModel.Managing;
@@ -96,7 +97,8 @@ namespace QuizApp.ViewModel.Mapping
                 IsValid = _advancedLogicService.IsTestValid(testingUrl.Test),
                 TestGuid = testingUrl.Test.Guid,
                 NumberOfRuns = testingUrl.NumberOfRuns,
-                TestName = testingUrl.Test.Name
+                TestName = testingUrl.Test.Name,
+               
             };
             return testingUrlViewModel;
         }

@@ -1,39 +1,50 @@
 <div>
-  <table *ngIf='testingUrlList'>
-    <tr>
-      <td><label>URL</label></td>
-      <td><label>Test Name</label></td>
-      <td><label>Interviewee</label></td>
-      <td><label>Number of runs</label></td>
-      <td><label>Allowed start date</label></td>
-      <td><label>Allowed end date</label></td>
-      <td><label>Valid</label></td>
-    </tr>
-    <tr *ngFor='let testingUrl of testingUrlList'>
-      <td><label>{{testingUrl.UrlInstance}}</label></td>
-      <td><label>{{testingUrl.TestName}}</label></td>
-      <td><label>{{testingUrl.Interviewee}}</label></td>
-      <td><label>{{testingUrl.NumberOfRuns}}</label></td>
-      <td><label>{{testingUrl.AllowedStartDate}}</label></td>
-      <td><label>{{testingUrl.AllowedEndDate}}</label></td>
-      <td><label>{{testingUrl.IsValid}}</label></td>
-      <td><input type='button'>Delete</td>
-    </tr>
-    <tr *ngIf='newTestingUrl'>
-      <td></td>
-      <td *ngIf='selectedTest'>{{selectedTest.Name}}</td>
-      <td></td>
-      <td></td>
-      <td><input type="date" [(ngModel)]='allowedStartDate'> <input type='time' [(ngModel)]='allowedStartTime'></td>
-      <td><input type="date" [(ngModel)]='allowedEndDate'> <input type='time' [(ngModel)]='allowedEndTime'></td>
-      <td></td>
-      <td *ngIf='selectedTest'>{{selectedTest.IsValid}}</td>
-    </tr>
-  </table>
-  <div>
-    <button (click)='createTestUrl()'>Create testing URL</button>
-  </div>
-  <div *ngIf='testsList'>
-    <label *ngFor='let test of testsList' (click)='selectTest(test)'>{{test.Name}}</label>
-  </div>
+  <form #createTestUrlForm='ngForm'>
+    <div *ngIf='isShowTests' class='testListDiv'>
+      <h1>Please select test</h1>
+      <select (ngModelChange)='selectTest($event)' [ngModel]='selectedTest' name='testListSelect' class='testListSelect'>
+        <option *ngFor='let test of testsList' [ngValue]='test'  required name='selectTestButton'>{{test.Name}}</option>
+      </select>
+    </div>
+    <table *ngIf='testingUrlList'>
+      <tr>
+        <button (click)='addTestUrl()'>Create testing URL</button>
+      </tr>
+      <tr>
+        <th class='bigColumns'><label>URL</label></th>
+        <th class='bigColumns'><label>Test name</label></th>
+        <th class='bigColumns'><label>Interviewee</label></th>
+        <th class='smallColumns'><label>Number of runs</label></th>
+        <th class='bigColumns'><label>Allowed start date</label></th>
+        <th class='bigColumns'><label>Allowed end date</label></th>
+        <th class='smallColumns'></th>
+      </tr>
+
+      <tr *ngIf='isShowAddTestUrl' class='testingUrlTableData'>
+
+        <td></td>
+        <td>{{selectedTest.Name}}</td>
+        <td></td>
+        <td></td>
+        <td><input name='startDateInput' type="date" [(ngModel)]='allowedStartDate'> <input name='startDateInput' type='time'
+            [(ngModel)]='allowedStartTime' required></td>
+        <td><input name='endDateInput' type="date" [(ngModel)]='allowedEndDate'> <input type='time' name='endDateInput'
+            [(ngModel)]='allowedEndTime' required></td>
+        <td><button [disabled]='!createTestUrlForm.form.valid' name='createTestUrlButtonConfirm' (click)='createTestUrl()'>Confirm</button></td>
+
+      </tr>
+
+      <tr *ngFor='let testingUrl of testingUrlList' class='testingUrlTableData'>
+        <td><a href='http://{{testingUrl.UrlInstance}}'>Link</a></td>
+        <td><label>{{testingUrl.TestName}}</label></td>
+        <td><label>{{testingUrl.Interviewee}}</label></td>
+        <td><label>{{testingUrl.NumberOfRuns}}</label></td>
+        <td><label>{{testingUrl.AllowedStartDate}}</label></td>
+        <td><label>{{testingUrl.AllowedEndDate}}</label></td>
+        <td><button type='button' (click)='removeTestingUrl(testingUrl.Guid)'>Delete</button></td>
+      </tr>
+
+    </table>
+  </form>
+
 </div>

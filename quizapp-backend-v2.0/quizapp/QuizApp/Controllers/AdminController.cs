@@ -72,7 +72,7 @@ namespace QuizApp.Controllers
         public JsonResult GetAllTestingUrls()
         {
             var testingsList = _getInfoService.GetAllTestingUrls();
-
+                                      
             var parsedTestingsList = testingsList.Select(t => _advancedMapper.MapTestingUrl(t)).ToList();
 
             return Json(parsedTestingsList, JsonRequestBehavior.AllowGet);

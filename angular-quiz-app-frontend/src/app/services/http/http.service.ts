@@ -127,6 +127,10 @@ export class HttpService {
     return this.http.post('http://localhost:53029/Apilike/CreateTestingUrl/', body);
 }
 
+  removeTestingUrl(_testingUrlGuid: string) {
+   return this.http.post('http://localhost:53029/Apilike/RemoveTestingUrl/', { testingUrlGuid: _testingUrlGuid });
+  }
+  
   getQuestionsByTestGuid(testGuid: string) {
     const params = new HttpParams().set('testGuid', testGuid);
     return this.http.get('http://localhost:53029/Apilike/GetQuestionsByTestGuid/',{params});
