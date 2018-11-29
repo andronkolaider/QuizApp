@@ -1,6 +1,19 @@
 <div>
-  <h1 *ngIf='currentTest'>{{currentTest.Name}}</h1>
-<div *ngIf='isShowWelcome'>
-  
-</div>
+  <h1 *ngIf='currentTest' style='text-align: center;'>{{currentTest.Name}}</h1>
+  <div *ngIf='isShowWelcome'>
+    <table *ngIf='currentTest'>
+      <tr class='infoTableRow'>
+        <td><label>Description: {{currentTest.Description}}</label></td>
+        <td><label>Time for test: {{currentTest.TestTimeLimit}}</label></td>
+        <td><label>Time per question: {{currentTest.QuestionTimeLimit}}</label></td>
+      </tr>
+<tr style='text-align: center;'>
+  <td></td>
+  <td><button (click)='startTest()'>Start test</button></td>
+  <td></td>
+</tr>
+    </table>
+
+
+  </div>
 </div>

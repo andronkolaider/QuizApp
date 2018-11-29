@@ -26,9 +26,9 @@ export class CreateAnswerComponent implements OnInit, OnChanges {
   constructor(private http: HttpService, private route:ActivatedRoute) { }
 
   isShowAddAnswerDivValueChange() {
-    if (this.isShowAddAnswerDiv == false) {
+   
       this.isShowAddAnswerDiv = true;
-    }
+    
   }
 
   // isShowTestQuestionsValueChange(test:TestViewModel)

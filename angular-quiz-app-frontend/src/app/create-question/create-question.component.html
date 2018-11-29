@@ -2,45 +2,33 @@
   <div>
     <div *ngIf='selectedTest'>
       <div *ngIf='selectedTest.Questions'>
-        <div *ngFor='let question of selectedTest.Questions'>
-          <div  (click)='selectQuestion(question)'>
-            <label> {{question.Instance}}</label>
-            <button  type='button' (click)='editAnswers(selectedTest.Guid,question.Guid)'  >Edit</button>
-            <button type='button' (click)='removeQuestion(selectedTest.Guid,question.Guid)'>Remove</button>
-          </div>
-          <!-- <div *ngIf='isShowAddAnswer'>
-            <div>
-              <label>Instance: </label>
-              <input type='text' [(ngModel)]='newAnswer.Instance' routerLink='EditAnswers/{{question.Guid}}'>
-            </div>
-            <div>
-              <label>Is correct:</label>
-              <input type='radio' value='true' [(ngModel)]='newAnswer.IsCorrect'>True
-              <input type='radio' value='false' [(ngModel)]='newAnswer.IsCorrect'>False
-            </div>
-            <button type='button' (click)='addAnswer(selectedQuestion.Guid)'>Confirm</button>
-          </div> -->
-        </div>
+        <form #createQuestionForm='ngForm'>
+        <table>
+          <tr>
+            <td>
+              <button (click)='isShowAddQuestionValueChange()'>Add question</button>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
 
-      </div>
-      <div *ngIf='selectedTest.Questions.length===0'>
-        <label>No questions</label>
-      </div>
-    </div>
-
-    <button (click)='isShowAddQuestionValueChange()'>Add question</button>
-    <div *ngIf='isShowAddQuestionDiv'>
-      <div>
-        <label>Instance:</label>
-        <input type='text' [(ngModel)]='newQuestion.Instance'>
-      </div>
-      <div>
-        <label>Hint:</label>
-        <input type='text' [(ngModel)]='newQuestion.Hint'>
-      </div>
-      <div>
-        <button type='button' (click)='confirmAddQuestion(newQuestion)'>Confirm</button>
+          <tr class='tableRow'>
+            <th>Instance</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <tr *ngIf='isShowAddQuestionDiv' class='tableRow'>
+            <td><input type='text' name='questionInstance' [(ngModel)]='newQuestion.Instance' placeholder="Instance" required></td>
+            <td><input type='text'name='questionHint' [(ngModel)]='newQuestion.Hint' placeholder="Hint" required></td>
+            <td><button type='button' (click)='confirmAddQuestion(newQuestion)' style='float: right;' name='createQuestionConfirm' [disabled]='!createQuestionForm.form.valid'>Confirm</button></td>
+          </tr>
+          <tr *ngFor='let question of selectedTest.Questions' class='tableRow'>
+            <td>{{question.Instance}}</td>
+            <td><button style='float: right;' type='button' (click)='editAnswers(selectedTest.Guid,question.Guid)'>Edit answers</button></td>
+            <td><button style='float: right;' type='button' (click)='removeQuestion(selectedTest.Guid,question.Guid)'>Remove question</button></td>
+          </tr>
+        </table>
+      </form>
       </div>
     </div>
   </div>
-</div>

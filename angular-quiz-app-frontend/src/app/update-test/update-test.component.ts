@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
 import { HttpService } from '../services/http/http.service';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 
 @Component({
@@ -14,7 +14,7 @@ export class UpdateTestComponent implements OnInit {
   selectedTest: TestViewModel;
   isShowTestEditDiv: boolean;
   testGuid: string;
-  constructor(private http: HttpService, private route: ActivatedRoute) {
+  constructor(private http: HttpService, private route: ActivatedRoute,private router:Router) {
     this.route.params.subscribe(params => this.testGuid = params['guid']);
   }
 
@@ -39,7 +39,10 @@ export class UpdateTestComponent implements OnInit {
 
   confirmUpdateTest() {
     this.isShowTestEditDiv = false;
-    this.http.updateTest(this.testGuid, this.selectedTest).subscribe();
+    this.http.updateTest(this.testGuid, this.selectedTest).subscribe(() =>
+      this.router.navigate(['ManageTests'])
+    );
+    
 }
 
 }

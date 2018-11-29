@@ -1,0 +1,19 @@
+table{
+    /* table-layout: fixed;
+    width: 75%;
+    border-collapse: collapse;
+    border: 2px solid black; */
+    table-layout: fixed;
+    margin: auto;
+    padding: 10px;
+    border-collapse: collapse;
+
+    width: 75%;
+  }
+
+  table td,th{
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-collapse: collapse; 
+} 

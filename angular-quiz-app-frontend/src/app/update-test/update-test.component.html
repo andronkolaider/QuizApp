@@ -1,40 +1,28 @@
 <div>
-  <!-- <div *ngIf='testsList'>
-    <ul *ngFor='let test of testsList'>
-      <li (click)='selectTest(test)'>{{test.Name}}</li>
-      <div *ngIf='selectedTest && test===selectedTest'>
-        <button (click)='isShowTestEditDivValueChange()'>Edit</button>
-      </div>
-    </ul>
-  </div> -->
-  <div *ngIf='selectedTest'>
-    <div *ngIf='!isShowTestEditDiv'>
-      <div>
-        <label>Name: {{selectedTest.Name}}</label>
-      </div>
-      <div>
-        <label>Description: {{selectedTest.Description}}</label>
-      </div>
-      <button (click)="isShowTestEditDivValueChange()">Edit</button>
-    </div>
-    <div *ngIf='isShowTestEditDiv'>
-
-      <div>
-        <label>Name: </label>
-        <input type='text' [(ngModel)]='selectedTest.Name'>
-      </div>
-      <div>
-        <label>Description: </label>
-        <input type='text' [(ngModel)]='selectedTest.Description'>
-      </div>
-      <div>
-        <app-create-question [selectedTest]='selectedTest'></app-create-question>
-      </div>
-      <div>
-          <button type='button' (click)='confirmUpdateTest()'>Confirm</button>
-      </div>
-
+  <div>
+    <table>
+      <tr>
+        <button (click)='confirmUpdateTest()'>Save changes</button>
+      </tr>
+      <tr>
+        <th>Test Name</th>
+        <th>Description</th>
+        <th>Test time limit</th>
+        <th>Question time limit</th>
+        <th>Questions</th>
+      </tr>
+      <tr>
+        <td><input type='text' [(ngModel)]='selectedTest.Name'></td>
+        <td><input type='text' [(ngModel)]='selectedTest.Description'></td>
+        <td><input type='time' step="1" [(ngModel)]='selectedTest.TestTimeLimit'></td>
+        <td><input type='time' step="1" [(ngModel)]='selectedTest.QuestionTimeLimit'></td>
+        <td><button (click)='isShowTestEditDivValueChange()' style='float: right;'>Edit</button></td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf='isShowTestEditDiv'>
+    <div>
+      <app-create-question [selectedTest]='selectedTest'></app-create-question>
     </div>
   </div>
-
 </div>

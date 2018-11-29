@@ -1,0 +1,11 @@
+table{
+    margin: auto;
+    padding: 10px;
+    width: 60%;
+   
+}
+
+.infoTableRow td{
+    border: 1px black solid;
+text-align: center;
+}

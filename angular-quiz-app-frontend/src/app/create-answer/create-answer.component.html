@@ -1,47 +1,38 @@
-<!-- <div *ngIf='testsList'>
-  <div>
-    <ul *ngFor='let test of testsList'>
-      <li (click)='isShowTestQuestionsValueChange(test)'>
-        <span>{{test.Name}}<br></span>
-        <span>{{test.Description}}</span>
-        <div *ngIf='isShowTestQuestions'>
-          <ul *ngFor='let question of selectedTest.Questions'>
-            <li (click)='isShowAddAnswerDivValueChange()' (click)='selectedQuestionGetAnswers(question)'>{{question.Instance}}</li>
-
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div> -->
 <div *ngIf='selectedQuestion'>
-  <h3>{{selectedQuestion.Instance}}</h3>
   <form #createAnswerForm='ngForm'>
-    <table>
-
-      <tr>
+    <table *ngIf='isShowAddAnswerDiv' class='tableNewAnswer'>
+        <h3 style='text-align: center;margin: auto;'>{{selectedQuestion.Instance}}</h3>
+      <tr class='tableRow'>
         <td><label>Instance</label></td>
         <td><label>True</label></td>
         <td><label>False</label></td>
       </tr>
-      <tr>
-        <td><input type='text' name='answerInstanceInput' [(ngModel)]='_instance' required></td>
+      <tr class='tableRow'>
+        <td><input style='width: 300px;' type='text' name='answerInstanceInput' [(ngModel)]='_instance' required></td>
         <td><input type='radio'  name='isCorrectAnswerRadio'  [(ngModel)]='_isCorrect' value='true' required></td>
         <td> <input type='radio' name='isCorrectAnswerRadio' [(ngModel)]='_isCorrect' value='false' required></td>
       </tr>
   
-      <tr> <button name='confirmCreateAnswerButton' [disabled]='!createAnswerForm.form.valid' type='button' (click)='CreateAnswer()'>Confirm</button></tr>
-
+      <tr class='tableRow'> 
+        <td>
+            <button name='confirmCreateAnswerButton' [disabled]='!createAnswerForm.form.valid' type='button' (click)='CreateAnswer()'>Confirm</button>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
     </table>
   </form>
-  <h2>Answers</h2>
-  <table>
-    <tr *ngFor='let answer of selectedQuestion.Answers'>
+  <h2 style='text-align: center'>Answers</h2>
+  <table class='tableAnswers'>
+    <tr>
+      <button (click)='isShowAddAnswerDivValueChange()'>Add answer</button>
+    </tr>
+    <tr *ngFor='let answer of selectedQuestion.Answers' class='tableRowAnswers'>
       <td>
         <label>{{answer.Instance}}</label>
       </td>
       <td>
-        <button type='button' (click)='removeAnswer(answer.Guid)'>Remove</button>
+        <button type='button' (click)='removeAnswer(answer.Guid)' style='float: right;'>Remove</button>
       </td>
     </tr>
   </table>

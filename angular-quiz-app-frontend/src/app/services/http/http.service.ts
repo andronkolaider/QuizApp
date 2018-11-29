@@ -69,6 +69,11 @@ export class HttpService {
     return this.http.post('http://localhost:53029/Apilike/UpdateQuestion/', body);
   }
 
+  getTestByTestingUrlGuid(_testingUrlGuid: string) {
+    const params = new HttpParams().set('testingUrlGuid', _testingUrlGuid);
+    return this.http.get('http://localhost:53029/Apilike/GetTestByTestingUrlGuid/', { params });
+}
+
   createTest(_test: TestViewModel) {
     const body = {
       test: {
@@ -133,6 +138,11 @@ export class HttpService {
   getQuestionsByTestGuid(testGuid: string) {
     const params = new HttpParams().set('testGuid', testGuid);
     return this.http.get('http://localhost:53029/Apilike/GetQuestionsByTestGuid/',{params});
+  }
+
+  getInfoAndStartTest(_testingUrlGuid: string) {
+    const params = new HttpParams().set('testingUrlGuid', _testingUrlGuid);
+    return this.http.get('http://localhost:53029/Quiz/GetInfoAndStartTest', { params });
   }
 
 }

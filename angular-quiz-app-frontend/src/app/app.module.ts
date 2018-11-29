@@ -40,18 +40,20 @@ import { ManageTestingUrlComponent } from './manage-testing-url/manage-testing-u
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(
-      [
-        { path: '', redirectTo: '', pathMatch: 'prefix' },
+      [{ path: 'AdminPanel', component: AdminPanelComponent },
+      { path: 'AdminPane/ManageTests', component: ManageTestsComponent },
+        { path: '', children:[
         // { path: 'Home', component: AppComponent },
-        { path: 'AdminPanel', component: AdminPanelComponent },
+      
         { path: 'UserPanel', component: UserPanelComponent },
         { path: 'ManageQuestions', component: CreateQuestionComponent },
         { path: 'UpdateQuestion', component: UpdateQuestionComponent },
-        { path: 'ManageTests', component: ManageTestsComponent },
+       
         { path: 'EditTest/:guid', component: UpdateTestComponent },
         { path: 'EditAnswers/:testGuid/:questionGuid', component: CreateAnswerComponent },
         { path: 'ManageTestingUrls', component: ManageTestingUrlComponent },
-        { path:'TestPassing/:guid',component:PassingTestComponent}
+        { path: 'TestPassing/:guid', component: PassingTestComponent }
+         ] }
       ])
   ],
   providers: [],

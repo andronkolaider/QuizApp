@@ -40,7 +40,7 @@
       </tr>
 
       <tr *ngFor='let testingUrl of testingUrlList' class='testingUrlTableData'>
-        <td><a href='http://{{testingUrl.UrlInstance}}'>Link</a></td>
+        <td><a href='http://localhost:4200/TestPassing/{{testingUrl.Guid}}'>Link</a></td>
         <td><label>{{testingUrl.TestName}}</label></td>
         <td><label>{{testingUrl.Interviewee}}</label></td>
         <td><label>{{testingUrl.NumberOfRuns}}</label></td>

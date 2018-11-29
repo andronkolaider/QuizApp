@@ -137,6 +137,13 @@ namespace QuizApp.Controllers
             _highLevelTestManagementService.RemoveTestingUrl(testingUrlGuid);
         }
 
+        [HttpGet]
+        public ActionResult GetTestByTestingUrlGuid(string testingUrlGuid)
+        {
+            var result = _getInfoService.GetTestByTestingUrlGuid(testingUrlGuid);
+            
+            return Json(_advancedMapper.MapTest(result), JsonRequestBehavior.AllowGet);
+        }
 
         [HttpPost]
         public void RemoveTestingResult(string testingResultGuid)

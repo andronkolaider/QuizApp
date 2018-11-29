@@ -1,0 +1,40 @@
+.tableNewAnswer{
+    /* table-layout: fixed;
+    width: 75%;
+    border-collapse: collapse;
+    border: 2px solid black; */
+    table-layout: fixed;
+    margin: auto;
+    padding: 10px;
+    border-collapse: collapse;
+    width: 75%;
+    margin-top: 30px;
+    
+  }
+
+ .tableRow{
+    border-collapse: collapse; 
+    width: 500px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-collapse: collapse; 
+}
+
+.tableAnswers{
+    table-layout: fixed;
+    margin: auto;
+    padding: 10px;
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 30px;
+}
+
+.tableRowAnswers{
+    border-collapse: collapse; 
+    width: 500px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-collapse: collapse; 
+}
