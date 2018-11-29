@@ -31,7 +31,7 @@ export class CreateQuestionComponent implements OnInit {
   }
 
   editAnswers(_testGuid:string,_questionGuid:string) {
-    this.router.navigate(['EditAnswers/'+_testGuid+'/'+_questionGuid]);
+    this.router.navigate(['AdminPanel/EditAnswers/'+_testGuid+'/'+_questionGuid]);
   }
 
   isShowAddQuestionValueChange() {
