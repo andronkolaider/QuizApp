@@ -14,9 +14,9 @@ export class ManageTestingUrlComponent implements OnInit {
   testsList: TestViewModel[];
   selectedTest: TestViewModel = new TestViewModel();;
   allowedStartDate: string;
-  allowedStartTime: string;
+  allowedStartTime: string='00:00';
   allowedEndDate: string;
-  allowedEndTime: string;
+  allowedEndTime: string='00:00';
   isShowAddTestUrl: boolean = false;
   isShowTests: boolean;
   constructor(private http: HttpService) {
@@ -31,7 +31,6 @@ export class ManageTestingUrlComponent implements OnInit {
     this.newTestingUrl.NumberOfRuns = 0;
     this.newTestingUrl.AllowedStartDate = this.allowedStartDate + ' ' + this.allowedStartTime;
     this.newTestingUrl.AllowedEndDate = this.allowedEndDate + ' ' + this.allowedEndTime;
-    this.newTestingUrl.UrlInstance = 'localhost:4200/TestPassing/' + this.selectedTest.Guid;
     this.newTestingUrl.TestGuid = this.selectedTest.Guid;
     this.newTestingUrl.TestName = this.selectedTest.Name;
     this.http.createTestingUrl(this.newTestingUrl).subscribe(() => {
@@ -40,7 +39,13 @@ export class ManageTestingUrlComponent implements OnInit {
       this.selectedTest.Name = '';
       this.isShowAddTestUrl = false;
       this.isShowTests = false;
-      
+      this.http.getAllTestingUrls().subscribe((x: TestingUrlViewModel[]) => {
+        this.testingUrlList = x;
+        for (var i = 0; i < this.testingUrlList.length; i++){
+          this.testingUrlList[i].UrlInstance = 'localhost:4200/TestPassing/' + this.testingUrlList[i].Guid;
+        }
+      });
+      this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
     });
   }
   
@@ -65,7 +70,7 @@ export class ManageTestingUrlComponent implements OnInit {
     this.http.getAllTestingUrls().subscribe((x: TestingUrlViewModel[]) => {
       this.testingUrlList = x;
       for (var i = 0; i < this.testingUrlList.length; i++){
-        this.testingUrlList[i].UrlInstance = 'localhost:4200/TestPassing/' + this.testingUrlList[i].TestGuid;
+        this.testingUrlList[i].UrlInstance = 'localhost:4200/TestPassing/' + this.testingUrlList[i].Guid;
       }
     });
     this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);

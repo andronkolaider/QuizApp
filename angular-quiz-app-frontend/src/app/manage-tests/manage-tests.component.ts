@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
 import { HttpService } from '../services/http/http.service';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -12,10 +13,13 @@ export class ManageTestsComponent implements OnInit {
   newTest: TestViewModel = new TestViewModel();
   testsList: TestViewModel[];
   isShowAddTest: boolean;
-  constructor(private http:HttpService) { }
+  dateTime: Date = new Date();
+  constructor(private http:HttpService,private title:Title) { }
  
   showAddTestValueChange() {
     this.newTest = new TestViewModel();
+    this.newTest.QuestionTimeLimit = '00:00';
+    this.newTest.TestTimeLimit = '00:00';
     this.isShowAddTest = true;
   }
 
@@ -40,11 +44,15 @@ export class ManageTestsComponent implements OnInit {
 
   addNewTest() {
     this.newTest = new TestViewModel();
+    this.newTest.QuestionTimeLimit = '00:00';
+    this.newTest.TestTimeLimit = '00:00';
     this.isShowAddTest = true;
   }
 
   cancelNewTest() {
     this.newTest = new TestViewModel();
+    this.newTest.QuestionTimeLimit = '00:00';
+    this.newTest.TestTimeLimit = '00:00';
     this.isShowAddTest = false;
   }
 

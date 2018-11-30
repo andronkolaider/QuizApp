@@ -21,21 +21,36 @@ export class PassingTestComponent implements OnInit {
   currentTest: TestViewModel;
   currentQuestion: QuestionViewModel;
   currentQuestionIndex: number;
-  testPassingResult: TestPassingViewModel;
+  testPassingResult: TestPassingViewModel=new TestPassingViewModel();
   constructor(private route: ActivatedRoute, private http: HttpService) { }
 
   startTest() {
     this.http.getInfoAndStartTest(this.testingUrlGuid).pipe(map(result => {
-      this.testPassingResult = new TestPassingViewModel();
+ 
       this.testPassingResult.Guid = result['AttemptGuid'];
     }
     )).subscribe();
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.testingUrlGuid = params['guid'];
-      this.http.getTestByTestingUrlGuid(this.testingUrlGuid).subscribe((x: TestViewModel) => this.currentTest = x);
-    });
+    this.route.params.pipe(map(params => {
+      this.testingUrlGuid = params['testGuid'];
+      if (params['username']) {
+        this.testPassingResult.Interviewee = params['username'];
+      } else
+      {
+        this.testPassingResult.Interviewee = null;
+        }
+      this.http.getTestByTestingUrlGuid(this.testingUrlGuid).pipe(map((x: TestViewModel) => {
+        this.currentTest = x;
+      })).subscribe();
+    })).subscribe();
+    // this.route.params.subscribe(params => {
+    //   this.testingUrlGuid = params['testGuid'];
+    //   if (params['username'] !== undefined) {
+    //     this.testPassingResult.Interviewee = params['username'];
+    //   }
+    //   this.http.getTestByTestingUrlGuid(this.testingUrlGuid).subscribe((x: TestViewModel) => this.currentTest = x);
+    // });
   }
 }

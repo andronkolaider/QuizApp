@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   isUser:boolean = false;
   @Output() IsAdminEvent = new EventEmitter<boolean>();
   @Output() isUserEvent = new EventEmitter<boolean>();
+  @Output() currentUserEvent = new EventEmitter<LoginViewModel>();
   Tests: TestViewModel[] = [];
 
   sendIsAdmin() {
@@ -31,6 +32,10 @@ export class LoginComponent implements OnInit {
   sendIsUser() {
     this.isUserEvent.emit(this.isUser);
   }
+
+  sendUser() {
+    this.currentUserEvent.emit(this.CurrentUser);
+}
 
   ngOnInit() {
 
@@ -60,13 +65,20 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['AdminPanel']);
         }
         else if (this.isUser == true) {
-          this.router.navigate(['UserPanel']);
+          this.sendUser();
+          this.router.navigate(['UserPanel/' + this.CurrentUser.Username]);
+ 
+
         }
       }
 
       else {
         this.isUser = true;
+        this.sendUser();
         this.sendIsUser();
+        this.router.navigate(['UserPanel/' + this.CurrentUser.Username]);
+
+
       }
   
     });

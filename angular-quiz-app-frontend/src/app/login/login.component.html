@@ -1,29 +1,30 @@
 <form #loginForm='ngForm' *ngIf='!IsLoginSuccessfull'>
-  <div>
-    <div class='CredInput'>
-      <button [disabled]='!loginForm.form.valid'
-       type='submit'
-       (click)='Login(LoginInput,PasswordInput)' 
-       tabindex='3'
-       >Log in</button>
-
+  <div class='input-group input-group-sm' style='padding-left: 60%; '>
+    <div class="input-group-prepend" style='margin-left: 5px;'>
+      <span class='input-group-text'>Login: </span>
     </div>
-
-    <div class='CredInput'>
-      <label>Password: </label>
-      <input required name='password' class='form-control' type='password' placeholder="Password" [(ngModel)]='PasswordInput'
-        tabindex='2' required>
-    </div>
-
-    <div class='CredInput'>
-      <label>Login: </label>
+   
       <input required name='login' type='text' class='form-control' placeholder="Login" [(ngModel)]='LoginInput'
-        tabindex='1' required>
+        tabindex='1'>
+   
+    <div class="input-group-prepend" style='margin-left: 5px;'>
+        <span class='input-group-text'>Password: </span>
     </div>
+
+  
+      <input name='password' class='form-control' type='password' placeholder="Password" [(ngModel)]='PasswordInput'
+        tabindex='2' required>
+
+
+      <input style='margin-left: 5px; margin-right: 5px;' [disabled]='!loginForm.form.valid' type='button' (click)='Login(LoginInput,PasswordInput)' tabindex='3' id='loginButton'
+        [ngClass]="loginForm.form.valid ? 'btn btn-sm btn-success ' : 'btn btn-sm btn-default '" value='Log in'>
 
   </div>
 </form>
-<div *ngIf='IsLoginSuccessfull' class='currentUserDiv'>
-  <label class='currentUserLabel'>Current user: {{CurrentUser.Username}}</label>
-  <button type='submit'  (click)='Logout()' [routerLink]="['../']">Log out</button>
+<div *ngIf='IsLoginSuccessfull' class='input-group input-group-sm' style='padding-left: 77%'>
+  <div class="input-group-prepend">
+<span class='input-group-text'>Current user: </span>
+  </div>
+  <input type='text' style='text-align: right;' [(ngModel)]='CurrentUser.Username' disabled=true>
+  <button class='btn btn-warning btn-sm' style='margin-left:5px;' type='submit' (click)='Logout()' [routerLink]="['../']">Log out</button>
 </div>

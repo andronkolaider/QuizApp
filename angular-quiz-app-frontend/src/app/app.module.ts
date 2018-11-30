@@ -10,7 +10,7 @@ import { CreateAnswerComponent } from './create-answer/create-answer.component';
 import { RemoveAnswerComponent } from './remove-answer/remove-answer.component';
 import { GetQuestionsByTestComponent } from './get-questions-by-test/get-questions-by-test.component';
 import { CreateQuestionComponent } from './create-question/create-question.component'
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterLinkActive } from '@angular/router';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { PassingTestComponent } from './passing-test/passing-test.component';
 import { UpdateQuestionComponent } from './update-question/update-question.component';
@@ -39,22 +39,26 @@ import { ManageTestingUrlComponent } from './manage-testing-url/manage-testing-u
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+
     RouterModule.forRoot(
       [{
         path: 'AdminPanel', component: AdminPanelComponent, children: [
           { path: 'ManageTests', component: ManageTestsComponent },
           { path: 'ManageTestingUrls', component: ManageTestingUrlComponent },
           { path: 'EditTest/:guid', component: UpdateTestComponent },
-          { path: 'EditAnswers/:testGuid/:questionGuid', component: CreateAnswerComponent },
-        ]
+          { path: 'EditAnswers/:testGuid/:questionGuid', component: CreateAnswerComponent }]
       },
       {
-        path: '', children: [
-          { path: 'UserPanel', component: UserPanelComponent },
-          { path: 'TestPassing/:guid', component: PassingTestComponent }
+        path: 'UserPanel', component: UserPanelComponent, children: [
+          { path: 'TestPassing/:testGuid/:username', component: PassingTestComponent },
+    
+        
         ]
-      }
-      ])
+      },
+      { path: 'TestPassing/:testGuid', component: PassingTestComponent },
+      { path: 'UserPanel/:username', component: UserPanelComponent }
+      ]
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

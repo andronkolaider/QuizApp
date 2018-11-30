@@ -4,52 +4,69 @@
       <h1>Please select test</h1>
 
     </div>
-    <table *ngIf='testingUrlList'>
-      <tr>
-        <td>
-          <button (click)='addTestUrl()'>Create testing URL</button>
-        </td>
+    <div class='table-responsive'>
+      <table *ngIf='testingUrlList' class="table">
+        <thead>
+          <tr>
+            <td>
+              <button class='btn btn-success' (click)='addTestUrl()'>Create testing URL</button>
+            </td>
+            <td *ngIf='isShowTests'>
+              <select (ngModelChange)='selectTest($event)' [ngModel]='selectedTest' name='testListSelect' class='form-control'
+                [required]="true">
+                <option value='' disabled></option>
+                <option *ngFor='let test of testsList' [ngValue]='test' name='selectTestButton'>{{test.Name}}</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th class='smallColumns'><label>URL</label></th>
+            <th class='bigColumns'><label>Test name</label></th>
+            <th class='bigColumns'><label>Interviewee</label></th>
+            <th class='smallColumns'><label>Number of runs</label></th>
+            <th class='bigColumns'><label>Allowed start date</label></th>
+            <th class='bigColumns'><label>Allowed end date</label></th>
+            <th class='smallColumns'></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf='isShowAddTestUrl' class='testingUrlTableData'>
+            <td></td>
+            <td>{{selectedTest.Name}}</td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class='input-group'>
+                <input name='startDateInput' type="date" [(ngModel)]='allowedStartDate' required class='form-control'>
+                <input name='startTimeInput' type='time' class='form-control  input-sm' [(ngModel)]='allowedStartTime'
+                  required>
+              </div>
+            </td>
+            <td>
+              <div class='input-group'>
+                <input name='endDateInput' min="{{allowedStartDate}}" class='form-control  input-sm' type="date" [(ngModel)]='allowedEndDate'
+                  required='required'>
+                <input type='time' name='endTimeInput' class='form-control  input-sm' [(ngModel)]='allowedEndTime'
+                  required>
 
-        <td *ngIf='isShowTests'>
-          <select (ngModelChange)='selectTest($event)' [ngModel]='selectedTest' name='testListSelect' class='testListSelect'
-            required>
-            <option *ngFor='let test of testsList' [ngValue]='test' name='selectTestButton'>{{test.Name}}</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <th class='bigColumns'><label>URL</label></th>
-        <th class='bigColumns'><label>Test name</label></th>
-        <th class='bigColumns'><label>Interviewee</label></th>
-        <th class='smallColumns'><label>Number of runs</label></th>
-        <th class='bigColumns'><label>Allowed start date</label></th>
-        <th class='bigColumns'><label>Allowed end date</label></th>
-        <th class='smallColumns'></th>
-      </tr>
+              </div>
+            </td>
+            <td><button [disabled]='!createTestUrlForm.form.valid' name='createTestUrlButtonConfirm' (click)='createTestUrl()'>Confirm</button></td>
+          </tr>
 
-      <tr *ngIf='isShowAddTestUrl' class='testingUrlTableData'>
-        <td></td>
-        <td>{{selectedTest.Name}}</td>
-        <td></td>
-        <td></td>
-        <td><input name='startDateInput' type="date" [(ngModel)]='allowedStartDate' required> <input name='startDateInput'
-            type='time' [(ngModel)]='allowedStartTime' required></td>
-        <td><input name='endDateInput' type="date" [(ngModel)]='allowedEndDate' required> <input type='time' name='endDateInput'
-            [(ngModel)]='allowedEndTime' required></td>
-        <td><button [disabled]='!createTestUrlForm.form.valid' name='createTestUrlButtonConfirm' (click)='createTestUrl()'>Confirm</button></td>
-      </tr>
+          <tr *ngFor='let testingUrl of testingUrlList' class='testingUrlTableData'>
+            <td><a href='http://{{testingUrl.UrlInstance}}'>Link</a></td>
+            <td><label>{{testingUrl.TestName}}</label></td>
+            <td><label>{{testingUrl.Interviewee}}</label></td>
+            <td><label>{{testingUrl.NumberOfRuns}}</label></td>
+            <td><label>{{testingUrl.AllowedStartDate}}</label></td>
+            <td><label>{{testingUrl.AllowedEndDate}}</label></td>
+            <td><button type='button' (click)='removeTestingUrl(testingUrl.Guid)'>Delete</button></td>
+          </tr>
+        </tbody>
 
-      <tr *ngFor='let testingUrl of testingUrlList' class='testingUrlTableData'>
-        <td><a href='http://localhost:4200/TestPassing/{{testingUrl.Guid}}'>Link</a></td>
-        <td><label>{{testingUrl.TestName}}</label></td>
-        <td><label>{{testingUrl.Interviewee}}</label></td>
-        <td><label>{{testingUrl.NumberOfRuns}}</label></td>
-        <td><label>{{testingUrl.AllowedStartDate}}</label></td>
-        <td><label>{{testingUrl.AllowedEndDate}}</label></td>
-        <td><button type='button' (click)='removeTestingUrl(testingUrl.Guid)'>Delete</button></td>
-      </tr>
-
-    </table>
+      </table>
+    </div>
   </form>
 
 </div>

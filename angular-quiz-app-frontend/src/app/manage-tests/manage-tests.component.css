@@ -8,10 +8,6 @@ table{
     padding: 10px;
     border-collapse: collapse;
   }
-.addTestDiv{
-    margin: auto;
-    padding: 10px;
-}
 
 tr.tableRowHeaders th{
     border-collapse: collapse;
@@ -24,6 +20,6 @@ tr.tableRowData td{
     border: 1px solid black;
 }
 
-input{
-    width: 215px;
+input:placeholder-shown{
+    border-color: red;
 }

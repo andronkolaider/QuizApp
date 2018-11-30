@@ -126,6 +126,7 @@ namespace QuizApp.Controllers
         [HttpPost]
         public void CreateTestingUrl(TestingUrlViewModel testingUrl)
         {
+            testingUrl.Guid = Guid.NewGuid().ToString();
             var testUrlDomain = _advancedMapper.MapTestingUrlViewModel(testingUrl);
             _highLevelTestManagementService.CreateTestingUrl(testUrlDomain);
             //     return Json(_advancedMapper.MapTestingUrl(result), JsonRequestBehavior.AllowGet);

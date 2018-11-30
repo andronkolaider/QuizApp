@@ -1,10 +1,10 @@
 <div>
   <div>
-    <form #createTestForm='ngForm' class='testsForm'>
+    <form #createTestForm='ngForm' >
 
-      <table class='testsTable'>
+      <table class='table' style='width: 75%;'>
         <tr>
-            <button (click)='showAddTestValueChange()' class='addTestButton' type='submit'>Add test</button>
+            <button (click)='showAddTestValueChange()' class='btn btn-success' type='submit'>Add test</button>
         </tr>
         <tr class='tableRowHeaders'>
           <th>Test name</th>
@@ -14,13 +14,14 @@
           <th></th>
           <th></th>
         </tr>
-        <tr *ngIf='isShowAddTest'  class='tableRowData'>
-            <td><input type='text' [(ngModel)]='newTest.Name' name='testNameInput' required></td>
-            <td><input type='text' [(ngModel)]='newTest.Description' name='testDescriptionInput' required></td>
-            <td><input type='time' [(ngModel)]='newTest.TestTimeLimit' step="1" name='testTime' required></td>
-            <td><input type='time' [(ngModel)]='newTest.QuestionTimeLimit' step="1" name='questiontime' required></td>
-            <td><button (click)='confirmAddTest()' type='button' [disabled]='!createTestForm.form.valid'>Confirm</button></td>
-            <td><button type='button' (click)='cancelNewTest()'>Cancel</button></td>
+        <tr *ngIf='isShowAddTest' class='tableRowData'>
+          
+            <td><input type='text' class='form-control' [(ngModel)]='newTest.Name' name='testNameInput' placeholder="Test name" required></td>
+            <td><input type='text' class='form-control' [(ngModel)]='newTest.Description' placeholder="Description" name='testDescriptionInput' required></td>
+            <td><input type='time' class='form-control' [(ngModel)]='newTest.TestTimeLimit' name='testTime' required></td>
+            <td><input type='time' class='form-control' [(ngModel)]='newTest.QuestionTimeLimit' step="30" name='questiontime' required></td>
+            <td><button (click)='confirmAddTest()' class='tableRowData' type='button' [disabled]='!createTestForm.form.valid'>Confirm</button></td>
+            <td><button type='button' (click)='cancelNewTest()' class='tableRowData'>Cancel</button></td>
           </tr>
         <tr *ngFor='let test of testsList' class='tableRowData'>
           <td>{{test.Name}}</td>

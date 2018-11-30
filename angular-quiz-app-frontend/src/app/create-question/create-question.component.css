@@ -20,3 +20,7 @@ table{
     border-color: black;
     border-collapse: collapse; 
 }
+
+input:placeholder-shown{
+    border-color: red;
+}

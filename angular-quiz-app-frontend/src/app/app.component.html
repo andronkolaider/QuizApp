@@ -8,15 +8,6 @@
     </div>
     <h1 class='HomePageHeader'>My QuizApp</h1>
     <button type='button' (click)='back()'>Back</button>
-    <div *ngIf='isUser'>
-        <div>
-            <h1>Welcome to QuizApp</h1>
-        </div>
-        <div>
-            <button routerLink='/UserPanel'>Path a test</button>
-            <button>Show results</button>
-        </div>
-    </div>
     <div>
         <router-outlet></router-outlet>
     </div>
