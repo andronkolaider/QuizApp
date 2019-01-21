@@ -83,8 +83,8 @@ export class LoginComponent implements OnInit {
       this.http.Login(LoginInput, PasswordInput).subscribe((x) => {
         this.CurrentUser.Username = x["username"];
         this.CurrentUser.Password = x["password"];
-        var cookies= document.cookie.split(";");
-        if (cookies.includes("adminCookie=admin")) {
+      //  var cookies= document.cookie.split(";");
+        if (document.cookie.includes("adminCookie=admin")) {
           this.IsAdmin = true;
           this.IsLoginSuccessfull = true;
           this.sendIsAdmin();
