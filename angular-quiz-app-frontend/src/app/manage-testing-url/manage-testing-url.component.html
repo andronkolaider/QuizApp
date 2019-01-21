@@ -55,7 +55,7 @@
           </tr>
 
           <tr *ngFor='let testingUrl of testingUrlList' class='testingUrlTableData'>
-            <td><a href='http://{{testingUrl.UrlInstance}}'>Link</a></td>
+            <td><span (click)="copyLink(testingUrl)">Copy link</span></td>
             <td><label>{{testingUrl.TestName}}</label></td>
             <td><label>{{testingUrl.Interviewee}}</label></td>
             <td><label>{{testingUrl.NumberOfRuns}}</label></td>

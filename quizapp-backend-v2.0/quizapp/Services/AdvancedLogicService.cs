@@ -73,6 +73,7 @@ namespace Services
             }
 
             DateTime startTime;
+            result.AttemptGuid = Guid.NewGuid().ToString();
             if (!_startedQuizzes.TryRemove(result.AttemptGuid, out startTime))
             {
                 return false;

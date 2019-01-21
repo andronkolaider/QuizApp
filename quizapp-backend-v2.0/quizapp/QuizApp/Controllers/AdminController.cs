@@ -17,7 +17,7 @@ using Services;
 
 namespace QuizApp.Controllers
 {
-   // [Authorize(Users ="admin")]
+    [Authorize(Users ="admin")]
    // [AllowCrossSiteJson]
     public class AdminController : Controller
     {

@@ -10,27 +10,32 @@ using QuizApp.ViewModel;
 using Services;
 using DAL.DataAccess;
 using QuizApp.Models;
-
+using Microsoft.Owin.Security;
 namespace QuizApp.Controllers
 {
     [AllowCrossSiteJson]
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
-
+        private HttpCookie cookie;
         public AccountController(IUserService userService)
         {
             _userService = userService;
+            FormsAuthentication.SetAuthCookie("admin", false);
+            cookie = new HttpCookie("adminCookie");
+            cookie.Value = "admin";
+            cookie.Expires = DateTime.Now.AddHours(1);
         }
 
         // GET: Account
-        public ActionResult Login()
-        {
-            return View();
-        }
+        //public ActionResult Login()
+        //{
+            
+        //    return View();
+        //}
 
         [HttpPost]
-        public ActionResult Login(LoginViewModel model)
+        public void Login(LoginViewModel model)
         {           
             //if (!ModelState.IsValid) return View(model);
             var userValid = _userService.IsLoginDataCorrect(model.Username, model.Password);
@@ -38,15 +43,25 @@ namespace QuizApp.Controllers
             {
                 if(model.Username=="admin")
                 {
-                    FormsAuthentication.SetAuthCookie(model.Username, false);
+                    Response.BufferOutput = true;
+                    Response.SetCookie(cookie);
+                    Response.ContentType = "application/json";
+                    var payload = "{\"username\":\"" + model.Username + "\",\"password\":\""+model.Password+"\"}";
+                    Response.Write(payload);
+                    Response.Flush();
                 }
-            
-                return Json(model, JsonRequestBehavior.AllowGet);
+                //else
+                //{
+                //  return null;
+                //}                    
+            //    return Json(model, JsonRequestBehavior.AllowGet);
             }
-            else
-            {
-                return Json(model, JsonRequestBehavior.AllowGet);
-            }
+
+            //else
+            //{
+            //    return null;
+            //      return Json(model, JsonRequestBehavior.AllowGet);
+            //}
             //if (userValid)
             //{
             //    FormsAuthentication.SetAuthCookie(model.Username, false);
@@ -76,5 +91,7 @@ namespace QuizApp.Controllers
 
             return RedirectToAction("Login", "Account");
         }
+
+
     }
 }

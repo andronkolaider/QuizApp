@@ -42,7 +42,7 @@ export class ManageTestingUrlComponent implements OnInit {
       this.http.getAllTestingUrls().subscribe((x: TestingUrlViewModel[]) => {
         this.testingUrlList = x;
         for (var i = 0; i < this.testingUrlList.length; i++){
-          this.testingUrlList[i].UrlInstance = 'localhost:4200/TestPassing/' + this.testingUrlList[i].Guid;
+          this.testingUrlList[i].UrlInstance = 'http://localhost:4200/test-passing/' + this.testingUrlList[i].Guid;
         }
       });
       this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
@@ -70,10 +70,24 @@ export class ManageTestingUrlComponent implements OnInit {
     this.http.getAllTestingUrls().subscribe((x: TestingUrlViewModel[]) => {
       this.testingUrlList = x;
       for (var i = 0; i < this.testingUrlList.length; i++){
-        this.testingUrlList[i].UrlInstance = 'localhost:4200/TestPassing/' + this.testingUrlList[i].Guid;
+        this.testingUrlList[i].UrlInstance = 'localhost:4200/test-passing/' + this.testingUrlList[i].Guid;
       }
     });
-    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
+    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);  
+  }
+
+  copyLink(_testingUrl:TestingUrlViewModel) {
+    let selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value =document.domain+":4200"+"/test-passing/"+_testingUrl.Guid;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
   }
 
 }

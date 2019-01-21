@@ -1,19 +1,60 @@
 <div>
-  <h1  style='text-align: center;'>{{currentTest.Name}}</h1>
+  <h1 *ngIf='currentTest' style='text-align: center;'>{{currentTest.Name}}</h1>
   <div *ngIf='isShowWelcome'>
     <table *ngIf='currentTest'>
       <tr class='infoTableRow'>
-        <td><label>Description: {{currentTest.Description}}</label></td>
-        <td><label>Time for test: {{currentTest.TestTimeLimit}}</label></td>
-        <td><label>Time per question: {{currentTest.QuestionTimeLimit}}</label></td>
+        <td>
+          <div class="input-group-prepend">
+            <span class='input-group-text'>Description </span>
+            <input type='text' [(ngModel)]='currentTest.Description' class=form-control style='text-align: left;' disabled=true>
+          </div>
+        </td>
+        <td>
+          <div class="input-group-prepend">
+            <span class='input-group-text'>Interviewee </span>
+            <input type='text' class=form-control style='text-align: left;' [(ngModel)]='interviewee' >
+          </div>
+    
+        </td>
+
+
+        <td> <div class="input-group-prepend">
+          <span class='input-group-text'>Time for test</span>
+          <input type='text' [(ngModel)]='currentTest.TestTimeLimit' class=form-control style='text-align: left;' disabled=true >
+        </div></td>
+        <td> <div class="input-group-prepend">
+          <span class='input-group-text'>Time per question </span>
+          <input type='text' [(ngModel)]='currentTest.QuestionTimeLimit' class=form-control style='text-align: left;' disabled=true>
+        </div></td>
       </tr>
       <tr style='text-align: center;'>
         <td></td>
-        <td><button (click)='startTest()'>Start test</button></td>
+        <td><button (click)='startTest()' [ngClass]='interviewee.length>0 ? "btn btn-success" : "btn"' [disabled]="interviewee.length<=0">Start
+            test</button></td>
         <td></td>
       </tr>
     </table>
-
-
+  </div>
+  <div *ngIf='isShowTest'>
+    <div>
+      <label>Time left: {{timeLeft}}</label>
+    </div>
+    <h1 style='text-align: center;'>{{currentQuestion.Instance}}</h1>
+    <table class='table table-hover'>
+      <tr *ngFor='let answer of currentQuestion.Answers'>
+        <td *ngIf='!isMultipleAnswers'><input type='radio' (click)='selectAnswer(answer)'  name='isAnswerSelecter'></td>
+        <td *ngIf='isMultipleAnswers'><input type='checkbox' (click)='selectMultipleAnswers(answer)'  name='isAnswerSelecter'></td>
+        <td>{{answer.Instance}}</td>
+      </tr>
+    </table>
+    <button style='margin-left: 50%;' (click)='nextQuestion()'>Next</button>
+  </div>
+  <div *ngIf='isShowResult'>
+    <table>
+      <tr>
+        <th>Total questions: {{result.QuestionTried}} </th>
+        <th>Result: {{result.Score*100|number:"2.1"}}%</th>
+      </tr>
+    </table>
   </div>
 </div>

@@ -17,6 +17,8 @@ import { UpdateQuestionComponent } from './update-question/update-question.compo
 import { ManageTestsComponent } from './manage-tests/manage-tests.component';
 import { UpdateTestComponent } from './update-test/update-test.component';
 import { ManageTestingUrlComponent } from './manage-testing-url/manage-testing-url.component';
+import { TestingResultsComponent } from './testing-results/testing-results.component';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { ManageTestingUrlComponent } from './manage-testing-url/manage-testing-u
     UpdateQuestionComponent,
     ManageTestsComponent,
     UpdateTestComponent,
-    ManageTestingUrlComponent
+    ManageTestingUrlComponent,
+    TestingResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,22 +44,20 @@ import { ManageTestingUrlComponent } from './manage-testing-url/manage-testing-u
     FormsModule,
 
     RouterModule.forRoot(
-      [{
-        path: 'AdminPanel', component: AdminPanelComponent, children: [
-          { path: 'ManageTests', component: ManageTestsComponent },
-          { path: 'ManageTestingUrls', component: ManageTestingUrlComponent },
-          { path: 'EditTest/:guid', component: UpdateTestComponent },
-          { path: 'EditAnswers/:testGuid/:questionGuid', component: CreateAnswerComponent }]
+      [
+       { path: 'admin-panel',canActivate:[AuthGuardService], component: AdminPanelComponent, children: [
+         { path: '', redirectTo: 'manage-tests', pathMatch: 'full' },
+         { path: 'testing-results',canActivate:[AuthGuardService], component: TestingResultsComponent },
+          { path: 'manage-tests',canActivate:[AuthGuardService], component: ManageTestsComponent },
+          { path: 'manage-testing-urls',canActivate:[AuthGuardService], component: ManageTestingUrlComponent },
+          { path: 'edit-test/:guid',canActivate:[AuthGuardService], component: UpdateTestComponent },
+          { path: 'edit-answers/:testGuid/:questionGuid',canActivate:[AuthGuardService], component: CreateAnswerComponent }]
       },
-      {
-        path: 'UserPanel', component: UserPanelComponent, children: [
-          { path: 'TestPassing/:testGuid/:username', component: PassingTestComponent },
-    
-        
-        ]
-      },
-      { path: 'TestPassing/:testGuid', component: PassingTestComponent },
-      { path: 'UserPanel/:username', component: UserPanelComponent }
+
+      // { path: 'user-panel', component: UserPanelComponent },
+      // { path: 'test-passing', component: PassingTestComponent },
+      { path: 'test-passing/:testingUrlGuid', component: PassingTestComponent },
+        //  { path: 'UserPanel/:username', component: UserPanelComponent }
       ]
     )
   ],

@@ -20,24 +20,25 @@ export class UserPanelComponent implements OnInit {
 
   ngOnInit() {
     this.getAllTests();
-    this.route.params.subscribe(params => this.currentUserName = params['username']);
+  this.currentUserName = sessionStorage.getItem('username');
   }
 
-  startTest() {
-   
-    var path = 'UserPanel/TestPassing/' + this.selectedTest.Guid + '/' + this.currentUserName;
-    this.router.onSameUrlNavigation = 'reload';
-      this.router.navigate([path]);
+  startTest(_test: TestViewModel) {
+    this.selectedTest = _test;
+    sessionStorage.setItem('testGuid', this.selectedTest.Guid);
+    sessionStorage.setItem('username', this.currentUserName);
+    this.router.navigate(['test-passing']);
 
-    console.log(this.router.events);
+  //  console.log(this.router.events);
 
 
    // this.location.replaceState('UserPanel/TestPassing');
   }
 
-  selectTest(_test: TestViewModel) {
-    this.selectedTest = _test;
-  }
+  // selectTest(_test: TestViewModel) {
+  //   this.selectedTest = _test;
+ 
+  // }
 
   getAllTests() {
     this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);

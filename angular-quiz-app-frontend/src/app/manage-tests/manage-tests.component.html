@@ -4,7 +4,7 @@
 
       <table class='table' style='width: 75%;'>
         <tr>
-            <button (click)='showAddTestValueChange()' class='btn btn-success' type='submit'>Add test</button>
+            <button style="margin-bottom:7px;" (click)='showAddTestValueChange()' class='btn btn-success' type='submit'>Add test</button>
         </tr>
         <tr class='tableRowHeaders'>
           <th>Test name</th>
@@ -18,7 +18,7 @@
           
             <td><input type='text' class='form-control' [(ngModel)]='newTest.Name' name='testNameInput' placeholder="Test name" required></td>
             <td><input type='text' class='form-control' [(ngModel)]='newTest.Description' placeholder="Description" name='testDescriptionInput' required></td>
-            <td><input type='time' class='form-control' [(ngModel)]='newTest.TestTimeLimit' name='testTime' required></td>
+            <td><input type='time' class='form-control' [(ngModel)]='newTest.TestTimeLimit' name='testTime' step="30" required></td>
             <td><input type='time' class='form-control' [(ngModel)]='newTest.QuestionTimeLimit' step="30" name='questiontime' required></td>
             <td><button (click)='confirmAddTest()' class='tableRowData' type='button' [disabled]='!createTestForm.form.valid'>Confirm</button></td>
             <td><button type='button' (click)='cancelNewTest()' class='tableRowData'>Cancel</button></td>
@@ -28,7 +28,7 @@
           <td>{{test.Description}}</td>
           <td>{{test.TestTimeLimit}}</td>
           <td>{{test.QuestionTimeLimit}}</td>
-          <td><a routerLink='../EditTest/{{test.Guid}}'>Update test</a></td>
+          <td><a routerLink='../edit-test/{{test.Guid}}'>Update test</a></td>
           <td><button type='button' (click)='removeTest(test)'>Delete</button></td>
         </tr>
         

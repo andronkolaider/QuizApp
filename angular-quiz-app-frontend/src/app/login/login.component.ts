@@ -4,7 +4,8 @@ import { LoginViewModel } from '../../assets/Models/LoginViewModel'
 import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
 import { Location } from '@angular/common'
 import { Router } from '@angular/router';
-
+import { Title } from '@angular/platform-browser';
+import * as jwt_decode from "jwt-decode";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,14 +13,15 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpService, private router: Router,private location:Location) { }
+  constructor(private http: HttpService, private router: Router,private location:Location,private title:Title) { }
 
   CurrentUser: LoginViewModel = { Username: '', Password: '' };
   LoginInput: string;
   PasswordInput: string;
   IsLoginSuccessfull: boolean = false;
   IsAdmin: boolean = false;
-  isUser:boolean = false;
+  isUser: boolean = false;
+  tokentInfo;
   @Output() IsAdminEvent = new EventEmitter<boolean>();
   @Output() isUserEvent = new EventEmitter<boolean>();
   @Output() currentUserEvent = new EventEmitter<LoginViewModel>();
@@ -38,7 +40,22 @@ export class LoginComponent implements OnInit {
 }
 
   ngOnInit() {
-
+    if (sessionStorage.getItem('login')) {
+      var user = sessionStorage.getItem('login');
+      this.CurrentUser.Username = user;
+      this.IsLoginSuccessfull = true;
+      if (user === 'admin') {
+        this.IsAdmin = true;
+        this.sendIsAdmin();
+        if (this.IsAdmin == true) {
+          this.router.navigate(['admin-panel']);
+        }
+      }
+      else {
+        this.sendUser();
+        this.router.navigate(['user-panel/']);
+      }
+    }
   }
 
   Logout() {
@@ -49,41 +66,34 @@ export class LoginComponent implements OnInit {
     this.LoginInput = '';
     this.PasswordInput = '';
     this.sendIsAdmin();
-    this.location.go('');
     this.isUser = false;
     this.sendIsUser();
+    sessionStorage.clear();
+
+    document.cookie = "adminCookie= ";
+
+    this.location.go('');
+  
+  
   }
 
   Login(LoginInput, PasswordInput) {
-    this.http.Login(LoginInput, PasswordInput).subscribe((x: LoginViewModel) => {
-      this.CurrentUser = x;
-      this.IsLoginSuccessfull = true;
-      if (this.CurrentUser.Username == 'admin') {
-        this.IsAdmin = true;
-        this.sendIsAdmin();
-        if (this.IsAdmin == true) {
-          this.router.navigate(['AdminPanel']);
-        }
-        else if (this.isUser == true) {
-          this.sendUser();
-          this.router.navigate(['UserPanel/' + this.CurrentUser.Username]);
- 
-
-        }
-      }
-
-      else {
-        this.isUser = true;
-        this.sendUser();
-        this.sendIsUser();
-        this.router.navigate(['UserPanel/' + this.CurrentUser.Username]);
-
-
-      }
   
-    });
 
-    this.LoginInput = '';
-    this.PasswordInput = '';
+      this.http.Login(LoginInput, PasswordInput).subscribe((x) => {
+        this.CurrentUser.Username = x["username"];
+        this.CurrentUser.Password = x["password"];
+        var cookies= document.cookie.split(";");
+        if (cookies.includes("adminCookie=admin")) {
+          this.IsAdmin = true;
+          this.IsLoginSuccessfull = true;
+          this.sendIsAdmin();
+           if (this.IsAdmin == true) {
+            this.router.navigate(['admin-panel']);
+           }
+        }
+      });
+
+
   }
 }

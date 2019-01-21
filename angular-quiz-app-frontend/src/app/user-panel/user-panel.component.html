@@ -1,19 +1,22 @@
 <div>
   <div *ngIf='testsList'>
-    <ul *ngFor='let test of testsList'>
-      <li>
-        <input type='radio' value=test.Guid (click)="selectTest(test)">
-        <label>{{test.Name}}<br></label>
-        <label>{{test.Description}}</label>
-        <!-- <div>
-        <ul *ngFor='let question of test.Questions'>
-          <li>{{question.Instance}}</li>
-        </ul>
-      </div> -->
-      </li>
-    </ul>
-  </div>
+    <table class='table' style='margin: auto; width:80%; margin-top: 50px;'>
+      <thead>
+        <th>Test name</th>
+        <th>Test description</th>
+        <th>Time for test</th>
+        <th>Time per question</th>
+      </thead>
+      <tbody *ngIf='testsList'>
+        <tr *ngFor='let test of testsList' data-toggle="tooltip"  title="Click to start test" (click)='startTest(test)'>
+          <td>{{test.Name}}</td>
+          <td>{{test.Description}}</td>
+          <td>{{test.TestTimeLimit}}</td>
+          <td>{{test.QuestionTimeLimit}}</td>
+        </tr>
+      </tbody>
+    </table>
   <div>
-    <button type='button' (click)='startTest()' [disabled]='!selectedTest'>Start test</button>
+    <router-outlet></router-outlet>
   </div>
 </div>

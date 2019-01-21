@@ -4,10 +4,24 @@
 
 <body>
     <div class='MainPageLoginDiv'>
-        <app-login (IsAdminEvent)='receiveIsAdmin($event)' (isUserEvent)='reveiveIsUser($event)'></app-login>
+        <app-login (IsAdminEvent)='receiveIsAdmin($event)' (isUserEvent)='receiveIsUser($event)' style="    float: right;"></app-login>
+        <div style='width:100%;'>
+            <nav class='nav' *ngIf='isAdmin' style='margin-left: 30px;'>
+                <a class="nav-link active" routerLink='./admin-panel/manage-tests'>Manage Tests</a>
+                <a class="nav-link active" routerLink='./admin-panel/manage-testing-urls'>Manage URLs</a>
+                <a class="nav-link active" routerLink='./admin-panel/testing-results'>Testing results</a>
+                <!-- <button type='button'>RemoveTest</button>
+                <button type='button'>CreateTestingUrl</button>
+                <button type='button'>RemoveTestingUrl</button>
+                <button type='button'>RemoveTestingResult</button> -->
+            </nav>
+        </div>
     </div>
-    <h1 class='HomePageHeader'>My QuizApp</h1>
-    <button type='button' (click)='back()'>Back</button>
+  
+    <div>
+        <h1 class='HomePageHeader'>My QuizApp</h1>
+    </div>
+
     <div>
         <router-outlet></router-outlet>
     </div>

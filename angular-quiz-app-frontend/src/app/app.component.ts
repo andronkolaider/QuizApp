@@ -22,12 +22,8 @@ export class AppComponent implements OnInit {
     this.currentUser = $event;
   }
   
-  reveiveIsUser($event) {
+  receiveIsUser($event) {
     this.isUser = $event;
-  }
-
-  back() {
-    this.location.back();
   }
   
   ngOnInit() {

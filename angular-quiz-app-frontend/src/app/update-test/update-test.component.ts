@@ -40,7 +40,7 @@ export class UpdateTestComponent implements OnInit {
   confirmUpdateTest() {
     this.isShowTestEditDiv = false;
     this.http.updateTest(this.testGuid, this.selectedTest).subscribe(() =>
-      this.router.navigate(['AdminPanel/ManageTests'])
+      this.router.navigate(['admin-panel/manage-tests'])
     );
     
 }

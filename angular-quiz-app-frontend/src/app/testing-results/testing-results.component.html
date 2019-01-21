@@ -1,0 +1,26 @@
+<div>
+  <div>
+      <table class='table' >
+          <thead>
+            <th>Test name</th>
+            <th>Interviewee</th>
+            <th>Duration</th>
+            <th>Score</th>
+          </thead>
+            </table>
+  </div>
+ 
+  <div style='height: 500px;overflow:auto; width:80%;margin: auto;' >
+    <table class='table' style='width: 100%'>
+      <tbody>
+        <tr *ngFor='let result of testingResults'>
+      <td style='width:30%'>{{result.TestName}}</td>
+      <td style='width:28%'>{{result.Interviewee}}</td>
+      <td style='width:25%'>{{result.Duration}}</td>
+      <td style='width:25%'>{{result.Score|number:"2.1"}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+</div>

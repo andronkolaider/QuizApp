@@ -20,6 +20,12 @@ table{
     width: 500px;
 }
 
+span {
+    cursor:pointer;
+    color:blue;
+    text-decoration:underline;
+}
+
 .smallColumns{
     border-style: solid;
     border-color: black;
