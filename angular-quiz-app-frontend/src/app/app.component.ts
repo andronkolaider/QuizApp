@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   isAdmin: boolean=false;
   isUser: boolean = false;
   currentUser: LoginViewModel;
+  errorMessage: string;
   constructor(private location:Location) { }
 
   receiveIsAdmin($event) {

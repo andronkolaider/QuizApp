@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpRequest, HttpHandler, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpParams, HttpRequest, HttpHandler, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
 import { AnswerViewModel } from 'src/assets/Models/Managing/AnswerViewModel';
 import { QuestionViewModel } from 'src/assets/Models/Managing/QuestionViewModel';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
 import { TestingUrlViewModel } from 'src/assets/Models/Managing/TestingUrlViewModel';
 import { TestPassingViewModel } from 'src/assets/Models/QuizPassing/TestPassingViewModel';
+import 'rxjs/add/operator/catch'
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,16 +15,25 @@ export class HttpService {
   //Login Page methods
   Login(Login: string, Password: string) {
     const body = { Username: Login, Password: Password };
-    return this.http.post('http://localhost:53029/Account/Login/', body);
+    return this.http.post('http://localhost:53029/Account/Login/', body).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
   //Admin page methods
   GetAllTests() {
-    return this.http.get('http://localhost:53029/Admin/GetAllTests/');
+    return this.http.get('http://localhost:53029/Admin/GetAllTests/').catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   GetAnswersByQuestionGuid(questionGuid: string) {
     const params = new HttpParams().set('questionGuid', questionGuid);
-    return this.http.get('http://localhost:53029/Apilike/GetAnswersByQuestionGuid/', { params });
+    return this.http.get('http://localhost:53029/Apilike/GetAnswersByQuestionGuid/', { params }).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   CreateAnswer(_questionGuid: string, _answer: AnswerViewModel) {
@@ -33,7 +44,10 @@ export class HttpService {
         Guid: null
       }
     };
-    return this.http.post('http://localhost:53029/Apilike/CreateAnswer/', body);
+    return this.http.post('http://localhost:53029/Apilike/CreateAnswer/', body).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   createQuestion(_testGuid: string, _question: QuestionViewModel) {
@@ -46,15 +60,24 @@ export class HttpService {
         IsValid: false
       }
     };
-    return this.http.post('http://localhost:53029/Apilike/CreateQuestion/', body);
+    return this.http.post('http://localhost:53029/Apilike/CreateQuestion/', body).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   removeQuestion(_testGuid: string, _questionGuid: string) {
-    return this.http.post('http://localhost:53029/Apilike/RemoveQuestion/', { testGuid: _testGuid, questionGuid: _questionGuid });
+    return this.http.post('http://localhost:53029/Apilike/RemoveQuestion/', { testGuid: _testGuid, questionGuid: _questionGuid }).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   removeAnswer(_answerGuid: string) {
-    return this.http.post('http://localhost:53029/Apilike/RemoveAnswer', { answerGuid: _answerGuid });
+    return this.http.post('http://localhost:53029/Apilike/RemoveAnswer', { answerGuid: _answerGuid }).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   updateQuestion(_question: QuestionViewModel) {
@@ -67,12 +90,18 @@ export class HttpService {
         Guid: _question.Guid
       }
     };
-    return this.http.post('http://localhost:53029/Apilike/UpdateQuestion/', body);
+    return this.http.post('http://localhost:53029/Apilike/UpdateQuestion/', body).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   getTestByTestingUrlGuid(_testingUrlGuid: string) {
     const params = new HttpParams().set('testingUrlGuid', _testingUrlGuid);
-    return this.http.get('http://localhost:53029/Apilike/GetTestByTestingUrlGuid/', { params });
+    return this.http.get('http://localhost:53029/Apilike/GetTestByTestingUrlGuid/', { params }).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   createTest(_test: TestViewModel) {
@@ -87,17 +116,26 @@ export class HttpService {
         IsValid: null
       }
     };
-    return this.http.post('http://localhost:53029/Apilike/CreateTest/', body);
+    return this.http.post('http://localhost:53029/Apilike/CreateTest/', body).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   removeTest(_testGuid: string) {
     return this.http.post('http://localhost:53029/Apilike/RemoveTest/', {
       testGuid: _testGuid
+    }).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
     });
   }
 
   getAllTestingUrls() {
-    return this.http.get('http://localhost:53029/Admin/GetAllTestingUrls/');
+    return this.http.get('http://localhost:53029/Admin/GetAllTestingUrls/').catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   updateTest(_testGuid: string, _test: TestViewModel) {
@@ -113,7 +151,10 @@ export class HttpService {
         IsValid: null
       }
     };
-    return this.http.post('http://localhost:53029/Apilike/UpdateTest/', body);
+    return this.http.post('http://localhost:53029/Apilike/UpdateTest/', body).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   createTestingUrl(_testingUrl: TestingUrlViewModel) {
@@ -129,25 +170,40 @@ export class HttpService {
         AllowedEndDate: _testingUrl.AllowedEndDate
       }
     };
-    return this.http.post('http://localhost:53029/Apilike/CreateTestingUrl/', body);
+    return this.http.post('http://localhost:53029/Apilike/CreateTestingUrl/', body).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   removeTestingUrl(_testingUrlGuid: string) {
-    return this.http.post('http://localhost:53029/Apilike/RemoveTestingUrl/', { testingUrlGuid: _testingUrlGuid });
+    return this.http.post('http://localhost:53029/Apilike/RemoveTestingUrl/', { testingUrlGuid: _testingUrlGuid }).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   getQuestionsByTestGuid(testGuid: string) {
     const params = new HttpParams().set('testGuid', testGuid);
-    return this.http.get('http://localhost:53029/Apilike/GetQuestionsByTestGuid/', { params });
+    return this.http.get('http://localhost:53029/Apilike/GetQuestionsByTestGuid/', { params }).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   getInfoAndStartTest(testingUrlGuid: string) {
     const params = new HttpParams().append('testingUrlGuid', testingUrlGuid);
-    return this.http.get('http://localhost:53029/Quiz/GetInfoAndStartTest', { params });
+    return this.http.get('http://localhost:53029/Quiz/GetInfoAndStartTest', { params }).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   getAllTestResults() {
-    return this.http.get("http://localhost:53029/Admin/GetAllTestingResults");
+    return this.http.get("http://localhost:53029/Admin/GetAllTestingResults").catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   finishTest(result: TestPassingViewModel) {
@@ -167,44 +223,38 @@ export class HttpService {
       }
 
     };
-    return this.http.post('http://localhost:53029/Quiz/FinishTest', body);
+    return this.http.post('http://localhost:53029/Quiz/FinishTest', body).catch((err: HttpErrorResponse) => {
+      this.errorCheck(err);
+      return new Observable<any>();
+    });
   }
 
   login(_username: string, _password: string) {
-    // const httpOptions = {
-    //   headers: new HttpHeaders({
-    //     'content-type': 'application/x-www-form-urlencoded'
-    //   })
-    // };
-
     const body = {
       'username': _username,
       'password': _password,
     };
-
-    // var settings = {
-    //   "async": true,
-    //   "crossDomain": true,
-    //   "url": "http://localhost:53029/token",
-    //   "method": "POST",
-    //   "headers": {
-    //     "Content-Type": "application/json;charset=UTF-8",
-    //     "cache-control": "no-cache",
-    //     "Postman-Token": "e6572e3d-8702-4949-8d47-dee8369a2647",
-    //     "Pragma": "no-cache",
-    //     "Access-Control-Allow-Origin": '*',
-    //     "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-    //     "Access-Control-Allow-Methods": "*"
-    //   },
-    //   "data": {
-    //     "username": "admin",
-    //     "password": "admin",
-    //     "grant_type": "password"
-    //   }
-    // }
-
-    
- return this.http.post("http://localhost:53029/Account/Login",body,{withCredentials:true});
+ return this.http.post("http://localhost:53029/Account/Login",body,{withCredentials:true}).catch((err: HttpErrorResponse) => {
+  this.errorCheck(err);
+  return new Observable<any>();
+});
   }
+
+  private errorCheck(err: HttpErrorResponse) {
+  
+    var snackbar = document.getElementById("snackbar");
+    if (err.status == 404) {
+      snackbar.innerHTML = "Sorry, we cannot found what you are looking for";
+    } else if (err.status == 500) {
+      snackbar.innerHTML = "Sorry, smth goes wrong. Try again or ask your administrator";
+    } else {
+      snackbar.innerHTML = err.message;
+    }
+
+      snackbar.className = "show";
+      setTimeout(() => {
+        snackbar.className= snackbar.className.replace("show", " ");
+      }, 3000);
+}
 
 }

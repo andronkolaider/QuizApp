@@ -133,7 +133,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".HomePageHeader{\r\ntext-align: center;\r\ncolor:white;\r\n-webkit-text-stroke-color: black;\r\n-webkit-text-stroke-width: 1px;\r\nmargin-top: 10px;\r\n}\r\n.MainPageLoginDiv\r\n{\r\n    width:100%;\r\n    height: 50px;\r\n    margin-top: 15px;\r\n    padding-right: 30px;\r\n\r\n}\r\n\r\n\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQSxtQkFBbUI7QUFDbkIsWUFBWTtBQUNaLGlDQUFpQztBQUNqQywrQkFBK0I7QUFDL0IsaUJBQWlCO0NBQ2hCO0FBQ0Q7O0lBRUksV0FBVztJQUNYLGFBQWE7SUFDYixpQkFBaUI7SUFDakIsb0JBQW9COztDQUV2QiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLkhvbWVQYWdlSGVhZGVye1xyXG50ZXh0LWFsaWduOiBjZW50ZXI7XHJcbmNvbG9yOndoaXRlO1xyXG4td2Via2l0LXRleHQtc3Ryb2tlLWNvbG9yOiBibGFjaztcclxuLXdlYmtpdC10ZXh0LXN0cm9rZS13aWR0aDogMXB4O1xyXG5tYXJnaW4tdG9wOiAxMHB4O1xyXG59XHJcbi5NYWluUGFnZUxvZ2luRGl2XHJcbntcclxuICAgIHdpZHRoOjEwMCU7XHJcbiAgICBoZWlnaHQ6IDUwcHg7XHJcbiAgICBtYXJnaW4tdG9wOiAxNXB4O1xyXG4gICAgcGFkZGluZy1yaWdodDogMzBweDtcclxuXHJcbn1cclxuXHJcblxyXG4iXX0= */"
+module.exports = ".HomePageHeader{\r\ntext-align: center;\r\ncolor:white;\r\n-webkit-text-stroke-color: black;\r\n-webkit-text-stroke-width: 1px;\r\nmargin-top: 10px;\r\n}\r\n.MainPageLoginDiv\r\n{\r\n    width:100%;\r\n    height: 50px;\r\n    margin-top: 15px;\r\n    padding-right: 30px;\r\n\r\n}\r\n#snackbar{\r\n    visibility: hidden;\r\n    min-width: 200px;\r\n    margin-left: -100px;\r\n    background-color: darksalmon;\r\n    color:#fff;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    padding: 16px;\r\n    position: fixed;\r\n    z-index: 1;\r\n    left:50%;\r\n    bottom: 60px;\r\n}\r\n#snackbar.show{\r\n    visibility: visible;\r\n    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n    animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n}\r\n@-webkit-keyframes fadein {\r\n    from {bottom: 0; opacity: 0;} \r\n    to {bottom: 60px; opacity: 1;}\r\n  }\r\n@-webkit-keyframes fadeout {\r\n    from {bottom: 60px; opacity: 1;} \r\n    to {bottom: 0; opacity: 0;}\r\n  }\r\n@keyframes fadeout {\r\n    from {bottom: 60px; opacity: 1;}\r\n    to {bottom: 0; opacity: 0;}\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQSxtQkFBbUI7QUFDbkIsWUFBWTtBQUNaLGlDQUFpQztBQUNqQywrQkFBK0I7QUFDL0IsaUJBQWlCO0NBQ2hCO0FBQ0Q7O0lBRUksV0FBVztJQUNYLGFBQWE7SUFDYixpQkFBaUI7SUFDakIsb0JBQW9COztDQUV2QjtBQUVEO0lBQ0ksbUJBQW1CO0lBQ25CLGlCQUFpQjtJQUNqQixvQkFBb0I7SUFDcEIsNkJBQTZCO0lBQzdCLFdBQVc7SUFDWCxtQkFBbUI7SUFDbkIsbUJBQW1CO0lBQ25CLGNBQWM7SUFDZCxnQkFBZ0I7SUFDaEIsV0FBVztJQUNYLFNBQVM7SUFDVCxhQUFhO0NBQ2hCO0FBRUQ7SUFDSSxvQkFBb0I7SUFDcEIsa0RBQWtEO0lBQ2xELDBDQUEwQztDQUM3QztBQUVEO0lBQ0ksTUFBTSxVQUFVLENBQUMsV0FBVyxDQUFDO0lBQzdCLElBQUksYUFBYSxDQUFDLFdBQVcsQ0FBQztHQUMvQjtBQUVEO0lBQ0UsTUFBTSxhQUFhLENBQUMsV0FBVyxDQUFDO0lBQ2hDLElBQUksVUFBVSxDQUFDLFdBQVcsQ0FBQztHQUM1QjtBQUVEO0lBQ0UsTUFBTSxhQUFhLENBQUMsV0FBVyxDQUFDO0lBQ2hDLElBQUksVUFBVSxDQUFDLFdBQVcsQ0FBQztHQUM1QiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLkhvbWVQYWdlSGVhZGVye1xyXG50ZXh0LWFsaWduOiBjZW50ZXI7XHJcbmNvbG9yOndoaXRlO1xyXG4td2Via2l0LXRleHQtc3Ryb2tlLWNvbG9yOiBibGFjaztcclxuLXdlYmtpdC10ZXh0LXN0cm9rZS13aWR0aDogMXB4O1xyXG5tYXJnaW4tdG9wOiAxMHB4O1xyXG59XHJcbi5NYWluUGFnZUxvZ2luRGl2XHJcbntcclxuICAgIHdpZHRoOjEwMCU7XHJcbiAgICBoZWlnaHQ6IDUwcHg7XHJcbiAgICBtYXJnaW4tdG9wOiAxNXB4O1xyXG4gICAgcGFkZGluZy1yaWdodDogMzBweDtcclxuXHJcbn1cclxuXHJcbiNzbmFja2JhcntcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcclxuICAgIG1pbi13aWR0aDogMjAwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogLTEwMHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogZGFya3NhbG1vbjtcclxuICAgIGNvbG9yOiNmZmY7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbiAgICBwYWRkaW5nOiAxNnB4O1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgei1pbmRleDogMTtcclxuICAgIGxlZnQ6NTAlO1xyXG4gICAgYm90dG9tOiA2MHB4O1xyXG59XHJcblxyXG4jc25hY2tiYXIuc2hvd3tcclxuICAgIHZpc2liaWxpdHk6IHZpc2libGU7XHJcbiAgICAtd2Via2l0LWFuaW1hdGlvbjogZmFkZWluIDAuNXMsIGZhZGVvdXQgMC41cyAyLjVzO1xyXG4gICAgYW5pbWF0aW9uOiBmYWRlaW4gMC41cywgZmFkZW91dCAwLjVzIDIuNXM7XHJcbn1cclxuXHJcbkAtd2Via2l0LWtleWZyYW1lcyBmYWRlaW4ge1xyXG4gICAgZnJvbSB7Ym90dG9tOiAwOyBvcGFjaXR5OiAwO30gXHJcbiAgICB0byB7Ym90dG9tOiA2MHB4OyBvcGFjaXR5OiAxO31cclxuICB9XHJcbiAgXHJcbiAgQC13ZWJraXQta2V5ZnJhbWVzIGZhZGVvdXQge1xyXG4gICAgZnJvbSB7Ym90dG9tOiA2MHB4OyBvcGFjaXR5OiAxO30gXHJcbiAgICB0byB7Ym90dG9tOiAwOyBvcGFjaXR5OiAwO31cclxuICB9XHJcblxyXG4gIEBrZXlmcmFtZXMgZmFkZW91dCB7XHJcbiAgICBmcm9tIHtib3R0b206IDYwcHg7IG9wYWNpdHk6IDE7fVxyXG4gICAgdG8ge2JvdHRvbTogMDsgb3BhY2l0eTogMDt9XHJcbiAgfSJdfQ== */"
 
 /***/ }),
 
@@ -144,7 +144,7 @@ module.exports = ".HomePageHeader{\r\ntext-align: center;\r\ncolor:white;\r\n-we
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<html>\n\n<head></head>\n\n<body>\n    <div class='MainPageLoginDiv'>\n        <app-login (IsAdminEvent)='receiveIsAdmin($event)' (isUserEvent)='receiveIsUser($event)' style=\"    float: right;\"></app-login>\n        <div style='width:100%;'>\n            <nav class='nav' *ngIf='isAdmin' style='margin-left: 30px;'>\n                <a class=\"nav-link active\" routerLink='./admin-panel/manage-tests'>Manage Tests</a>\n                <a class=\"nav-link active\" routerLink='./admin-panel/manage-testing-urls'>Manage URLs</a>\n                <a class=\"nav-link active\" routerLink='./admin-panel/testing-results'>Testing results</a>\n                <!-- <button type='button'>RemoveTest</button>\n                <button type='button'>CreateTestingUrl</button>\n                <button type='button'>RemoveTestingUrl</button>\n                <button type='button'>RemoveTestingResult</button> -->\n            </nav>\n        </div>\n    </div>\n  \n    <div>\n        <h1 class='HomePageHeader'>My QuizApp</h1>\n    </div>\n\n    <div>\n        <router-outlet></router-outlet>\n    </div>\n</body>\n\n</html>"
+module.exports = "<html>\n\n<head></head>\n\n<body>\n    <div class='MainPageLoginDiv'>\n        <app-login (IsAdminEvent)='receiveIsAdmin($event)' (isUserEvent)='receiveIsUser($event)' style=\"    float: right;\"></app-login>\n        <div style='width:100%;'>\n            <nav class='nav' *ngIf='isAdmin' style='margin-left: 30px;'>\n                <a class=\"nav-link active\" routerLink='./admin-panel/manage-tests'>Manage Tests</a>\n                <a class=\"nav-link active\" routerLink='./admin-panel/manage-testing-urls'>Manage URLs</a>\n                <a class=\"nav-link active\" routerLink='./admin-panel/testing-results'>Testing results</a>\n                <!-- <button type='button'>RemoveTest</button>\n                <button type='button'>CreateTestingUrl</button>\n                <button type='button'>RemoveTestingUrl</button>\n                <button type='button'>RemoveTestingResult</button> -->\n            </nav>\n        </div>\n    </div>\n  \n    <div>\n        <h1 class='HomePageHeader'>My QuizApp</h1>\n    </div>\n\n    <div>\n        <router-outlet></router-outlet>\n    </div>\n    <div id=\"snackbar\"></div>\n</body>\n\n</html>"
 
 /***/ }),
 
@@ -233,12 +233,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _update_test_update_test_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./update-test/update-test.component */ "./src/app/update-test/update-test.component.ts");
 /* harmony import */ var _manage_testing_url_manage_testing_url_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./manage-testing-url/manage-testing-url.component */ "./src/app/manage-testing-url/manage-testing-url.component.ts");
 /* harmony import */ var _testing_results_testing_results_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./testing-results/testing-results.component */ "./src/app/testing-results/testing-results.component.ts");
+/* harmony import */ var _auth_guard_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./auth-guard.service */ "./src/app/auth-guard.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -286,13 +288,13 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_12__["RouterModule"].forRoot([
-                    { path: 'admin-panel', component: _admin_panel_admin_panel_component__WEBPACK_IMPORTED_MODULE_7__["AdminPanelComponent"], children: [
+                    { path: 'admin-panel', canActivate: [_auth_guard_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]], component: _admin_panel_admin_panel_component__WEBPACK_IMPORTED_MODULE_7__["AdminPanelComponent"], children: [
                             { path: '', redirectTo: 'manage-tests', pathMatch: 'full' },
-                            { path: 'testing-results', component: _testing_results_testing_results_component__WEBPACK_IMPORTED_MODULE_19__["TestingResultsComponent"] },
-                            { path: 'manage-tests', component: _manage_tests_manage_tests_component__WEBPACK_IMPORTED_MODULE_16__["ManageTestsComponent"] },
-                            { path: 'manage-testing-urls', component: _manage_testing_url_manage_testing_url_component__WEBPACK_IMPORTED_MODULE_18__["ManageTestingUrlComponent"] },
-                            { path: 'edit-test/:guid', component: _update_test_update_test_component__WEBPACK_IMPORTED_MODULE_17__["UpdateTestComponent"] },
-                            { path: 'edit-answers/:testGuid/:questionGuid', component: _create_answer_create_answer_component__WEBPACK_IMPORTED_MODULE_8__["CreateAnswerComponent"] }
+                            { path: 'testing-results', canActivate: [_auth_guard_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]], component: _testing_results_testing_results_component__WEBPACK_IMPORTED_MODULE_19__["TestingResultsComponent"] },
+                            { path: 'manage-tests', canActivate: [_auth_guard_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]], component: _manage_tests_manage_tests_component__WEBPACK_IMPORTED_MODULE_16__["ManageTestsComponent"] },
+                            { path: 'manage-testing-urls', canActivate: [_auth_guard_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]], component: _manage_testing_url_manage_testing_url_component__WEBPACK_IMPORTED_MODULE_18__["ManageTestingUrlComponent"] },
+                            { path: 'edit-test/:guid', canActivate: [_auth_guard_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]], component: _update_test_update_test_component__WEBPACK_IMPORTED_MODULE_17__["UpdateTestComponent"] },
+                            { path: 'edit-answers/:testGuid/:questionGuid', canActivate: [_auth_guard_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuardService"]], component: _create_answer_create_answer_component__WEBPACK_IMPORTED_MODULE_8__["CreateAnswerComponent"] }
                         ]
                     },
                     // { path: 'user-panel', component: UserPanelComponent },
@@ -305,6 +307,48 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth-guard.service.ts":
+/*!***************************************!*\
+  !*** ./src/app/auth-guard.service.ts ***!
+  \***************************************/
+/*! exports provided: AuthGuardService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuardService", function() { return AuthGuardService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AuthGuardService = /** @class */ (function () {
+    function AuthGuardService() {
+    }
+    AuthGuardService.prototype.canActivate = function (route) {
+        if (document.cookie.includes("adminCookie=admin")) {
+            return true;
+        }
+    };
+    AuthGuardService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], AuthGuardService);
+    return AuthGuardService;
 }());
 
 
@@ -745,20 +789,22 @@ var LoginComponent = /** @class */ (function () {
         this.currentUserEvent.emit(this.CurrentUser);
     };
     LoginComponent.prototype.ngOnInit = function () {
-        if (sessionStorage.getItem('login')) {
+        if (sessionStorage.getItem('login') != "") {
             var user = sessionStorage.getItem('login');
             this.CurrentUser.Username = user;
-            this.IsLoginSuccessfull = true;
             if (user === 'admin') {
+                this.IsLoginSuccessfull = true;
                 this.IsAdmin = true;
                 this.sendIsAdmin();
                 if (this.IsAdmin == true) {
-                    this.router.navigate(['admin-panel']);
+                    if (sessionStorage.getItem("redirected") == "") {
+                        sessionStorage.setItem("redirected", "true");
+                        this.router.navigate(['admin-panel']);
+                    }
                 }
             }
             else {
                 this.sendUser();
-                this.router.navigate(['user-panel/']);
             }
         }
     };
@@ -773,34 +819,27 @@ var LoginComponent = /** @class */ (function () {
         this.isUser = false;
         this.sendIsUser();
         sessionStorage.clear();
+        sessionStorage.setItem("redirected", "");
+        document.cookie = "adminCookie= ";
         this.location.go('');
     };
     LoginComponent.prototype.Login = function (LoginInput, PasswordInput) {
         var _this = this;
         this.http.Login(LoginInput, PasswordInput).subscribe(function (x) {
-            _this.CurrentUser = x;
-            if (_this.CurrentUser.Username == 'admin') {
+            _this.CurrentUser.Username = x["username"];
+            _this.CurrentUser.Password = x["password"];
+            //  var cookies= document.cookie.split(";");
+            if (document.cookie.includes("adminCookie=admin")) {
+                sessionStorage.setItem("login", x["username"]);
                 _this.IsAdmin = true;
                 _this.IsLoginSuccessfull = true;
                 _this.sendIsAdmin();
                 if (_this.IsAdmin == true) {
+                    sessionStorage.setItem("redirected", "true");
                     _this.router.navigate(['admin-panel']);
                 }
-                // else if (this.isUser == true) {
-                //   this.sendUser();
-                //   this.router.navigate(['user-panel/']);
-                // }
             }
-            // else {
-            //   this.isUser = true;
-            //   this.sendUser();
-            //   this.sendIsUser();
-            //   this.router.navigate(['user-panel']);
-            // }
-            //   sessionStorage.setItem('login', this.CurrentUser.Username);
         });
-        this.LoginInput = '';
-        this.PasswordInput = '';
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
@@ -836,7 +875,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table{\r\n    /* border-style: solid;\r\n    border-color: black;\r\n    border-collapse: collapse;\r\n       \r\n     \r\n   */\r\n   table-layout: auto;\r\n    margin: auto;\r\n    padding: 10px;\r\n    border-collapse: collapse;\r\n    width:80%;\r\n}\r\n\r\n.bigColumns{\r\n    border-style: solid;\r\n    border-color: black;\r\n    border-width: 2px;\r\n    border-collapse: collapse; \r\n    width: 500px;\r\n}\r\n\r\nspan {\r\n    cursor:pointer;\r\n    color:blue;\r\n    text-decoration:underline;\r\n}\r\n\r\n.smallColumns{\r\n    border-style: solid;\r\n    border-color: black;\r\n    border-width: 2px;\r\n    border-collapse: collapse; \r\n    width: 150px;\r\n}\r\n\r\n/* .testingUrlTableHeaders th{\r\n    border-style: solid;\r\n    border-color: black;\r\n    border-width: 2px;\r\n    border-collapse: collapse; \r\n    width: 160px;\r\n}*/\r\n\r\n.testingUrlTableData td{\r\n    border-style: solid;\r\n    border-width: 1px;\r\n    border-color: black;\r\n    border-collapse: collapse; \r\n}\r\n\r\ninput[type=time]{\r\n    width: 90px;\r\nmargin-top: 5px;\r\n}\r\n\r\ninput[type=date]{\r\n    width: 170px;\r\n}\r\n\r\n.smallHeaders{\r\n    width: 20px;\r\n}\r\n\r\n.testListDiv{\r\n    width: auto;\r\n    height: 50px;\r\nwidth: auto;\r\n    margin: auto;\r\n    margin-bottom: 30px;\r\n    align-self:center;\r\n}\r\n\r\n.testListSelect{\r\n    margin: auto;\r\n    width: 245px;\r\n    height: 30px;\r\n    margin:3 auto 0 auto;\r\n}\r\n\r\nh1{\r\n    text-align: center;\r\n    color: #856404;\r\n    background-color: #fff3cd;\r\n    border-color: #ffeeba;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFuYWdlLXRlc3RpbmctdXJsL21hbmFnZS10ZXN0aW5nLXVybC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0k7Ozs7O0tBS0M7R0FDRixtQkFBbUI7SUFDbEIsYUFBYTtJQUNiLGNBQWM7SUFDZCwwQkFBMEI7SUFDMUIsVUFBVTtDQUNiOztBQUVEO0lBQ0ksb0JBQW9CO0lBQ3BCLG9CQUFvQjtJQUNwQixrQkFBa0I7SUFDbEIsMEJBQTBCO0lBQzFCLGFBQWE7Q0FDaEI7O0FBRUQ7SUFDSSxlQUFlO0lBQ2YsV0FBVztJQUNYLDBCQUEwQjtDQUM3Qjs7QUFFRDtJQUNJLG9CQUFvQjtJQUNwQixvQkFBb0I7SUFDcEIsa0JBQWtCO0lBQ2xCLDBCQUEwQjtJQUMxQixhQUFhO0NBQ2hCOztBQUVEOzs7Ozs7R0FNRzs7QUFFSDtJQUNJLG9CQUFvQjtJQUNwQixrQkFBa0I7SUFDbEIsb0JBQW9CO0lBQ3BCLDBCQUEwQjtDQUM3Qjs7QUFFRDtJQUNJLFlBQVk7QUFDaEIsZ0JBQWdCO0NBQ2Y7O0FBQ0Q7SUFDSSxhQUFhO0NBQ2hCOztBQUVEO0lBQ0ksWUFBWTtDQUNmOztBQUVEO0lBQ0ksWUFBWTtJQUNaLGFBQWE7QUFDakIsWUFBWTtJQUNSLGFBQWE7SUFDYixvQkFBb0I7SUFDcEIsa0JBQWtCO0NBQ3JCOztBQUVEO0lBQ0ksYUFBYTtJQUNiLGFBQWE7SUFDYixhQUFhO0lBQ2IscUJBQXFCO0NBQ3hCOztBQUVEO0lBQ0ksbUJBQW1CO0lBQ25CLGVBQWU7SUFDZiwwQkFBMEI7SUFDMUIsc0JBQXNCO0NBQ3pCIiwiZmlsZSI6InNyYy9hcHAvbWFuYWdlLXRlc3RpbmctdXJsL21hbmFnZS10ZXN0aW5nLXVybC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidGFibGV7XHJcbiAgICAvKiBib3JkZXItc3R5bGU6IHNvbGlkO1xyXG4gICAgYm9yZGVyLWNvbG9yOiBibGFjaztcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbiAgICAgICBcclxuICAgICBcclxuICAgKi9cclxuICAgdGFibGUtbGF5b3V0OiBhdXRvO1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbiAgICB3aWR0aDo4MCU7XHJcbn1cclxuXHJcbi5iaWdDb2x1bW5ze1xyXG4gICAgYm9yZGVyLXN0eWxlOiBzb2xpZDtcclxuICAgIGJvcmRlci1jb2xvcjogYmxhY2s7XHJcbiAgICBib3JkZXItd2lkdGg6IDJweDtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7IFxyXG4gICAgd2lkdGg6IDUwMHB4O1xyXG59XHJcblxyXG5zcGFuIHtcclxuICAgIGN1cnNvcjpwb2ludGVyO1xyXG4gICAgY29sb3I6Ymx1ZTtcclxuICAgIHRleHQtZGVjb3JhdGlvbjp1bmRlcmxpbmU7XHJcbn1cclxuXHJcbi5zbWFsbENvbHVtbnN7XHJcbiAgICBib3JkZXItc3R5bGU6IHNvbGlkO1xyXG4gICAgYm9yZGVyLWNvbG9yOiBibGFjaztcclxuICAgIGJvcmRlci13aWR0aDogMnB4O1xyXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTsgXHJcbiAgICB3aWR0aDogMTUwcHg7XHJcbn1cclxuXHJcbi8qIC50ZXN0aW5nVXJsVGFibGVIZWFkZXJzIHRoe1xyXG4gICAgYm9yZGVyLXN0eWxlOiBzb2xpZDtcclxuICAgIGJvcmRlci1jb2xvcjogYmxhY2s7XHJcbiAgICBib3JkZXItd2lkdGg6IDJweDtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7IFxyXG4gICAgd2lkdGg6IDE2MHB4O1xyXG59Ki9cclxuXHJcbi50ZXN0aW5nVXJsVGFibGVEYXRhIHRke1xyXG4gICAgYm9yZGVyLXN0eWxlOiBzb2xpZDtcclxuICAgIGJvcmRlci13aWR0aDogMXB4O1xyXG4gICAgYm9yZGVyLWNvbG9yOiBibGFjaztcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7IFxyXG59IFxyXG5cclxuaW5wdXRbdHlwZT10aW1lXXtcclxuICAgIHdpZHRoOiA5MHB4O1xyXG5tYXJnaW4tdG9wOiA1cHg7XHJcbn1cclxuaW5wdXRbdHlwZT1kYXRlXXtcclxuICAgIHdpZHRoOiAxNzBweDtcclxufVxyXG5cclxuLnNtYWxsSGVhZGVyc3tcclxuICAgIHdpZHRoOiAyMHB4O1xyXG59XHJcblxyXG4udGVzdExpc3REaXZ7XHJcbiAgICB3aWR0aDogYXV0bztcclxuICAgIGhlaWdodDogNTBweDtcclxud2lkdGg6IGF1dG87XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xyXG4gICAgYWxpZ24tc2VsZjpjZW50ZXI7XHJcbn1cclxuXHJcbi50ZXN0TGlzdFNlbGVjdHtcclxuICAgIG1hcmdpbjogYXV0bztcclxuICAgIHdpZHRoOiAyNDVweDtcclxuICAgIGhlaWdodDogMzBweDtcclxuICAgIG1hcmdpbjozIGF1dG8gMCBhdXRvO1xyXG59XHJcblxyXG5oMXtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGNvbG9yOiAjODU2NDA0O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjNjZDtcclxuICAgIGJvcmRlci1jb2xvcjogI2ZmZWViYTtcclxufVxyXG4iXX0= */"
+module.exports = "table{\r\n    /* border-style: solid;\r\n    border-color: black;\r\n    border-collapse: collapse;\r\n       \r\n     \r\n   */\r\n   table-layout: auto;\r\n    margin: auto;\r\n    padding: 10px;\r\n    border-collapse: collapse;\r\n    width:80%;\r\n}\r\n\r\n.bigColumns{\r\n    border-style: solid;\r\n    border-color: black;\r\n    border-width: 2px;\r\n    border-collapse: collapse; \r\n    width: 500px;\r\n}\r\n\r\nspan {\r\n    cursor:pointer;\r\n    color:blue;\r\n    text-decoration:underline;\r\n}\r\n\r\n.smallColumns{\r\n    border-style: solid;\r\n    border-color: black;\r\n    border-width: 2px;\r\n    border-collapse: collapse; \r\n    width: 150px;\r\n}\r\n\r\n.testingUrlTableData td{\r\n    border-style: solid;\r\n    border-width: 1px;\r\n    border-color: black;\r\n    border-collapse: collapse; \r\n}\r\n\r\ninput[type=time]{\r\n    width: 90px;\r\nmargin-top: 5px;\r\n}\r\n\r\ninput[type=date]{\r\n    width: 170px;\r\n}\r\n\r\n.smallHeaders{\r\n    width: 20px;\r\n}\r\n\r\n.testListDiv{\r\n    width: auto;\r\n    height: 50px;\r\nwidth: auto;\r\n    margin: auto;\r\n    margin-bottom: 30px;\r\n    align-self:center;\r\n}\r\n\r\n.testListSelect{\r\n    margin: auto;\r\n    width: 245px;\r\n    height: 30px;\r\n    margin:3 auto 0 auto;\r\n}\r\n\r\nh1{\r\n    text-align: center;\r\n    color: #856404;\r\n    background-color: #fff3cd;\r\n    border-color: #ffeeba;\r\n}\r\n\r\n#snackbar{\r\n    visibility: hidden;\r\n    min-width: 200px;\r\n    margin-left: -100px;\r\n    background-color: darksalmon;\r\n    color:#fff;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    padding: 16px;\r\n    position: fixed;\r\n    z-index: 1;\r\n    left:50%;\r\n    bottom: 60px;\r\n}\r\n\r\n#snackbar.show{\r\n    visibility: visible;\r\n    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n    animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n}\r\n\r\n@-webkit-keyframes fadein {\r\n    from {bottom: 0; opacity: 0;} \r\n    to {bottom: 30px; opacity: 1;}\r\n  }\r\n\r\n@-webkit-keyframes fadeout {\r\n    from {bottom: 30px; opacity: 1;} \r\n    to {bottom: 0; opacity: 0;}\r\n  }\r\n\r\n@keyframes fadeout {\r\n    from {bottom: 30px; opacity: 1;}\r\n    to {bottom: 0; opacity: 0;}\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFuYWdlLXRlc3RpbmctdXJsL21hbmFnZS10ZXN0aW5nLXVybC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0k7Ozs7O0tBS0M7R0FDRixtQkFBbUI7SUFDbEIsYUFBYTtJQUNiLGNBQWM7SUFDZCwwQkFBMEI7SUFDMUIsVUFBVTtDQUNiOztBQUVEO0lBQ0ksb0JBQW9CO0lBQ3BCLG9CQUFvQjtJQUNwQixrQkFBa0I7SUFDbEIsMEJBQTBCO0lBQzFCLGFBQWE7Q0FDaEI7O0FBRUQ7SUFDSSxlQUFlO0lBQ2YsV0FBVztJQUNYLDBCQUEwQjtDQUM3Qjs7QUFFRDtJQUNJLG9CQUFvQjtJQUNwQixvQkFBb0I7SUFDcEIsa0JBQWtCO0lBQ2xCLDBCQUEwQjtJQUMxQixhQUFhO0NBQ2hCOztBQUVEO0lBQ0ksb0JBQW9CO0lBQ3BCLGtCQUFrQjtJQUNsQixvQkFBb0I7SUFDcEIsMEJBQTBCO0NBQzdCOztBQUVEO0lBQ0ksWUFBWTtBQUNoQixnQkFBZ0I7Q0FDZjs7QUFDRDtJQUNJLGFBQWE7Q0FDaEI7O0FBRUQ7SUFDSSxZQUFZO0NBQ2Y7O0FBRUQ7SUFDSSxZQUFZO0lBQ1osYUFBYTtBQUNqQixZQUFZO0lBQ1IsYUFBYTtJQUNiLG9CQUFvQjtJQUNwQixrQkFBa0I7Q0FDckI7O0FBRUQ7SUFDSSxhQUFhO0lBQ2IsYUFBYTtJQUNiLGFBQWE7SUFDYixxQkFBcUI7Q0FDeEI7O0FBRUQ7SUFDSSxtQkFBbUI7SUFDbkIsZUFBZTtJQUNmLDBCQUEwQjtJQUMxQixzQkFBc0I7Q0FDekI7O0FBRUQ7SUFDSSxtQkFBbUI7SUFDbkIsaUJBQWlCO0lBQ2pCLG9CQUFvQjtJQUNwQiw2QkFBNkI7SUFDN0IsV0FBVztJQUNYLG1CQUFtQjtJQUNuQixtQkFBbUI7SUFDbkIsY0FBYztJQUNkLGdCQUFnQjtJQUNoQixXQUFXO0lBQ1gsU0FBUztJQUNULGFBQWE7Q0FDaEI7O0FBRUQ7SUFDSSxvQkFBb0I7SUFDcEIsa0RBQWtEO0lBQ2xELDBDQUEwQztDQUM3Qzs7QUFFRDtJQUNJLE1BQU0sVUFBVSxDQUFDLFdBQVcsQ0FBQztJQUM3QixJQUFJLGFBQWEsQ0FBQyxXQUFXLENBQUM7R0FDL0I7O0FBRUQ7SUFDRSxNQUFNLGFBQWEsQ0FBQyxXQUFXLENBQUM7SUFDaEMsSUFBSSxVQUFVLENBQUMsV0FBVyxDQUFDO0dBQzVCOztBQUVEO0lBQ0UsTUFBTSxhQUFhLENBQUMsV0FBVyxDQUFDO0lBQ2hDLElBQUksVUFBVSxDQUFDLFdBQVcsQ0FBQztHQUM1QiIsImZpbGUiOiJzcmMvYXBwL21hbmFnZS10ZXN0aW5nLXVybC9tYW5hZ2UtdGVzdGluZy11cmwuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxle1xyXG4gICAgLyogYm9yZGVyLXN0eWxlOiBzb2xpZDtcclxuICAgIGJvcmRlci1jb2xvcjogYmxhY2s7XHJcbiAgICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xyXG4gICAgICAgXHJcbiAgICAgXHJcbiAgICovXHJcbiAgIHRhYmxlLWxheW91dDogYXV0bztcclxuICAgIG1hcmdpbjogYXV0bztcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xyXG4gICAgd2lkdGg6ODAlO1xyXG59XHJcblxyXG4uYmlnQ29sdW1uc3tcclxuICAgIGJvcmRlci1zdHlsZTogc29saWQ7XHJcbiAgICBib3JkZXItY29sb3I6IGJsYWNrO1xyXG4gICAgYm9yZGVyLXdpZHRoOiAycHg7XHJcbiAgICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOyBcclxuICAgIHdpZHRoOiA1MDBweDtcclxufVxyXG5cclxuc3BhbiB7XHJcbiAgICBjdXJzb3I6cG9pbnRlcjtcclxuICAgIGNvbG9yOmJsdWU7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246dW5kZXJsaW5lO1xyXG59XHJcblxyXG4uc21hbGxDb2x1bW5ze1xyXG4gICAgYm9yZGVyLXN0eWxlOiBzb2xpZDtcclxuICAgIGJvcmRlci1jb2xvcjogYmxhY2s7XHJcbiAgICBib3JkZXItd2lkdGg6IDJweDtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7IFxyXG4gICAgd2lkdGg6IDE1MHB4O1xyXG59XHJcblxyXG4udGVzdGluZ1VybFRhYmxlRGF0YSB0ZHtcclxuICAgIGJvcmRlci1zdHlsZTogc29saWQ7XHJcbiAgICBib3JkZXItd2lkdGg6IDFweDtcclxuICAgIGJvcmRlci1jb2xvcjogYmxhY2s7XHJcbiAgICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOyBcclxufSBcclxuXHJcbmlucHV0W3R5cGU9dGltZV17XHJcbiAgICB3aWR0aDogOTBweDtcclxubWFyZ2luLXRvcDogNXB4O1xyXG59XHJcbmlucHV0W3R5cGU9ZGF0ZV17XHJcbiAgICB3aWR0aDogMTcwcHg7XHJcbn1cclxuXHJcbi5zbWFsbEhlYWRlcnN7XHJcbiAgICB3aWR0aDogMjBweDtcclxufVxyXG5cclxuLnRlc3RMaXN0RGl2e1xyXG4gICAgd2lkdGg6IGF1dG87XHJcbiAgICBoZWlnaHQ6IDUwcHg7XHJcbndpZHRoOiBhdXRvO1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMzBweDtcclxuICAgIGFsaWduLXNlbGY6Y2VudGVyO1xyXG59XHJcblxyXG4udGVzdExpc3RTZWxlY3R7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgICB3aWR0aDogMjQ1cHg7XHJcbiAgICBoZWlnaHQ6IDMwcHg7XHJcbiAgICBtYXJnaW46MyBhdXRvIDAgYXV0bztcclxufVxyXG5cclxuaDF7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBjb2xvcjogIzg1NjQwNDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmYzY2Q7XHJcbiAgICBib3JkZXItY29sb3I6ICNmZmVlYmE7XHJcbn1cclxuXHJcbiNzbmFja2JhcntcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcclxuICAgIG1pbi13aWR0aDogMjAwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogLTEwMHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogZGFya3NhbG1vbjtcclxuICAgIGNvbG9yOiNmZmY7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBib3JkZXItcmFkaXVzOiAzcHg7XHJcbiAgICBwYWRkaW5nOiAxNnB4O1xyXG4gICAgcG9zaXRpb246IGZpeGVkO1xyXG4gICAgei1pbmRleDogMTtcclxuICAgIGxlZnQ6NTAlO1xyXG4gICAgYm90dG9tOiA2MHB4O1xyXG59XHJcblxyXG4jc25hY2tiYXIuc2hvd3tcclxuICAgIHZpc2liaWxpdHk6IHZpc2libGU7XHJcbiAgICAtd2Via2l0LWFuaW1hdGlvbjogZmFkZWluIDAuNXMsIGZhZGVvdXQgMC41cyAyLjVzO1xyXG4gICAgYW5pbWF0aW9uOiBmYWRlaW4gMC41cywgZmFkZW91dCAwLjVzIDIuNXM7XHJcbn1cclxuXHJcbkAtd2Via2l0LWtleWZyYW1lcyBmYWRlaW4ge1xyXG4gICAgZnJvbSB7Ym90dG9tOiAwOyBvcGFjaXR5OiAwO30gXHJcbiAgICB0byB7Ym90dG9tOiAzMHB4OyBvcGFjaXR5OiAxO31cclxuICB9XHJcbiAgXHJcbiAgQC13ZWJraXQta2V5ZnJhbWVzIGZhZGVvdXQge1xyXG4gICAgZnJvbSB7Ym90dG9tOiAzMHB4OyBvcGFjaXR5OiAxO30gXHJcbiAgICB0byB7Ym90dG9tOiAwOyBvcGFjaXR5OiAwO31cclxuICB9XHJcblxyXG4gIEBrZXlmcmFtZXMgZmFkZW91dCB7XHJcbiAgICBmcm9tIHtib3R0b206IDMwcHg7IG9wYWNpdHk6IDE7fVxyXG4gICAgdG8ge2JvdHRvbTogMDsgb3BhY2l0eTogMDt9XHJcbiAgfSJdfQ== */"
 
 /***/ }),
 
@@ -847,7 +886,7 @@ module.exports = "table{\r\n    /* border-style: solid;\r\n    border-color: bla
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <form #createTestUrlForm='ngForm'>\n    <div *ngIf='isShowTests' class='testListDiv'>\n      <h1>Please select test</h1>\n\n    </div>\n    <div class='table-responsive'>\n      <table *ngIf='testingUrlList' class=\"table\">\n        <thead>\n          <tr>\n            <td>\n              <button class='btn btn-success' (click)='addTestUrl()'>Create testing URL</button>\n            </td>\n            <td *ngIf='isShowTests'>\n              <select (ngModelChange)='selectTest($event)' [ngModel]='selectedTest' name='testListSelect' class='form-control'\n                [required]=\"true\">\n                <option value='' disabled></option>\n                <option *ngFor='let test of testsList' [ngValue]='test' name='selectTestButton'>{{test.Name}}</option>\n              </select>\n            </td>\n          </tr>\n          <tr>\n            <th class='smallColumns'><label>URL</label></th>\n            <th class='bigColumns'><label>Test name</label></th>\n            <th class='bigColumns'><label>Interviewee</label></th>\n            <th class='smallColumns'><label>Number of runs</label></th>\n            <th class='bigColumns'><label>Allowed start date</label></th>\n            <th class='bigColumns'><label>Allowed end date</label></th>\n            <th class='smallColumns'></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngIf='isShowAddTestUrl' class='testingUrlTableData'>\n            <td></td>\n            <td>{{selectedTest.Name}}</td>\n            <td></td>\n            <td></td>\n            <td>\n              <div class='input-group'>\n                <input name='startDateInput' type=\"date\" [(ngModel)]='allowedStartDate' required class='form-control'>\n                <input name='startTimeInput' type='time' class='form-control  input-sm' [(ngModel)]='allowedStartTime'\n                  required>\n              </div>\n            </td>\n            <td>\n              <div class='input-group'>\n                <input name='endDateInput' min=\"{{allowedStartDate}}\" class='form-control  input-sm' type=\"date\" [(ngModel)]='allowedEndDate'\n                  required='required'>\n                <input type='time' name='endTimeInput' class='form-control  input-sm' [(ngModel)]='allowedEndTime'\n                  required>\n\n              </div>\n            </td>\n            <td><button [disabled]='!createTestUrlForm.form.valid' name='createTestUrlButtonConfirm' (click)='createTestUrl()'>Confirm</button></td>\n          </tr>\n\n          <tr *ngFor='let testingUrl of testingUrlList' class='testingUrlTableData'>\n            <td><span (click)=\"copyLink(testingUrl)\">Copy link</span></td>\n            <td><label>{{testingUrl.TestName}}</label></td>\n            <td><label>{{testingUrl.Interviewee}}</label></td>\n            <td><label>{{testingUrl.NumberOfRuns}}</label></td>\n            <td><label>{{testingUrl.AllowedStartDate}}</label></td>\n            <td><label>{{testingUrl.AllowedEndDate}}</label></td>\n            <td><button type='button' (click)='removeTestingUrl(testingUrl.Guid)'>Delete</button></td>\n          </tr>\n        </tbody>\n\n      </table>\n    </div>\n  </form>\n\n</div>"
+module.exports = "<div>\n  <form #createTestUrlForm='ngForm'>\n    <div *ngIf='isShowTests' class='testListDiv'>\n      <h1>Please select test</h1>\n\n    </div>\n    <div class='table-responsive'>\n      <table *ngIf='testingUrlList' class=\"table\">\n        <thead>\n          <tr>\n            <td>\n              <button class='btn btn-success' (click)='addTestUrl()'>Create testing URL</button>\n            </td>\n            <td *ngIf='isShowTests'>\n              <select (ngModelChange)='selectTest($event)' [ngModel]='selectedTest' name='testListSelect' class='form-control'\n                [required]=\"true\">\n                <option value='' disabled></option>\n                <option *ngFor='let test of testsList' [ngValue]='test' name='selectTestButton'>{{test.Name}}</option>\n              </select>\n            </td>\n          </tr>\n          <tr>\n            <th class='smallColumns'><label>URL</label></th>\n            <th class='bigColumns'><label>Test name</label></th>\n            <th class='bigColumns'><label>Interviewee</label></th>\n            <th class='smallColumns'><label>Number of runs</label></th>\n            <th class='bigColumns'><label>Allowed start date</label></th>\n            <th class='bigColumns'><label>Allowed end date</label></th>\n            <th class='smallColumns'></th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngIf='isShowAddTestUrl' class='testingUrlTableData'>\n            <td></td>\n            <td>{{selectedTest.Name}}</td>\n            <td></td>\n            <td></td>\n            <td>\n              <div class='input-group'>\n                <input name='startDateInput' type=\"date\" [(ngModel)]='allowedStartDate' required class='form-control'>\n                <input name='startTimeInput' type='time' class='form-control  input-sm' [(ngModel)]='allowedStartTime'\n                  required>\n              </div>\n            </td>\n            <td>\n              <div class='input-group'>\n                <input name='endDateInput' min=\"{{allowedStartDate}}\" class='form-control  input-sm' type=\"date\" [(ngModel)]='allowedEndDate'\n                  required='required'>\n                <input type='time' name='endTimeInput' class='form-control  input-sm' [(ngModel)]='allowedEndTime'\n                  required>\n\n              </div>\n            </td>\n            <td><button [disabled]='!createTestUrlForm.form.valid' name='createTestUrlButtonConfirm' (click)='createTestUrl()'>Confirm</button></td>\n          </tr>\n\n          <tr *ngFor='let testingUrl of testingUrlList' class='testingUrlTableData'>\n            <td><span (click)=\"copyLink(testingUrl)\">Copy link</span></td>\n            <td><label>{{testingUrl.TestName}}</label></td>\n            <td><label>{{testingUrl.Interviewee}}</label></td>\n            <td><label>{{testingUrl.NumberOfRuns}}</label></td>\n            <td><label>{{testingUrl.AllowedStartDate}}</label></td>\n            <td><label>{{testingUrl.AllowedEndDate}}</label></td>\n            <td><button type='button' (click)='removeTestingUrl(testingUrl.Guid)'>Delete</button></td>\n          </tr>\n        </tbody>\n\n      </table>\n    </div>\n  </form>\n<!-- <div id=\"snackbar\">Link copied succesfully</div> -->\n</div>"
 
 /***/ }),
 
@@ -951,6 +990,12 @@ var ManageTestingUrlComponent = /** @class */ (function () {
         selBox.select();
         document.execCommand('copy');
         document.body.removeChild(selBox);
+        var snackbar = document.getElementById("snackbar");
+        snackbar.innerHTML = "Link copied successfully";
+        snackbar.className = "show";
+        setTimeout(function () {
+            snackbar.className = snackbar.className.replace("show", "");
+        }, 3000);
     };
     ManageTestingUrlComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1084,7 +1129,7 @@ var ManageTestsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table{\r\n    margin: auto;\r\n    padding: 10px;\r\n    width: 60%;\r\n   \r\n}\r\n\r\n.infoTableRow td{\r\n    border: 1px black solid;\r\ntext-align: center;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFzc2luZy10ZXN0L3Bhc3NpbmctdGVzdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksYUFBYTtJQUNiLGNBQWM7SUFDZCxXQUFXOztDQUVkOztBQUVEO0lBQ0ksd0JBQXdCO0FBQzVCLG1CQUFtQjtDQUNsQiIsImZpbGUiOiJzcmMvYXBwL3Bhc3NpbmctdGVzdC9wYXNzaW5nLXRlc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxle1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICAgIHdpZHRoOiA2MCU7XHJcbiAgIFxyXG59XHJcblxyXG4uaW5mb1RhYmxlUm93IHRke1xyXG4gICAgYm9yZGVyOiAxcHggYmxhY2sgc29saWQ7XHJcbnRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4iXX0= */"
+module.exports = "table{\r\n    margin: auto;\r\n    padding: 10px;\r\n    width: 80%;\r\n   \r\n}\r\n\r\n.infoTableRow td{\r\n    border: 1px black solid;\r\ntext-align: center;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFzc2luZy10ZXN0L3Bhc3NpbmctdGVzdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksYUFBYTtJQUNiLGNBQWM7SUFDZCxXQUFXOztDQUVkOztBQUVEO0lBQ0ksd0JBQXdCO0FBQzVCLG1CQUFtQjtDQUNsQiIsImZpbGUiOiJzcmMvYXBwL3Bhc3NpbmctdGVzdC9wYXNzaW5nLXRlc3QuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxle1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICAgIHdpZHRoOiA4MCU7XHJcbiAgIFxyXG59XHJcblxyXG4uaW5mb1RhYmxlUm93IHRke1xyXG4gICAgYm9yZGVyOiAxcHggYmxhY2sgc29saWQ7XHJcbnRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -1095,7 +1140,7 @@ module.exports = "table{\r\n    margin: auto;\r\n    padding: 10px;\r\n    width
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h1 *ngIf='currentTest' style='text-align: center;'>{{currentTest.Name}}</h1>\n  <div *ngIf='isShowWelcome'>\n    <table *ngIf='currentTest'>\n      <tr class='infoTableRow'>\n        <td><label>Description: {{currentTest.Description}}</label></td>\n        <td><label>Time for test: {{currentTest.TestTimeLimit}}</label></td>\n        <td><label>Time per question: {{currentTest.QuestionTimeLimit}}</label></td>\n      </tr>\n      <tr style='text-align: center;'>\n        <td></td>\n        <td><button (click)='startTest()'>Start test</button></td>\n        <td></td>\n      </tr>\n    </table>\n  </div>\n  <div *ngIf='isShowTest'>\n    <div>\n      <label>Time left: {{timeLeft}}</label>\n    </div>\n    <h1 style='text-align: center;'>{{currentQuestion.Instance}}</h1>\n    <table class='table table-hover'>\n      <tr *ngFor='let answer of currentQuestion.Answers'>\n        <td><input type='radio' (click)='selectAnswer(answer)' name='isAnswerSelecter'></td>\n        <td>{{answer.Instance}}</td>\n      </tr>\n    </table>\n    <button style='margin-left: 50%;' (click)='nextQuestion()'>Next</button>\n  </div>\n  <div *ngIf='isShowResult'>\n      <table>\n        <tr>\n          <th>Total questions: {{testPassingResult.QuestionTried}} </th>\n          <th>Correct answers: {{testPassingResult.Score}}</th>\n          <th>Result: {{(testPassingResult.Score/testPassingResult.QuestionTried)*100}}%</th>\n        </tr>\n      </table>\n  </div>\n</div>"
+module.exports = "<div>\n  <h1 *ngIf='currentTest' style='text-align: center;'>{{currentTest.Name}}</h1>\n  <div *ngIf='isShowWelcome'>\n    <table *ngIf='currentTest'>\n      <tr class='infoTableRow'>\n        <td>\n          <div class=\"input-group-prepend\">\n            <span class='input-group-text'>Description </span>\n            <input type='text' [(ngModel)]='currentTest.Description' class=form-control style='text-align: left;' disabled=true>\n          </div>\n        </td>\n        <td>\n          <div class=\"input-group-prepend\">\n            <span class='input-group-text'>Interviewee </span>\n            <input type='text' class=form-control style='text-align: left;' [(ngModel)]='interviewee' >\n          </div>\n    \n        </td>\n\n\n        <td> <div class=\"input-group-prepend\">\n          <span class='input-group-text'>Time for test</span>\n          <input type='text' [(ngModel)]='currentTest.TestTimeLimit' class=form-control style='text-align: left;' disabled=true >\n        </div></td>\n        <td> <div class=\"input-group-prepend\">\n          <span class='input-group-text'>Time per question </span>\n          <input type='text' [(ngModel)]='currentTest.QuestionTimeLimit' class=form-control style='text-align: left;' disabled=true>\n        </div></td>\n      </tr>\n      <tr style='text-align: center;'>\n        <td></td>\n        <td><button (click)='startTest()' [ngClass]='interviewee.length>0 ? \"btn btn-success\" : \"btn\"' [disabled]=\"interviewee.length<=0\">Start\n            test</button></td>\n        <td></td>\n      </tr>\n    </table>\n  </div>\n  <div *ngIf='isShowTest'>\n    <div>\n      <label>Time left: {{timeLeft}}</label>\n    </div>\n    <h1 style='text-align: center;'>{{currentQuestion.Instance}}</h1>\n    <table class='table table-hover'>\n      <tr *ngFor='let answer of currentQuestion.Answers'>\n        <td *ngIf='!isMultipleAnswers'><input type='radio' (click)='selectAnswer(answer)'  name='isAnswerSelecter'></td>\n        <td *ngIf='isMultipleAnswers'><input type='checkbox' (click)='selectMultipleAnswers(answer)'  name='isAnswerSelecter'></td>\n        <td>{{answer.Instance}}</td>\n      </tr>\n    </table>\n    <button style='margin-left: 50%;' (click)='nextQuestion()'>Next</button>\n  </div>\n  <div *ngIf='isShowResult'>\n    <table>\n      <tr>\n        <th>Total questions: {{result.QuestionTried}} </th>\n        <th>Result: {{result.Score*100|number:\"2.1\"}}%</th>\n      </tr>\n    </table>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1142,6 +1187,8 @@ var PassingTestComponent = /** @class */ (function () {
         this.isShowResult = false;
         this.testPassingResult = new src_assets_Models_QuizPassing_TestPassingViewModel__WEBPACK_IMPORTED_MODULE_4__["TestPassingViewModel"]();
         this.duration = 0;
+        this.interviewee = "";
+        this.multipleAnswers = [];
     }
     PassingTestComponent.prototype.startTest = function () {
         var _this = this;
@@ -1159,6 +1206,7 @@ var PassingTestComponent = /** @class */ (function () {
                 _this.currentQuestion = _this.currentTest.Questions[_this.currentQuestionIndex];
                 _this.http.GetAnswersByQuestionGuid(_this.currentQuestion.Guid).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (answers) {
                     _this.currentQuestion.Answers = answers;
+                    _this.isMultipleAnswers = _this.isMultiple(_this.currentQuestion);
                     _this.timeLeft = Number.parseInt(_this.currentTest.QuestionTimeLimit.split(':')[0]) * 3600 +
                         Number.parseInt(_this.currentTest.QuestionTimeLimit.split(':')[1]) * 60 +
                         Number.parseInt(_this.currentTest.QuestionTimeLimit.split(':')[2]);
@@ -1190,24 +1238,52 @@ var PassingTestComponent = /** @class */ (function () {
         //   })).subscribe();
         // }
     };
+    // selectAnswer(answer: AnswerViewModel) {
+    //   this.selectedAnswer = answer;
+    // }
+    PassingTestComponent.prototype.selectMultipleAnswers = function (answer) {
+        for (var i = 0; i < this.multipleAnswers.length; i++) {
+            if (this.multipleAnswers[i].Guid == answer.Guid) {
+                this.multipleAnswers.splice(this.multipleAnswers.indexOf(answer));
+                return;
+            }
+        }
+        this.multipleAnswers.push(answer);
+    };
     PassingTestComponent.prototype.selectAnswer = function (answer) {
         this.selectedAnswer = answer;
     };
     PassingTestComponent.prototype.nextQuestion = function () {
         var _this = this;
-        if (this.currentQuestionIndex < (this.currentTest.Questions.length - 1)) {
-            this.duration += this.timePerQuestion - this.timeLeft;
-            var choise = new src_assets_Models_QuizPassing_ChoicePassingViewModel__WEBPACK_IMPORTED_MODULE_6__["ChoicePassingViewModel"]();
-            choise.QuestionGuid = this.currentTest.Questions[this.currentQuestionIndex].Guid;
-            choise.AnswersSelected = [];
+        clearInterval(this.interval);
+        this.testPassingResult.QuestionTried += 1;
+        var choise = new src_assets_Models_QuizPassing_ChoicePassingViewModel__WEBPACK_IMPORTED_MODULE_6__["ChoicePassingViewModel"]();
+        choise.QuestionGuid = this.currentTest.Questions[this.currentQuestionIndex].Guid;
+        choise.AnswersSelected = [];
+        this.duration += this.timePerQuestion - this.timeLeft;
+        if (this.isMultipleAnswers) {
+            for (var i = 0; i < this.multipleAnswers.length; i++) {
+                choise.AnswersSelected.push(this.multipleAnswers[i].Guid);
+            }
+        }
+        else {
             if (this.selectedAnswer) {
                 choise.AnswersSelected.push(this.selectedAnswer.Guid);
             }
-            this.testPassingResult.Questions.push(choise);
+        }
+        this.testPassingResult.Questions.push(choise);
+        if (this.currentQuestionIndex < (this.currentTest.Questions.length - 1)) {
+            // let choise:ChoicePassingViewModel = new ChoicePassingViewModel();
+            // choise.QuestionGuid = this.currentTest.Questions[this.currentQuestionIndex].Guid;
+            // choise.AnswersSelected = [];
+            // if (this.selectedAnswer) {
+            //   choise.AnswersSelected.push(this.selectedAnswer.Guid);
+            // }
+            // this.testPassingResult.Questions.push(choise);
             this.currentQuestionIndex++;
             this.currentQuestion = this.currentTest.Questions[this.currentQuestionIndex];
-            this.testPassingResult.QuestionTried += 1;
-            clearInterval(this.interval);
+            this.isMultipleAnswers = this.isMultiple(this.currentQuestion);
+            // this.testPassingResult.QuestionTried += 1;
             this.interval = setInterval(function () {
                 if (_this.timeLeft > 0) {
                     _this.timeLeft--;
@@ -1219,24 +1295,16 @@ var PassingTestComponent = /** @class */ (function () {
             this.timeLeft = Number.parseInt(this.currentTest.QuestionTimeLimit.split(':')[0]) * 3600 +
                 Number.parseInt(this.currentTest.QuestionTimeLimit.split(':')[1]) * 60 +
                 Number.parseInt(this.currentTest.QuestionTimeLimit.split(':')[2]);
-            if (this.selectedAnswer !== null) {
-                if (this.selectedAnswer.IsCorrect) {
-                    this.testPassingResult.Score++;
-                    this.selectedAnswer = null;
-                }
-            }
+            // if (this.selectedAnswer !== null) {
+            //   if (this.selectedAnswer.IsCorrect) {
+            //     this.testPassingResult.Score++;
+            //     this.selectedAnswer = null;
+            //   }
+            // }
         }
         else {
-            clearInterval(this.interval);
-            this.testPassingResult.QuestionTried += 1;
-            var choise = new src_assets_Models_QuizPassing_ChoicePassingViewModel__WEBPACK_IMPORTED_MODULE_6__["ChoicePassingViewModel"]();
-            choise.QuestionGuid = this.currentTest.Questions[this.currentQuestionIndex].Guid;
-            choise.AnswersSelected = [];
-            if (this.selectedAnswer) {
-                choise.AnswersSelected.push(this.selectedAnswer.Guid);
-            }
-            this.testPassingResult.Questions.push(choise);
-            this.duration += this.timePerQuestion - this.timeLeft;
+            //   clearInterval(this.interval);
+            //    this.duration += this.timePerQuestion - this.timeLeft;
             if (this.duration < 60) {
                 var stringDuration = "00:00:" + this.duration.toString();
             }
@@ -1246,9 +1314,22 @@ var PassingTestComponent = /** @class */ (function () {
             this.testPassingResult.Duration = stringDuration;
             this.isShowTest = false;
             this.isShowResult = true;
+            this.testPassingResult.Interviewee = this.interviewee;
             this.testPassingResult.TestingEndDateTime = new Date().toISOString();
-            this.http.finishTest(this.testPassingResult).subscribe();
+            this.http.finishTest(this.testPassingResult).subscribe(function () {
+                _this.http.getAllTestResults().subscribe(function (x) { return _this.result = x.pop(); });
+            });
+            // this.http.getAllTestResults().subscribe((x: TestingResultViewModel[]) => this.result = x.pop());
         }
+    };
+    PassingTestComponent.prototype.isMultiple = function (_question) {
+        var temp = 0;
+        for (var i = 0; i < _question.Answers.length; i++) {
+            if (_question.Answers[i].IsCorrect) {
+                temp++;
+            }
+        }
+        return temp > 1 ? true : false;
     };
     PassingTestComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1400,6 +1481,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpService", function() { return HttpService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1411,24 +1494,39 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var HttpService = /** @class */ (function () {
     function HttpService(http) {
         this.http = http;
     }
     //Login Page methods
     HttpService.prototype.Login = function (Login, Password) {
+        var _this = this;
         var body = { Username: Login, Password: Password };
-        return this.http.post('http://localhost:53029/Account/Login/', body);
+        return this.http.post('http://localhost:53029/Account/Login/', body).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     //Admin page methods
     HttpService.prototype.GetAllTests = function () {
-        return this.http.get('http://localhost:53029/Admin/GetAllTests/');
+        var _this = this;
+        return this.http.get('http://localhost:53029/Admin/GetAllTests/').catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.GetAnswersByQuestionGuid = function (questionGuid) {
+        var _this = this;
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]().set('questionGuid', questionGuid);
-        return this.http.get('http://localhost:53029/Apilike/GetAnswersByQuestionGuid/', { params: params });
+        return this.http.get('http://localhost:53029/Apilike/GetAnswersByQuestionGuid/', { params: params }).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.CreateAnswer = function (_questionGuid, _answer) {
+        var _this = this;
         var body = {
             questionGuid: _questionGuid, answer: {
                 Instance: _answer.Instance,
@@ -1436,9 +1534,13 @@ var HttpService = /** @class */ (function () {
                 Guid: null
             }
         };
-        return this.http.post('http://localhost:53029/Apilike/CreateAnswer/', body);
+        return this.http.post('http://localhost:53029/Apilike/CreateAnswer/', body).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.createQuestion = function (_testGuid, _question) {
+        var _this = this;
         var body = {
             testGuid: _testGuid,
             question: {
@@ -1448,15 +1550,27 @@ var HttpService = /** @class */ (function () {
                 IsValid: false
             }
         };
-        return this.http.post('http://localhost:53029/Apilike/CreateQuestion/', body);
+        return this.http.post('http://localhost:53029/Apilike/CreateQuestion/', body).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.removeQuestion = function (_testGuid, _questionGuid) {
-        return this.http.post('http://localhost:53029/Apilike/RemoveQuestion/', { testGuid: _testGuid, questionGuid: _questionGuid });
+        var _this = this;
+        return this.http.post('http://localhost:53029/Apilike/RemoveQuestion/', { testGuid: _testGuid, questionGuid: _questionGuid }).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.removeAnswer = function (_answerGuid) {
-        return this.http.post('http://localhost:53029/Apilike/RemoveAnswer', { answerGuid: _answerGuid });
+        var _this = this;
+        return this.http.post('http://localhost:53029/Apilike/RemoveAnswer', { answerGuid: _answerGuid }).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.updateQuestion = function (_question) {
+        var _this = this;
         var body = {
             questionGuid: _question.Guid,
             question: {
@@ -1466,13 +1580,21 @@ var HttpService = /** @class */ (function () {
                 Guid: _question.Guid
             }
         };
-        return this.http.post('http://localhost:53029/Apilike/UpdateQuestion/', body);
+        return this.http.post('http://localhost:53029/Apilike/UpdateQuestion/', body).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.getTestByTestingUrlGuid = function (_testingUrlGuid) {
+        var _this = this;
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]().set('testingUrlGuid', _testingUrlGuid);
-        return this.http.get('http://localhost:53029/Apilike/GetTestByTestingUrlGuid/', { params: params });
+        return this.http.get('http://localhost:53029/Apilike/GetTestByTestingUrlGuid/', { params: params }).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.createTest = function (_test) {
+        var _this = this;
         var body = {
             test: {
                 Name: _test.Name,
@@ -1484,17 +1606,29 @@ var HttpService = /** @class */ (function () {
                 IsValid: null
             }
         };
-        return this.http.post('http://localhost:53029/Apilike/CreateTest/', body);
+        return this.http.post('http://localhost:53029/Apilike/CreateTest/', body).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.removeTest = function (_testGuid) {
+        var _this = this;
         return this.http.post('http://localhost:53029/Apilike/RemoveTest/', {
             testGuid: _testGuid
+        }).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
         });
     };
     HttpService.prototype.getAllTestingUrls = function () {
-        return this.http.get('http://localhost:53029/Admin/GetAllTestingUrls/');
+        var _this = this;
+        return this.http.get('http://localhost:53029/Admin/GetAllTestingUrls/').catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.updateTest = function (_testGuid, _test) {
+        var _this = this;
         var body = {
             testGuid: _testGuid,
             test: {
@@ -1507,9 +1641,13 @@ var HttpService = /** @class */ (function () {
                 IsValid: null
             }
         };
-        return this.http.post('http://localhost:53029/Apilike/UpdateTest/', body);
+        return this.http.post('http://localhost:53029/Apilike/UpdateTest/', body).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.createTestingUrl = function (_testingUrl) {
+        var _this = this;
         var body = {
             testingUrl: {
                 UrlInstance: _testingUrl.UrlInstance,
@@ -1522,23 +1660,43 @@ var HttpService = /** @class */ (function () {
                 AllowedEndDate: _testingUrl.AllowedEndDate
             }
         };
-        return this.http.post('http://localhost:53029/Apilike/CreateTestingUrl/', body);
+        return this.http.post('http://localhost:53029/Apilike/CreateTestingUrl/', body).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.removeTestingUrl = function (_testingUrlGuid) {
-        return this.http.post('http://localhost:53029/Apilike/RemoveTestingUrl/', { testingUrlGuid: _testingUrlGuid });
+        var _this = this;
+        return this.http.post('http://localhost:53029/Apilike/RemoveTestingUrl/', { testingUrlGuid: _testingUrlGuid }).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.getQuestionsByTestGuid = function (testGuid) {
+        var _this = this;
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]().set('testGuid', testGuid);
-        return this.http.get('http://localhost:53029/Apilike/GetQuestionsByTestGuid/', { params: params });
+        return this.http.get('http://localhost:53029/Apilike/GetQuestionsByTestGuid/', { params: params }).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.getInfoAndStartTest = function (testingUrlGuid) {
+        var _this = this;
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]().append('testingUrlGuid', testingUrlGuid);
-        return this.http.get('http://localhost:53029/Quiz/GetInfoAndStartTest', { params: params });
+        return this.http.get('http://localhost:53029/Quiz/GetInfoAndStartTest', { params: params }).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.getAllTestResults = function () {
-        return this.http.get("http://localhost:53029/Admin/GetAllTestingResults");
+        var _this = this;
+        return this.http.get("http://localhost:53029/Admin/GetAllTestingResults").catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
     };
     HttpService.prototype.finishTest = function (result) {
+        var _this = this;
         var body = {
             testPassing: {
                 Guid: result.Guid,
@@ -1550,10 +1708,40 @@ var HttpService = /** @class */ (function () {
                 QuestionsTried: result.QuestionTried.toString(),
                 Score: result.Score,
                 AttemptGuid: result.AttemptGuid,
-                Questions: JSON.stringify(result.Questions)
+                Questions: result.Questions
             }
         };
-        return this.http.post('http://localhost:53029/Quiz/FinishTest', body);
+        return this.http.post('http://localhost:53029/Quiz/FinishTest', body).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
+    };
+    HttpService.prototype.login = function (_username, _password) {
+        var _this = this;
+        var body = {
+            'username': _username,
+            'password': _password,
+        };
+        return this.http.post("http://localhost:53029/Account/Login", body, { withCredentials: true }).catch(function (err) {
+            _this.errorCheck(err);
+            return new rxjs__WEBPACK_IMPORTED_MODULE_3__["Observable"]();
+        });
+    };
+    HttpService.prototype.errorCheck = function (err) {
+        var snackbar = document.getElementById("snackbar");
+        if (err.status == 404) {
+            snackbar.innerHTML = "Sorry, we cannot found what you are looking for";
+        }
+        else if (err.status == 500) {
+            snackbar.innerHTML = "Sorry, smth goes wrong. Try again or ask your administrator";
+        }
+        else {
+            snackbar.innerHTML = err.message;
+        }
+        snackbar.className = "show";
+        setTimeout(function () {
+            snackbar.className = snackbar.className.replace("show", " ");
+        }, 3000);
     };
     HttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1575,7 +1763,7 @@ var HttpService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Rlc3RpbmctcmVzdWx0cy90ZXN0aW5nLXJlc3VsdHMuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "table{\r\n    width:80%;\r\n    margin:auto;\r\n\r\nmax-height: 500px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGVzdGluZy1yZXN1bHRzL3Rlc3RpbmctcmVzdWx0cy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksVUFBVTtJQUNWLFlBQVk7O0FBRWhCLGtCQUFrQjtDQUNqQiIsImZpbGUiOiJzcmMvYXBwL3Rlc3RpbmctcmVzdWx0cy90ZXN0aW5nLXJlc3VsdHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxle1xyXG4gICAgd2lkdGg6ODAlO1xyXG4gICAgbWFyZ2luOmF1dG87XHJcblxyXG5tYXgtaGVpZ2h0OiA1MDBweDtcclxufSJdfQ== */"
 
 /***/ }),
 
@@ -1586,7 +1774,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <table class='table'>\n<thead>\n  <th>Test name</th>\n  <th>Interviewee</th>\n  <th>Duration</th>\n  <th>Score</th>\n</thead>\n<tbody>\n  <tr *ngFor='let result of testingResults'>\n<td>{{result.TestName}}</td>\n<td>{{result.Interviewee}}</td>\n<td>{{result.Duration}}</td>\n<td>{{result.Score}}</td>\n  </tr>\n</tbody>\n  </table>\n</div>\n"
+module.exports = "<div>\n  <div>\n      <table class='table' >\n          <thead>\n            <th>Test name</th>\n            <th>Interviewee</th>\n            <th>Duration</th>\n            <th>Score</th>\n          </thead>\n            </table>\n  </div>\n \n  <div style='height: 500px;overflow:auto; width:80%;margin: auto;' >\n    <table class='table' style='width: 100%'>\n      <tbody>\n        <tr *ngFor='let result of testingResults'>\n      <td style='width:30%'>{{result.TestName}}</td>\n      <td style='width:28%'>{{result.Interviewee}}</td>\n      <td style='width:25%'>{{result.Duration}}</td>\n      <td style='width:25%'>{{result.Score|number:\"2.1\"}}</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n \n</div>\n"
 
 /***/ }),
 

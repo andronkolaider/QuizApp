@@ -40,20 +40,24 @@ export class LoginComponent implements OnInit {
 }
 
   ngOnInit() {
-    if (sessionStorage.getItem('login')) {
+    if (sessionStorage.getItem('login') != "") {
       var user = sessionStorage.getItem('login');
       this.CurrentUser.Username = user;
-      this.IsLoginSuccessfull = true;
+
       if (user === 'admin') {
+        this.IsLoginSuccessfull = true;
         this.IsAdmin = true;
         this.sendIsAdmin();
         if (this.IsAdmin == true) {
-          this.router.navigate(['admin-panel']);
+          if (sessionStorage.getItem("redirected") == "") {
+            sessionStorage.setItem("redirected", "true");
+            this.router.navigate(['admin-panel']);
+          }
+
         }
       }
       else {
         this.sendUser();
-        this.router.navigate(['user-panel/']);
       }
     }
   }
@@ -69,7 +73,7 @@ export class LoginComponent implements OnInit {
     this.isUser = false;
     this.sendIsUser();
     sessionStorage.clear();
-
+    sessionStorage.setItem("redirected", "");
     document.cookie = "adminCookie= ";
 
     this.location.go('');
@@ -85,10 +89,12 @@ export class LoginComponent implements OnInit {
         this.CurrentUser.Password = x["password"];
       //  var cookies= document.cookie.split(";");
         if (document.cookie.includes("adminCookie=admin")) {
+          sessionStorage.setItem("login", x["username"]);
           this.IsAdmin = true;
           this.IsLoginSuccessfull = true;
           this.sendIsAdmin();
-           if (this.IsAdmin == true) {
+          if (this.IsAdmin == true) {
+            sessionStorage.setItem("redirected", "true");
             this.router.navigate(['admin-panel']);
            }
         }

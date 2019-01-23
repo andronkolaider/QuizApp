@@ -88,6 +88,12 @@ export class ManageTestingUrlComponent implements OnInit {
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
+    var snackbar = document.getElementById("snackbar");
+    snackbar.innerHTML = "Link copied successfully";
+    snackbar.className = "show";
+    setTimeout(() => {
+      snackbar.className = snackbar.className.replace("show", "");
+    }, 3000);
   }
 
 }
