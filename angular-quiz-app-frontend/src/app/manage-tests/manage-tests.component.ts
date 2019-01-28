@@ -26,7 +26,7 @@ export class ManageTestsComponent implements OnInit {
   removeTest(_test:TestViewModel) {
     this.http.removeTest(_test.Guid).subscribe((x: boolean) => {
       if (x === true) {
-        this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
+        this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
       }
     });
 }
@@ -57,7 +57,7 @@ export class ManageTestsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
+    this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
   }
 
 }

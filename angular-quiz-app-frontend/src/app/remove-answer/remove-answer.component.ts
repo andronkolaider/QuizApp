@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
 import { QuestionViewModel } from '../../assets/Models/Managing/QuestionViewModel';
 import { AnswerViewModel } from '../../assets/Models/Managing/AnswerViewModel';
@@ -17,8 +17,6 @@ export class RemoveAnswerComponent implements OnInit {
  isShowTestQuestions: boolean = false;
   selectedQuestion:QuestionViewModel;
  selectedQuestionAnswers: AnswerViewModel[];
-  _instance: string;
-  _isCorrect: boolean;
   constructor(private http:HttpService) { }
 
   selectedQuestionGetAnswers(question: QuestionViewModel)
@@ -42,7 +40,7 @@ export class RemoveAnswerComponent implements OnInit {
 
   GetAllTests()
   {
-    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
+    this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
   }
 
   removeAnswer(_answerGuid: string)

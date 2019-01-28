@@ -45,7 +45,7 @@ export class ManageTestingUrlComponent implements OnInit {
           this.testingUrlList[i].UrlInstance = 'http://localhost:4200/test-passing/' + this.testingUrlList[i].Guid;
         }
       });
-      this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
+      this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
     });
   }
   
@@ -73,7 +73,7 @@ export class ManageTestingUrlComponent implements OnInit {
         this.testingUrlList[i].UrlInstance = 'localhost:4200/test-passing/' + this.testingUrlList[i].Guid;
       }
     });
-    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);  
+    this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);  
   }
 
   copyLink(_testingUrl:TestingUrlViewModel) {

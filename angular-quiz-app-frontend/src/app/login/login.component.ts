@@ -4,8 +4,7 @@ import { LoginViewModel } from '../../assets/Models/LoginViewModel'
 import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
 import { Location } from '@angular/common'
 import { Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
-import * as jwt_decode from "jwt-decode";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,22 +12,21 @@ import * as jwt_decode from "jwt-decode";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpService, private router: Router,private location:Location,private title:Title) { }
+  constructor(private http: HttpService, private router: Router,private location:Location) { }
 
-  CurrentUser: LoginViewModel = { Username: '', Password: '' };
-  LoginInput: string;
-  PasswordInput: string;
-  IsLoginSuccessfull: boolean = false;
-  IsAdmin: boolean = false;
+  currentUser: LoginViewModel = { Username: '', Password: '' };
+  loginInput: string;
+  passwordInput: string;
+  isLoginSuccessfull: boolean = false;
+  isAdmin: boolean = false;
   isUser: boolean = false;
-  tokentInfo;
-  @Output() IsAdminEvent = new EventEmitter<boolean>();
+  @Output() isAdminEvent = new EventEmitter<boolean>();
   @Output() isUserEvent = new EventEmitter<boolean>();
   @Output() currentUserEvent = new EventEmitter<LoginViewModel>();
-  Tests: TestViewModel[] = [];
+  tests: TestViewModel[] = [];
 
-  sendIsAdmin() {
-    this.IsAdminEvent.emit(this.IsAdmin);
+  sendisAdmin() {
+    this.isAdminEvent.emit(this.isAdmin);
   }
 
   sendIsUser() {
@@ -36,24 +34,22 @@ export class LoginComponent implements OnInit {
   }
 
   sendUser() {
-    this.currentUserEvent.emit(this.CurrentUser);
+    this.currentUserEvent.emit(this.currentUser);
 }
 
   ngOnInit() {
     if (sessionStorage.getItem('login') != "") {
       var user = sessionStorage.getItem('login');
-      this.CurrentUser.Username = user;
-
+      this.currentUser.Username = user;
       if (user === 'admin') {
-        this.IsLoginSuccessfull = true;
-        this.IsAdmin = true;
-        this.sendIsAdmin();
-        if (this.IsAdmin == true) {
+        this.isLoginSuccessfull = true;
+        this.isAdmin = true;
+        this.sendisAdmin();
+        if (this.isAdmin == true) {
           if (sessionStorage.getItem("redirected") == "") {
             sessionStorage.setItem("redirected", "true");
             this.router.navigate(['admin-panel']);
           }
-
         }
       }
       else {
@@ -62,42 +58,41 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  Logout() {
-    this.IsLoginSuccessfull = false;
-    this.IsAdmin = false;
-    this.CurrentUser.Username = '';
-    this.CurrentUser.Password = '';
-    this.LoginInput = '';
-    this.PasswordInput = '';
-    this.sendIsAdmin();
+  logout() {
+    this.isLoginSuccessfull = false;
+    this.isAdmin = false;
+    this.currentUser.Username = '';
+    this.currentUser.Password = '';
+    this.loginInput = '';
+    this.passwordInput = '';
+    this.sendisAdmin();
     this.isUser = false;
     this.sendIsUser();
     sessionStorage.clear();
     sessionStorage.setItem("redirected", "");
     document.cookie = "adminCookie= ";
-
     this.location.go('');
-  
-  
   }
 
-  Login(LoginInput, PasswordInput) {
+  login(loginInput, passwordInput) {
   
 
-      this.http.Login(LoginInput, PasswordInput).subscribe((x) => {
-        this.CurrentUser.Username = x["username"];
-        this.CurrentUser.Password = x["password"];
-      //  var cookies= document.cookie.split(";");
+    this.http.login(loginInput, passwordInput).subscribe((x) => {
+      if (x != null) {
+        this.currentUser.Username = x["username"];
+        this.currentUser.Password = x["password"];
         if (document.cookie.includes("adminCookie=admin")) {
           sessionStorage.setItem("login", x["username"]);
-          this.IsAdmin = true;
-          this.IsLoginSuccessfull = true;
-          this.sendIsAdmin();
-          if (this.IsAdmin == true) {
+          this.isAdmin = true;
+          this.isLoginSuccessfull = true;
+          this.sendisAdmin();
+          if (this.isAdmin == true) {
             sessionStorage.setItem("redirected", "true");
             this.router.navigate(['admin-panel']);
            }
         }
+        }
+
       });
 
 

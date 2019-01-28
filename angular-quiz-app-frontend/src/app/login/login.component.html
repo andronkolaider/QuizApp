@@ -1,10 +1,10 @@
-<form #loginForm='ngForm' *ngIf='!IsLoginSuccessfull'>
+<form #loginForm='ngForm' *ngIf='!isLoginSuccessfull'>
   <div class='input-group input-group-sm'>
     <div class="input-group-prepend" style='margin-left: 5px;'>
       <span class='input-group-text'>Login: </span>
     </div>
    
-      <input required name='login' type='text' class='form-control' placeholder="Login" [(ngModel)]='LoginInput'
+      <input required name='login' type='text' class='form-control' placeholder="Login" [(ngModel)]='loginInput'
         tabindex='1'>
    
     <div class="input-group-prepend" style='margin-left: 5px;'>
@@ -12,19 +12,19 @@
     </div>
 
   
-      <input name='password' class='form-control' type='password' placeholder="Password" [(ngModel)]='PasswordInput'
+      <input name='password' class='form-control' type='password' placeholder="Password" [(ngModel)]='passwordInput'
         tabindex='2' required>
 
 
-      <input style='margin-left: 5px; margin-right: 5px;' [disabled]='!loginForm.form.valid' type='button' (click)='Login(LoginInput,PasswordInput)' tabindex='3' id='loginButton'
+      <input style='margin-left: 5px; margin-right: 5px;' [disabled]='!loginForm.form.valid' type='button' (click)='login(loginInput,passwordInput)' tabindex='3' id='loginButton'
         [ngClass]="loginForm.form.valid ? 'btn btn-sm btn-success ' : 'btn btn-sm btn-default '" value='Log in'>
 
   </div>
 </form>
-<div *ngIf='IsLoginSuccessfull' class='input-group input-group-sm'>
+<div *ngIf='isLoginSuccessfull' class='input-group input-group-sm'>
   <div class="input-group-prepend">
 <span class='input-group-text'>Current user: </span>
   </div>
-  <input type='text' style='text-align: right;' [(ngModel)]='CurrentUser.Username' disabled=true>
-  <button class='btn btn-warning btn-sm' style='margin-left:5px;' type='submit' (click)='Logout()' [routerLink]="['../']">Log out</button>
+  <input type='text' style='text-align: right;' [(ngModel)]='currentUser.Username' disabled=true>
+  <button class='btn btn-warning btn-sm' style='margin-left:5px;' type='submit' (click)='logout()' [routerLink]="['../']">Log out</button>
 </div>

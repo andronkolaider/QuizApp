@@ -1,8 +1,7 @@
-import { Component, OnInit, Output, Input, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { QuestionViewModel } from '../../assets/Models/Managing/QuestionViewModel';
 import { AnswerViewModel } from '../../assets/Models/Managing/AnswerViewModel';
 import { HttpService } from '../services/http/http.service';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,16 +9,13 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './create-answer.component.html',
   styleUrls: ['./create-answer.component.css']
 })
-export class CreateAnswerComponent implements OnInit, OnChanges {
-  //  testsList: TestViewModel[];
+export class CreateAnswerComponent implements OnInit {
   @Input()
   selectedQuestion!: QuestionViewModel;
     answersList: AnswerViewModel[];
-  //  selectedTest: TestViewModel;
-  // isShowTestQuestions: boolean = false;
   newAnswer: AnswerViewModel;
-  _instance: string;
-  _isCorrect: boolean;
+  instance: string;
+  isCorrect: boolean;
   @Input() isShowAddAnswerDiv!: boolean;
   questionGuid: string;
   testGuid: string;
@@ -31,37 +27,17 @@ export class CreateAnswerComponent implements OnInit, OnChanges {
     
   }
 
-  // isShowTestQuestionsValueChange(test:TestViewModel)
-  // {
-  //   if (this.isShowTestQuestions == false)
-  //   {
-  //     this.isShowTestQuestions = true;
-  //   }
-  //   this.selectedTest = test;
-  // }
-
-  // selectedQuestionGetAnswers(question: QuestionViewModel)
-  // {
-  //   this.selectedQuestion = question;
-  //   this.selectedQuestionAnswers = question.Answers;
-  // }
-
-  // GetAllTests()
-  // {
-  //   this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
-  // }
-
   CreateAnswer() {
     this.newAnswer = new AnswerViewModel();
     var actionResult;
-    this.newAnswer.Instance = this._instance;
-    this.newAnswer.IsCorrect = this._isCorrect;
-    this.http.CreateAnswer(this.selectedQuestion.Guid, this.newAnswer).subscribe((x: boolean) => {
+    this.newAnswer.Instance = this.instance;
+    this.newAnswer.IsCorrect = this.isCorrect;
+    this.http.createAnswer(this.selectedQuestion.Guid, this.newAnswer).subscribe((x: boolean) => {
       actionResult = x;
       if (actionResult == true) {
         this.selectedQuestion.Answers.push(this.newAnswer);
-        this._instance = '';
-        this._isCorrect = null;
+        this.instance = '';
+        this.isCorrect = null;
       }
     });
 
@@ -87,8 +63,6 @@ export class CreateAnswerComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // this.GetAllTests();
-    //  this.selectedQuestionAnswers = this.selectedQuestion.Answers;
     this.route.params.subscribe(params => {
       this.testGuid = params['testGuid'];
       this.questionGuid = params['questionGuid'];
@@ -98,20 +72,11 @@ export class CreateAnswerComponent implements OnInit, OnChanges {
             this.selectedQuestion = x[i];
           }
         }
-        this.http.GetAnswersByQuestionGuid(this.selectedQuestion.Guid).subscribe((x: AnswerViewModel[]) => {
+        this.http.getAnswersByQuestionGuid(this.selectedQuestion.Guid).subscribe((x: AnswerViewModel[]) => {
           this.selectedQuestion.Answers = x;
         });
       });
     });
  
   }
-
-  ngOnChanges(changes: SimpleChanges) {
-    // if (changes.selectedQuestion) {
-    //   this.selectedQuestion = changes.selectedQuestion.currentValue;
-
-    //   this.selectedQuestionAnswers = changes.selectedQuestionAnswers.currentValue;
-    // }
-  }
-
 }

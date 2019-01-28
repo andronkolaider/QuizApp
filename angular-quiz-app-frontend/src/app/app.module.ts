@@ -10,7 +10,7 @@ import { CreateAnswerComponent } from './create-answer/create-answer.component';
 import { RemoveAnswerComponent } from './remove-answer/remove-answer.component';
 import { GetQuestionsByTestComponent } from './get-questions-by-test/get-questions-by-test.component';
 import { CreateQuestionComponent } from './create-question/create-question.component'
-import { RouterModule, RouterLinkActive } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { PassingTestComponent } from './passing-test/passing-test.component';
 import { UpdateQuestionComponent } from './update-question/update-question.component';

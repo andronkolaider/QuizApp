@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
 import { HttpService } from '../services/http/http.service';
-import { LoginViewModel } from 'src/assets/Models/LoginViewModel';
-import { Router, ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-panel',
@@ -16,7 +13,7 @@ export class UserPanelComponent implements OnInit {
   selectedTest: TestViewModel;
   isTestStarted: boolean = false;
   currentUserName: string;
-  constructor(private http: HttpService,private router:Router,private route:ActivatedRoute,private location:Location) { }
+  constructor(private http: HttpService,private router:Router) { }
 
   ngOnInit() {
     this.getAllTests();
@@ -28,20 +25,10 @@ export class UserPanelComponent implements OnInit {
     sessionStorage.setItem('testGuid', this.selectedTest.Guid);
     sessionStorage.setItem('username', this.currentUserName);
     this.router.navigate(['test-passing']);
-
-  //  console.log(this.router.events);
-
-
-   // this.location.replaceState('UserPanel/TestPassing');
   }
 
-  // selectTest(_test: TestViewModel) {
-  //   this.selectedTest = _test;
- 
-  // }
-
   getAllTests() {
-    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
+    this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
   }
 
 }

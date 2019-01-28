@@ -8,7 +8,7 @@ import { HttpService } from '../services/http/http.service';
 })
 export class AdminPanelComponent implements OnInit {
 
-  constructor(private http: HttpService) { 
+  constructor() { 
     
   }
   adminSelection: number;

@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class HttpService {
   constructor(private http: HttpClient) { }
   //Login Page methods
-  Login(Login: string, Password: string) {
+  login(Login: string, Password: string) {
     const body = { Username: Login, Password: Password };
     return this.http.post('http://localhost:53029/Account/Login/', body).catch((err: HttpErrorResponse) => {
       this.errorCheck(err);
@@ -21,14 +21,14 @@ export class HttpService {
     });
   }
   //Admin page methods
-  GetAllTests() {
+  getAllTests() {
     return this.http.get('http://localhost:53029/Admin/GetAllTests/').catch((err: HttpErrorResponse) => {
       this.errorCheck(err);
       return new Observable<any>();
     });
   }
 
-  GetAnswersByQuestionGuid(questionGuid: string) {
+  getAnswersByQuestionGuid(questionGuid: string) {
     const params = new HttpParams().set('questionGuid', questionGuid);
     return this.http.get('http://localhost:53029/Apilike/GetAnswersByQuestionGuid/', { params }).catch((err: HttpErrorResponse) => {
       this.errorCheck(err);
@@ -36,7 +36,7 @@ export class HttpService {
     });
   }
 
-  CreateAnswer(_questionGuid: string, _answer: AnswerViewModel) {
+  createAnswer(_questionGuid: string, _answer: AnswerViewModel) {
     let body = {
       questionGuid: _questionGuid, answer: {
         Instance: _answer.Instance,
@@ -191,6 +191,7 @@ export class HttpService {
     });
   }
 
+/*TEST PASSING METHODS*/
   getInfoAndStartTest(testingUrlGuid: string) {
     const params = new HttpParams().append('testingUrlGuid', testingUrlGuid);
     return this.http.get('http://localhost:53029/Quiz/GetInfoAndStartTest', { params }).catch((err: HttpErrorResponse) => {
@@ -207,7 +208,6 @@ export class HttpService {
   }
 
   finishTest(result: TestPassingViewModel) {
-
     const body = {
       testPassing: {
         Guid: result.Guid,
@@ -229,19 +229,8 @@ export class HttpService {
     });
   }
 
-  login(_username: string, _password: string) {
-    const body = {
-      'username': _username,
-      'password': _password,
-    };
- return this.http.post("http://localhost:53029/Account/Login",body,{withCredentials:true}).catch((err: HttpErrorResponse) => {
-  this.errorCheck(err);
-  return new Observable<any>();
-});
-  }
-
+  /*HTTP ERROR FETCH*/
   private errorCheck(err: HttpErrorResponse) {
-  
     var snackbar = document.getElementById("snackbar");
     if (err.status == 404) {
       snackbar.innerHTML = "Sorry, we cannot found what you are looking for";

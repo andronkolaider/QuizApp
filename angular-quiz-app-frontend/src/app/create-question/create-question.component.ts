@@ -3,7 +3,6 @@ import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
 import { HttpService } from '../services/http/http.service';
 import { QuestionViewModel } from '../../assets/Models/Managing/QuestionViewModel';
 import { AnswerViewModel } from '../../assets/Models/Managing/AnswerViewModel';
-import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +12,6 @@ import { Router } from '@angular/router';
   
 })
 export class CreateQuestionComponent implements OnInit {
- // testsList: TestViewModel[];
 @Input()  selectedTest: TestViewModel;
   isShowAddQuestionDiv: boolean = false;
   isShowAddAnswer: boolean = false;
@@ -27,7 +25,6 @@ export class CreateQuestionComponent implements OnInit {
   selectQuestion(_question: QuestionViewModel) {
     this.selectedQuestion = _question;
     this.selectedQuestionAnswers = this.selectedQuestion.Answers;
-   // this.title.setTitle(this.selectedQuestion.Answers.length.toString());
   }
 
   editAnswers(_testGuid:string,_questionGuid:string) {
@@ -42,7 +39,7 @@ export class CreateQuestionComponent implements OnInit {
 
   isShowAddAnswerValueChange() {
     this.isShowAddAnswer = true;
-    this.http.GetAnswersByQuestionGuid(this.selectedQuestion.Guid).subscribe(
+    this.http.getAnswersByQuestionGuid(this.selectedQuestion.Guid).subscribe(
       (x: AnswerViewModel[]) => this.selectedQuestion.Answers = x);
 }
 

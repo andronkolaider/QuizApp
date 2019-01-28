@@ -1,5 +1,4 @@
 import { Component, OnInit} from '@angular/core';
-import { Location } from '@angular/common';
 import { LoginViewModel } from 'src/assets/Models/LoginViewModel';
 
 @Component({
@@ -13,7 +12,7 @@ export class AppComponent implements OnInit {
   isUser: boolean = false;
   currentUser: LoginViewModel;
   errorMessage: string;
-  constructor(private location:Location) { }
+  constructor() { }
 
   receiveIsAdmin($event) {
     this.isAdmin = $event;  

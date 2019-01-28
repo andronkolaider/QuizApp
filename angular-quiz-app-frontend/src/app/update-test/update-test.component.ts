@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class UpdateTestComponent implements OnInit {
   testsList: TestViewModel[];
-  @Input()selectedTest: TestViewModel;
+  @Input()selectedTest:TestViewModel;
   isShowTestEditDiv: boolean;
   testGuid: string;
   constructor(private http: HttpService, private route: ActivatedRoute,private router:Router) {
@@ -28,7 +28,7 @@ export class UpdateTestComponent implements OnInit {
 
 
   ngOnInit() {
-    this.http.GetAllTests().subscribe((x: TestViewModel[]) => {
+    this.http.getAllTests().subscribe((x: TestViewModel[]) => {
     this.testsList = x;
     for (var i = 0; i < this.testsList.length; i++) {
       if (this.testsList[i].Guid === this.testGuid) {

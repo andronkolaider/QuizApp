@@ -28,7 +28,7 @@ export class GetQuestionsByTestComponent implements OnInit {
   }
 
   getAllTests() {
-    this.http.GetAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
+    this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
   }
 
   ngOnInit() {
