@@ -4,24 +4,22 @@ import { HttpService } from '../services/http/http.service';
 
 @Component({
   selector: 'app-get-questions-by-test',
-  templateUrl: './get-questions-by-test.component.html',
-  styleUrls: ['./get-questions-by-test.component.css']
+  templateUrl: './get-questions-by-test.component.html'
+  // styleUrls: ['./get-questions-by-test.component.css']
 })
 export class GetQuestionsByTestComponent implements OnInit {
 
   testsList: TestViewModel[];
   selectedTest: TestViewModel;
   selectedTestQuestionsList: TestViewModel[];
-  isShowTestAnswers: boolean = false;
+  isShowTestAnswers = false;
 
   constructor(private http: HttpService) { }
 
   isShowTestAnswersValueChange(test: TestViewModel) {
-    
-    if (this.isShowTestAnswers == true) {
+    if (this.isShowTestAnswers) {
       this.isShowTestAnswers = false;
-    }
-    else {
+    } else {
       this.selectedTest = test;
       this.isShowTestAnswers = true;
     }

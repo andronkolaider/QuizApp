@@ -11,13 +11,14 @@ import { Router } from '@angular/router';
 export class UserPanelComponent implements OnInit {
   testsList: TestViewModel[];
   selectedTest: TestViewModel;
-  isTestStarted: boolean = false;
+  isTestStarted = false;
   currentUserName: string;
-  constructor(private http: HttpService,private router:Router) { }
+  constructor(private http: HttpService,
+    private router: Router) { }
 
   ngOnInit() {
     this.getAllTests();
-  this.currentUserName = sessionStorage.getItem('username');
+    this.currentUserName = sessionStorage.getItem('username');
   }
 
   startTest(_test: TestViewModel) {
@@ -30,5 +31,4 @@ export class UserPanelComponent implements OnInit {
   getAllTests() {
     this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
   }
-
 }

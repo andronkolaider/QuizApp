@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from '../services/http/http.service';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
 import { QuestionViewModel } from 'src/assets/Models/Managing/QuestionViewModel';
 import { TestPassingViewModel } from 'src/assets/Models/QuizPassing/TestPassingViewModel';
 import { Title } from '@angular/platform-browser';
@@ -16,9 +16,9 @@ import { TestingResultViewModel } from 'src/assets/Models/Managing/TestingResult
 })
 export class PassingTestComponent implements OnInit {
   testGuid: string;
-  isShowWelcome: boolean = true;
-  isShowTest: boolean = false;
-  isShowResult: boolean = false;
+  isShowWelcome = true;
+  isShowTest = false;
+  isShowResult = false;
   testingUrlGuid: string;
   username: string;
   selectedAnswer: AnswerViewModel;
@@ -29,8 +29,8 @@ export class PassingTestComponent implements OnInit {
   timePerQuestion: number;
   timeLeft: number;
   interval: any;
-  duration: number = 0;
-  interviewee: string = "";
+  duration = 0;
+  interviewee = '';
   isMultipleAnswers: boolean;
   multipleAnswers: AnswerViewModel[] = [];
   result: TestingResultViewModel;
@@ -71,12 +71,12 @@ export class PassingTestComponent implements OnInit {
     }
   }
 
-  selectMultipleAnswers(answer:AnswerViewModel) {
-    for (var i = 0; i < this.multipleAnswers.length; i++){
-      if (this.multipleAnswers[i].Guid == answer.Guid) {
+  selectMultipleAnswers(answer: AnswerViewModel) {
+    for (let i = 0; i < this.multipleAnswers.length; i++){
+      if (this.multipleAnswers[i].Guid === answer.Guid) {
         this.multipleAnswers.splice(this.multipleAnswers.indexOf(answer));
         return;
-      } 
+      }
     }
     this.multipleAnswers.push(answer);
 }
@@ -88,12 +88,12 @@ export class PassingTestComponent implements OnInit {
   nextQuestion() {
     clearInterval(this.interval);
     this.testPassingResult.QuestionTried += 1;
-    let choise:ChoicePassingViewModel = new ChoicePassingViewModel();
+    const choise: ChoicePassingViewModel = new ChoicePassingViewModel();
     choise.QuestionGuid = this.currentTest.Questions[this.currentQuestionIndex].Guid;
     choise.AnswersSelected = [];
     this.duration += this.timePerQuestion - this.timeLeft;
     if (this.isMultipleAnswers) {
-      for (var i = 0; i < this.multipleAnswers.length; i++){
+      for (let i = 0; i < this.multipleAnswers.length; i++){
         choise.AnswersSelected.push(this.multipleAnswers[i].Guid);
       }
     } else {
@@ -101,9 +101,7 @@ export class PassingTestComponent implements OnInit {
         choise.AnswersSelected.push(this.selectedAnswer.Guid);
       }
     }
-   
     this.testPassingResult.Questions.push(choise);
-
     if (this.currentQuestionIndex < (this.currentTest.Questions.length - 1)) {
       this.currentQuestionIndex++;
       this.currentQuestion = this.currentTest.Questions[this.currentQuestionIndex];
@@ -118,14 +116,14 @@ export class PassingTestComponent implements OnInit {
       this.timeLeft = Number.parseInt(this.currentTest.QuestionTimeLimit.split(':')[0]) * 3600 +
         Number.parseInt(this.currentTest.QuestionTimeLimit.split(':')[1]) * 60 +
         Number.parseInt(this.currentTest.QuestionTimeLimit.split(':')[2]);
-    }
-    else {
+    } else {
+      let stringDuration;
       if (this.duration < 60) {
 
-        var stringDuration = "00:00:" + this.duration.toString();
+         stringDuration = '00:00:' + this.duration.toString();
 
       } else if (this.duration < 3600) {
-        var stringDuration = "00:" + (this.duration / 60).toString().split('.')[0] + (this.duration % 60).toString();
+         stringDuration = '00:' + (this.duration / 60).toString().split('.')[0] + (this.duration % 60).toString();
       }
       this.testPassingResult.Duration = stringDuration;
 
@@ -141,8 +139,8 @@ export class PassingTestComponent implements OnInit {
   }
 
   isMultiple(_question: QuestionViewModel) {
-    var temp = 0;
-    for (var i = 0; i < _question.Answers.length; i++){
+    let temp = 0;
+    for (let i = 0; i < _question.Answers.length; i++){
       if (_question.Answers[i].IsCorrect) {
         temp++;
       }

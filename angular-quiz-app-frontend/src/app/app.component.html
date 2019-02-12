@@ -3,19 +3,19 @@
 <head></head>
 
 <body>
-    <div class='MainPageLoginDiv'>
-        <app-login (isAdminEvent)='receiveIsAdmin($event)' (isUserEvent)='receiveIsUser($event)' style="    float: right;"></app-login>
-        <div style='width:100%;'>
-            <nav class='nav' *ngIf='isAdmin' style='margin-left: 30px;'>
-                <a class="nav-link active" routerLink='./admin-panel/manage-tests'>Manage Tests</a>
-                <a class="nav-link active" routerLink='./admin-panel/manage-testing-urls'>Manage URLs</a>
-                <a class="nav-link active" routerLink='./admin-panel/testing-results'>Testing results</a>
+    <div class="MainPageLoginDiv">
+        <app-login (isAdminEvent)="receiveIsAdmin($event)" (isUserEvent)="receiveIsUser($event)" style="    float: right;"></app-login>
+        <div style="width:100%;">
+            <nav class="nav" *ngIf="isAdmin" style="margin-left: 30px;">
+                <a class="nav-link active" routerLink="./admin-panel/manage-tests">Manage Tests</a>
+                <a class="nav-link active" routerLink="./admin-panel/manage-testing-urls">Manage URLs</a>
+                <a class="nav-link active" routerLink="./admin-panel/testing-results">Testing results</a>
             </nav>
         </div>
     </div>
   
     <div>
-        <h1 class='HomePageHeader'>My QuizApp</h1>
+        <h1 class="HomePageHeader">My QuizApp</h1>
     </div>
 
     <div>

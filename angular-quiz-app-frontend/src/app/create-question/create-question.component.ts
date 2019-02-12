@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
 import { HttpService } from '../services/http/http.service';
 import { QuestionViewModel } from '../../assets/Models/Managing/QuestionViewModel';
@@ -9,17 +9,16 @@ import { Router } from '@angular/router';
   selector: 'app-create-question',
   templateUrl: './create-question.component.html',
   styleUrls: ['./create-question.component.css'],
-  
 })
-export class CreateQuestionComponent implements OnInit {
+export class CreateQuestionComponent {
 @Input()  selectedTest: TestViewModel;
-  isShowAddQuestionDiv: boolean = false;
-  isShowAddAnswer: boolean = false;
+  isShowAddQuestionDiv = false;
+  isShowAddAnswer = false;
   newQuestion: QuestionViewModel;
   newAnswer: AnswerViewModel = new AnswerViewModel();
   selectedQuestion: QuestionViewModel;
   selectedQuestionAnswers: AnswerViewModel[];
-  constructor(private http: HttpService, private router:Router) {
+  constructor(private http: HttpService, private router: Router) {
   }
 
   selectQuestion(_question: QuestionViewModel) {
@@ -27,8 +26,8 @@ export class CreateQuestionComponent implements OnInit {
     this.selectedQuestionAnswers = this.selectedQuestion.Answers;
   }
 
-  editAnswers(_testGuid:string,_questionGuid:string) {
-    this.router.navigate(['admin-panel/edit-answers/'+_testGuid+'/'+_questionGuid]);
+  editAnswers(_testGuid: string, _questionGuid: string) {
+    this.router.navigate(['admin-panel/edit-answers/' + _testGuid + '/' + _questionGuid]);
   }
 
   isShowAddQuestionValueChange() {
@@ -44,13 +43,12 @@ export class CreateQuestionComponent implements OnInit {
 }
 
   removeQuestion(_testGuid: string, _questionGuid: string) {
-    var result;
+    let result;
     this.http.removeQuestion(_testGuid, _questionGuid).subscribe((x: boolean) => {
       result = x;
-      if (result == true)
-      {
-        var index = this.selectedTest.Questions.findIndex(z => z.Guid == _questionGuid);
-        this.selectedTest.Questions.splice(index,1);
+      if (result) {
+        const index = this.selectedTest.Questions.findIndex(z => z.Guid === _questionGuid);
+        this.selectedTest.Questions.splice(index, 1);
       }
     });
     this.isShowAddAnswer = false;
@@ -58,15 +56,11 @@ export class CreateQuestionComponent implements OnInit {
 
   confirmAddQuestion(_question: QuestionViewModel) {
     this.http.createQuestion(this.selectedTest.Guid, _question).
-      subscribe((x: QuestionViewModel) => {
-        this.selectedTest.Questions.push(x);
+      subscribe((newQuestion: QuestionViewModel) => {
+        this.selectedTest.Questions.push(newQuestion);
       });
     this.isShowAddQuestionDiv = false;
     this.newQuestion = new QuestionViewModel();
     this.isShowAddAnswer = false;
   }
-
-  ngOnInit() {
-  }
-
 }

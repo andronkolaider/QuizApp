@@ -8,16 +8,17 @@ import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
   templateUrl: './manage-testing-url.component.html',
   styleUrls: ['./manage-testing-url.component.css']
 })
+
 export class ManageTestingUrlComponent implements OnInit {
   newTestingUrl: TestingUrlViewModel = new TestingUrlViewModel();
   testingUrlList: TestingUrlViewModel[];
   testsList: TestViewModel[];
-  selectedTest: TestViewModel = new TestViewModel();;
+  selectedTest: TestViewModel = new TestViewModel();
   allowedStartDate: string;
-  allowedStartTime: string='00:00';
+  allowedStartTime = '00:00';
   allowedEndDate: string;
-  allowedEndTime: string='00:00';
-  isShowAddTestUrl: boolean = false;
+  allowedEndTime = '00:00';
+  isShowAddTestUrl = false;
   isShowTests: boolean;
   constructor(private http: HttpService) {
     this.newTestingUrl.TestName = '';
@@ -41,16 +42,15 @@ export class ManageTestingUrlComponent implements OnInit {
       this.isShowTests = false;
       this.http.getAllTestingUrls().subscribe((x: TestingUrlViewModel[]) => {
         this.testingUrlList = x;
-        for (var i = 0; i < this.testingUrlList.length; i++){
+        for (let i = 0; i < this.testingUrlList.length; i++) {
           this.testingUrlList[i].UrlInstance = 'http://localhost:4200/test-passing/' + this.testingUrlList[i].Guid;
         }
       });
       this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
     });
   }
-  
-  addTestUrl()
-  {
+
+  addTestUrl() {
     this.isShowAddTestUrl = true;
     this.isShowTests = true;
     this.selectedTest = new TestViewModel();
@@ -62,38 +62,37 @@ export class ManageTestingUrlComponent implements OnInit {
     });
   }
 
-  selectTest(_test:TestViewModel) {
+  selectTest(_test: TestViewModel) {
     this.selectedTest = _test;
   }
-  
+
   ngOnInit() {
-    this.http.getAllTestingUrls().subscribe((x: TestingUrlViewModel[]) => {
-      this.testingUrlList = x;
-      for (var i = 0; i < this.testingUrlList.length; i++){
+    this.http.getAllTestingUrls().subscribe((testingUrls: TestingUrlViewModel[]) => {
+      this.testingUrlList = testingUrls;
+      for (let i = 0; i < this.testingUrlList.length; i++) {
         this.testingUrlList[i].UrlInstance = 'localhost:4200/test-passing/' + this.testingUrlList[i].Guid;
       }
     });
-    this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);  
+    this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
   }
 
-  copyLink(_testingUrl:TestingUrlViewModel) {
-    let selBox = document.createElement('textarea');
+  copyLink(_testingUrl: TestingUrlViewModel) {
+    const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
     selBox.style.top = '0';
     selBox.style.opacity = '0';
-    selBox.value =document.domain+":4200"+"/test-passing/"+_testingUrl.Guid;
+    selBox.value = document.domain + ':4200"+"/test-passing/' + _testingUrl.Guid;
     document.body.appendChild(selBox);
     selBox.focus();
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
-    var snackbar = document.getElementById("snackbar");
-    snackbar.innerHTML = "Link copied successfully";
-    snackbar.className = "show";
+    const snackbar = document.getElementById('snackbar');
+    snackbar.innerHTML = 'Link copied successfully';
+    snackbar.className = 'show';
     setTimeout(() => {
-      snackbar.className = snackbar.className.replace("show", "");
+      snackbar.className = snackbar.className.replace('show', '');
     }, 3000);
   }
-
 }

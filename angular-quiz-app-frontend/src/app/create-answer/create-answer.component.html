@@ -1,39 +1,39 @@
-<div *ngIf='selectedQuestion'>
-  <form #createAnswerForm='ngForm'>
-    <table *ngIf='isShowAddAnswerDiv' class='tableNewAnswer'>
-        <h3 style='text-align: center;margin: auto;'>{{selectedQuestion.Instance}}</h3>
-      <tr class='tableRow'>
+<div *ngIf="selectedQuestion">
+  <form #createAnswerForm="ngForm">
+    <table *ngIf="isShowAddAnswerDiv" class="tableNewAnswer">
+        <h3 style="text-align: center;margin: auto;">{{selectedQuestion.Instance}}</h3>
+      <tr class="tableRow">
         <td><label>Instance</label></td>
         <td><label>True</label></td>
         <td><label>False</label></td>
       </tr>
-      <tr class='tableRow'>
-        <td><input style='width: 300px;' type='text' name='answerInstanceInput' [(ngModel)]='_instance' required></td>
-        <td><input type='radio'  name='isCorrectAnswerRadio'  [(ngModel)]='_isCorrect' value='true' required></td>
-        <td> <input type='radio' name='isCorrectAnswerRadio' [(ngModel)]='_isCorrect' value='false' required></td>
+      <tr class="tableRow">
+        <td><input style="width: 300px;" type="text" name="answerInstanceInput" [(ngModel)]="instance" required></td>
+        <td><input type="radio"  name="isCorrectAnswerRadio"  [(ngModel)]="isCorrect" value="true" required></td>
+        <td> <input type="radio" name="isCorrectAnswerRadio" [(ngModel)]="isCorrect" value="false" required></td>
       </tr>
   
-      <tr class='tableRow'> 
+      <tr class="tableRow"> 
         <td>
-            <button name='confirmCreateAnswerButton' [disabled]='!createAnswerForm.form.valid' type='button' (click)='CreateAnswer()'>Confirm</button>
+            <button name="confirmCreateAnswerButton" [disabled]="!createAnswerForm.form.valid" type="button" (click)="CreateAnswer()">Confirm</button>
         </td>
         <td></td>
         <td></td>
       </tr>
     </table>
   </form>
-  <h1 style='text-align: center;'>{{selectedQuestion.Instance}}</h1>
-  <h2 style='text-align: center'>Answers</h2>
-  <table class='tableAnswers'>
+  <h1 style="text-align: center;">{{selectedQuestion.Instance}}</h1>
+  <h2 style="text-align: center">Answers</h2>
+  <table class="tableAnswers">
     <tr>
-      <button (click)='isShowAddAnswerDivValueChange()'>Add answer</button>
+      <button (click)="isShowAddAnswerDivValueChange()">Add answer</button>
     </tr>
-    <tr *ngFor='let answer of selectedQuestion.Answers' class='tableRowAnswers'>
+    <tr *ngFor="let answer of selectedQuestion.Answers" class="tableRowAnswers">
       <td>
         <label>{{answer.Instance}}</label>
       </td>
       <td>
-        <button type='button' (click)='removeAnswer(answer.Guid)' style='float: right;'>Remove</button>
+        <button type="button" (click)="removeAnswer(answer.Guid)" style="float: right;">Remove</button>
       </td>
     </tr>
   </table>
@@ -41,19 +41,19 @@
     
     <div>
       <label>Instance: </label>
-      <input type='text' [(ngModel)]='_instance'>
+      <input type="text" [(ngModel)]="_instance">
     </div>
     <div>
       <label>Is correct:</label>
-      <input type='radio' [(ngModel)]='_isCorrect' value='true'>True
-      <input type='radio' [(ngModel)]='_isCorrect' value='false'> False
+      <input type="radio" [(ngModel)]="_isCorrect" value="true">True
+      <input type="radio" [(ngModel)]="_isCorrect" value="false"> False
     </div>
   </div>
-  <button type='button' (click)='CreateAnswer()'>Confirm</button>
+  <button type="button" (click)="CreateAnswer()">Confirm</button>
   <div>
-    <div *ngFor='let answer of selectedQuestion.Answers'>
+    <div *ngFor="let answer of selectedQuestion.Answers">
       <label>{{answer.Instance}}</label>
-      <button type='button' (click)='removeAnswer(answer.Guid)'>Remove</button>
+      <button type="button" (click)="removeAnswer(answer.Guid)">Remove</button>
 
     </div>
   </div> -->

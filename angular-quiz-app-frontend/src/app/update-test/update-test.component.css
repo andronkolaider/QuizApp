@@ -1,13 +1,8 @@
 table{
-    /* table-layout: fixed;
-    width: 75%;
-    border-collapse: collapse;
-    border: 2px solid black; */
     table-layout: fixed;
     margin: auto;
     padding: 10px;
     border-collapse: collapse;
-
     width: 75%;
   }
 

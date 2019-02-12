@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpRequest, HttpHandler, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
 import { AnswerViewModel } from 'src/assets/Models/Managing/AnswerViewModel';
 import { QuestionViewModel } from 'src/assets/Models/Managing/QuestionViewModel';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
 import { TestingUrlViewModel } from 'src/assets/Models/Managing/TestingUrlViewModel';
 import { TestPassingViewModel } from 'src/assets/Models/QuizPassing/TestPassingViewModel';
-import 'rxjs/add/operator/catch'
+import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class HttpService {
   constructor(private http: HttpClient) { }
-  //Login Page methods
+
+  // Login Page methods
   login(Login: string, Password: string) {
     const body = { Username: Login, Password: Password };
     return this.http.post('http://localhost:53029/Account/Login/', body).catch((err: HttpErrorResponse) => {
@@ -20,7 +22,8 @@ export class HttpService {
       return new Observable<any>();
     });
   }
-  //Admin page methods
+
+  // Admin page methods
   getAllTests() {
     return this.http.get('http://localhost:53029/Admin/GetAllTests/').catch((err: HttpErrorResponse) => {
       this.errorCheck(err);
@@ -37,7 +40,7 @@ export class HttpService {
   }
 
   createAnswer(_questionGuid: string, _answer: AnswerViewModel) {
-    let body = {
+    const body = {
       questionGuid: _questionGuid, answer: {
         Instance: _answer.Instance,
         IsCorrect: _answer.IsCorrect,
@@ -51,7 +54,7 @@ export class HttpService {
   }
 
   createQuestion(_testGuid: string, _question: QuestionViewModel) {
-    let body = {
+    const body = {
       testGuid: _testGuid,
       question: {
         Instance: _question.Instance,
@@ -67,7 +70,8 @@ export class HttpService {
   }
 
   removeQuestion(_testGuid: string, _questionGuid: string) {
-    return this.http.post('http://localhost:53029/Apilike/RemoveQuestion/', { testGuid: _testGuid, questionGuid: _questionGuid }).catch((err: HttpErrorResponse) => {
+    return this.http.post('http://localhost:53029/Apilike/RemoveQuestion/',
+      { testGuid: _testGuid, questionGuid: _questionGuid }).catch((err: HttpErrorResponse) => {
       this.errorCheck(err);
       return new Observable<any>();
     });
@@ -177,7 +181,8 @@ export class HttpService {
   }
 
   removeTestingUrl(_testingUrlGuid: string) {
-    return this.http.post('http://localhost:53029/Apilike/RemoveTestingUrl/', { testingUrlGuid: _testingUrlGuid }).catch((err: HttpErrorResponse) => {
+    return this.http.post('http://localhost:53029/Apilike/RemoveTestingUrl/',
+      { testingUrlGuid: _testingUrlGuid }).catch((err: HttpErrorResponse) => {
       this.errorCheck(err);
       return new Observable<any>();
     });
@@ -201,7 +206,7 @@ export class HttpService {
   }
 
   getAllTestResults() {
-    return this.http.get("http://localhost:53029/Admin/GetAllTestingResults").catch((err: HttpErrorResponse) => {
+    return this.http.get('http://localhost:53029/Admin/GetAllTestingResults').catch((err: HttpErrorResponse) => {
       this.errorCheck(err);
       return new Observable<any>();
     });
@@ -231,18 +236,18 @@ export class HttpService {
 
   /*HTTP ERROR FETCH*/
   private errorCheck(err: HttpErrorResponse) {
-    var snackbar = document.getElementById("snackbar");
-    if (err.status == 404) {
-      snackbar.innerHTML = "Sorry, we cannot found what you are looking for";
-    } else if (err.status == 500) {
-      snackbar.innerHTML = "Sorry, smth goes wrong. Try again or ask your administrator";
+    const snackbar = document.getElementById('snackbar');
+    if (err.status === 404) {
+      snackbar.innerHTML = 'Sorry, we cannot found what you are looking for';
+    } else if (err.status === 500) {
+      snackbar.innerHTML = 'Sorry, smth goes wrong. Try again or ask your administrator';
     } else {
       snackbar.innerHTML = err.message;
     }
 
-      snackbar.className = "show";
+    snackbar.className = 'show';
       setTimeout(() => {
-        snackbar.className= snackbar.className.replace("show", " ");
+        snackbar.className = snackbar.className.replace('show', ' ');
       }, 3000);
 }
 

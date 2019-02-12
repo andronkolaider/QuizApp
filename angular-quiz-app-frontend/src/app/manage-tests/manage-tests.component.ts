@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
 import { HttpService } from '../services/http/http.service';
-import { Title } from '@angular/platform-browser';
-
 
 @Component({
   selector: 'app-manage-tests',
@@ -14,8 +12,7 @@ export class ManageTestsComponent implements OnInit {
   testsList: TestViewModel[];
   isShowAddTest: boolean;
   dateTime: Date = new Date();
-  constructor(private http:HttpService,private title:Title) { }
- 
+  constructor(private http: HttpService) { }
   showAddTestValueChange() {
     this.newTest = new TestViewModel();
     this.newTest.QuestionTimeLimit = '00:00';
@@ -23,22 +20,20 @@ export class ManageTestsComponent implements OnInit {
     this.isShowAddTest = true;
   }
 
-  removeTest(_test:TestViewModel) {
+  removeTest(_test: TestViewModel) {
     this.http.removeTest(_test.Guid).subscribe((x: boolean) => {
-      if (x === true) {
-        this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
+      if (x) {
+        this.http.getAllTests().subscribe((tests: TestViewModel[]) => this.testsList = tests);
       }
     });
 }
 
   confirmAddTest() {
-    this.http.createTest(this.newTest).subscribe((x: TestViewModel) => {
-      if (x!==undefined)
-      {
-        this.testsList.push(x);
+    this.http.createTest(this.newTest).subscribe((newTest: TestViewModel) => {
+      if (newTest) {
+        this.testsList.push(newTest);
         this.isShowAddTest = false;
         }
-
     });
   }
 

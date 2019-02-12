@@ -9,7 +9,7 @@ export class AuthGuardService {
   constructor() { }
 
   canActivate(route: ActivatedRouteSnapshot) {
-    if (document.cookie.includes("adminCookie=admin")) {
+    if (document.cookie.includes('adminCookie=admin')) {
       return true;
     }
   }

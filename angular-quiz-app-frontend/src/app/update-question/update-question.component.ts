@@ -5,18 +5,18 @@ import { QuestionViewModel } from 'src/assets/Models/Managing/QuestionViewModel'
 
 @Component({
   selector: 'app-update-question',
-  templateUrl: './update-question.component.html',
-  styleUrls: ['./update-question.component.css']
+  templateUrl: './update-question.component.html'
+  // styleUrls: ['./update-question.component.css']
 })
+
 export class UpdateQuestionComponent implements OnInit {
   testsList: TestViewModel[];
   selectedTest: TestViewModel;
   questionsList: QuestionViewModel[];
   selectedQuestion: QuestionViewModel;
-  constructor(private http:HttpService) { }
+  constructor(private http: HttpService) { }
 
-  selectTest(_test: TestViewModel)
- {
+  selectTest(_test: TestViewModel) {
     this.selectedTest = _test;
     this.questionsList = this.selectedTest.Questions;
 }
@@ -24,7 +24,7 @@ export class UpdateQuestionComponent implements OnInit {
   selectQuestion(_question: QuestionViewModel) {
     this.selectedQuestion = _question;
   }
-  
+
   getAllTests() {
     this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
 }
@@ -33,9 +33,8 @@ export class UpdateQuestionComponent implements OnInit {
     this.http.updateQuestion(this.selectedQuestion).subscribe();
     this.selectedQuestion = null;
   }
-  
+
   ngOnInit() {
     this.getAllTests();
   }
-
 }

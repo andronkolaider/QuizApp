@@ -1,8 +1,8 @@
-import { Component, OnInit, Output, EventEmitter,  } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, } from '@angular/core';
 import { HttpService } from '../services/http/http.service';
-import { LoginViewModel } from '../../assets/Models/LoginViewModel'
+import { LoginViewModel } from '../../assets/Models/LoginViewModel';
 import { TestViewModel } from '../../assets/Models/Managing/TestViewModel';
-import { Location } from '@angular/common'
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,14 +12,15 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private http: HttpService, private router: Router,private location:Location) { }
+  constructor(private http: HttpService, private router: Router,
+    private location: Location) { }
 
   currentUser: LoginViewModel = { Username: '', Password: '' };
   loginInput: string;
   passwordInput: string;
-  isLoginSuccessfull: boolean = false;
-  isAdmin: boolean = false;
-  isUser: boolean = false;
+  isLoginSuccessfull = false;
+  isAdmin = false;
+  isUser = false;
   @Output() isAdminEvent = new EventEmitter<boolean>();
   @Output() isUserEvent = new EventEmitter<boolean>();
   @Output() currentUserEvent = new EventEmitter<LoginViewModel>();
@@ -35,24 +36,23 @@ export class LoginComponent implements OnInit {
 
   sendUser() {
     this.currentUserEvent.emit(this.currentUser);
-}
+  }
 
   ngOnInit() {
-    if (sessionStorage.getItem('login') != "") {
-      var user = sessionStorage.getItem('login');
+    if (sessionStorage.getItem('login')) {
+      const user = sessionStorage.getItem('login');
       this.currentUser.Username = user;
       if (user === 'admin') {
         this.isLoginSuccessfull = true;
         this.isAdmin = true;
         this.sendisAdmin();
-        if (this.isAdmin == true) {
-          if (sessionStorage.getItem("redirected") == "") {
-            sessionStorage.setItem("redirected", "true");
+        if (this.isAdmin) {
+          if (sessionStorage.getItem('redirected') === '') {
+            sessionStorage.setItem('redirected', 'true');
             this.router.navigate(['admin-panel']);
           }
         }
-      }
-      else {
+      } else {
         this.sendUser();
       }
     }
@@ -69,32 +69,27 @@ export class LoginComponent implements OnInit {
     this.isUser = false;
     this.sendIsUser();
     sessionStorage.clear();
-    sessionStorage.setItem("redirected", "");
-    document.cookie = "adminCookie= ";
+    sessionStorage.setItem('redirected', '');
+    document.cookie = 'adminCookie= ';
     this.location.go('');
   }
 
   login(loginInput, passwordInput) {
-  
-
     this.http.login(loginInput, passwordInput).subscribe((x) => {
-      if (x != null) {
-        this.currentUser.Username = x["username"];
-        this.currentUser.Password = x["password"];
-        if (document.cookie.includes("adminCookie=admin")) {
-          sessionStorage.setItem("login", x["username"]);
+      if (x !== null) {
+        this.currentUser.Username = x['username'];
+        this.currentUser.Password = x['password'];
+        if (document.cookie.includes('adminCookie=admin')) {
+          sessionStorage.setItem('login', x['username']);
           this.isAdmin = true;
           this.isLoginSuccessfull = true;
           this.sendisAdmin();
-          if (this.isAdmin == true) {
-            sessionStorage.setItem("redirected", "true");
+          if (this.isAdmin) {
+            sessionStorage.setItem('redirected', 'true');
             this.router.navigate(['admin-panel']);
-           }
+          }
         }
-        }
-
-      });
-
-
+      }
+    });
   }
 }

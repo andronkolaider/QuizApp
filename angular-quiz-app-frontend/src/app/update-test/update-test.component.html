@@ -1,10 +1,10 @@
-<div *ngIf='selectedTest'>
+<div *ngIf="selectedTest">
   <div>
-    <form #editTestForm='ngForm'>
-      <table class='table'>
+    <form #editTestForm="ngForm">
+      <table class="table">
         <tr>
-          <button [ngClass]="editTestForm.form.valid ? 'btn btn-success' : 'btn btn-default'" (click)='confirmUpdateTest()'
-            [disabled]='!editTestForm.form.valid'>Save changes</button>
+          <button [ngClass]="editTestForm.form.valid ? 'btn btn-success' : 'btn btn-default'" (click)="confirmUpdateTest()"
+            [disabled]="!editTestForm.form.valid">Save changes</button>
         </tr>
         <tr>
           <th>Test Name</th>
@@ -14,23 +14,23 @@
           <th>Questions</th>
         </tr>
         <tr>
-          <td><input class='form-control' type='text' name='testName' [(ngModel)]='selectedTest.Name' placeholder="Test name"
+          <td><input class="form-control" type="text" name="testName" [(ngModel)]="selectedTest.Name" placeholder="Test name"
               required></td>
-          <td><input class='form-control' type='text' name='testDescription' [(ngModel)]='selectedTest.Description'
+          <td><input class="form-control" type="text" name="testDescription" [(ngModel)]="selectedTest.Description"
               placeholder="Test description" required></td>
-          <td><input class='form-control' type='time' step="1" name='timeforTest' [(ngModel)]='selectedTest.TestTimeLimit'
+          <td><input class="form-control" type="time" step="1" name="timeforTest" [(ngModel)]="selectedTest.TestTimeLimit"
               required></td>
-          <td><input class='form-control' type='time' step="1" name='timePerQuestion' [(ngModel)]='selectedTest.QuestionTimeLimit'
+          <td><input class="form-control" type="time" step="1" name="timePerQuestion" [(ngModel)]="selectedTest.QuestionTimeLimit"
               required></td>
-          <td><button class="btn" (click)='isShowTestEditDivValueChange()' style='float: right;'>Edit</button></td>
+          <td><button class="btn" (click)="isShowTestEditDivValueChange()" style="float: right;">Edit</button></td>
         </tr>
 
       </table>
     </form>
   </div>
-  <div *ngIf='isShowTestEditDiv'>
+  <div *ngIf="isShowTestEditDiv">
     <div>
-      <app-create-question [selectedTest]='selectedTest'></app-create-question>
+      <app-create-question [selectedTest]="selectedTest"></app-create-question>
     </div>
   </div>
 </div>

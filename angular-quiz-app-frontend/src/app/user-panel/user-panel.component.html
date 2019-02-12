@@ -1,14 +1,14 @@
 <div>
-  <div *ngIf='testsList'>
-    <table class='table' style='margin: auto; width:80%; margin-top: 50px;'>
+  <div *ngIf="testsList">
+    <table class="table" style="margin: auto; width:80%; margin-top: 50px;">
       <thead>
         <th>Test name</th>
         <th>Test description</th>
         <th>Time for test</th>
         <th>Time per question</th>
       </thead>
-      <tbody *ngIf='testsList'>
-        <tr *ngFor='let test of testsList' data-toggle="tooltip"  title="Click to start test" (click)='startTest(test)'>
+      <tbody *ngIf="testsList">
+        <tr *ngFor="let test of testsList" data-toggle="tooltip"  title="Click to start test" (click)="startTest(test)">
           <td>{{test.Name}}</td>
           <td>{{test.Description}}</td>
           <td>{{test.TestTimeLimit}}</td>

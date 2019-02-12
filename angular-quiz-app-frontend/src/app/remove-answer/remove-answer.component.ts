@@ -6,56 +6,48 @@ import { HttpService } from '../services/http/http.service';
 
 @Component({
   selector: 'app-remove-answer',
-  templateUrl: './remove-answer.component.html',
-  styleUrls: ['./remove-answer.component.css']
+  templateUrl: './remove-answer.component.html'
+  // styleUrls: ['./remove-answer.component.css']
 })
+
 export class RemoveAnswerComponent implements OnInit {
  testsList: TestViewModel[];
 
  questionsList: QuestionViewModel[];
  selectedTest: TestViewModel;
- isShowTestQuestions: boolean = false;
-  selectedQuestion:QuestionViewModel;
+ isShowTestQuestions = false;
+  selectedQuestion: QuestionViewModel;
  selectedQuestionAnswers: AnswerViewModel[];
-  constructor(private http:HttpService) { }
+  constructor(private http: HttpService) { }
 
-  selectedQuestionGetAnswers(question: QuestionViewModel)
-  {
+  selectedQuestionGetAnswers(question: QuestionViewModel) {
     this.selectedQuestion = question;
     this.selectedQuestionAnswers = question.Answers;
   }
 
-  isShowTestQuestionsValueChange(test:TestViewModel)
-  {
-    if (this.isShowTestQuestions == true)
-    {
+  isShowTestQuestionsValueChange(test: TestViewModel) {
+    if (this.isShowTestQuestions === true) {
       this.isShowTestQuestions = false;
-    }
-    else
-    {
+    } else {
       this.isShowTestQuestions = true;
     }
     this.selectedTest = test;
   }
 
-  GetAllTests()
-  {
+  GetAllTests() {
     this.http.getAllTests().subscribe((x: TestViewModel[]) => this.testsList = x);
   }
 
-  removeAnswer(_answerGuid: string)
-  {
-    var result;
+  removeAnswer(_answerGuid: string) {
+    let result;
     this.http.removeAnswer(_answerGuid).subscribe((x: boolean) => {
       result = x;
-      if (result == true) {
-        var deletedAnswer = this.selectedQuestion.Answers.find(x => x.Guid === _answerGuid);
-        var deletedAnswerIndex = this.selectedQuestion.Answers.indexOf(deletedAnswer);
-        if (deletedAnswerIndex !== -1)
-        {
+      if (result === true) {
+        const deletedAnswer = this.selectedQuestion.Answers.find(answer => answer.Guid === _answerGuid);
+        const deletedAnswerIndex = this.selectedQuestion.Answers.indexOf(deletedAnswer);
+        if (deletedAnswerIndex !== -1) {
           this.selectedQuestion.Answers.splice(deletedAnswerIndex);
           }
-        
       }
     });
   }
@@ -63,5 +55,4 @@ export class RemoveAnswerComponent implements OnInit {
   ngOnInit() {
     this.GetAllTests();
   }
-
 }

@@ -1,12 +1,12 @@
 <div>
   <div>
-    <form #createTestForm='ngForm' >
+    <form #createTestForm="ngForm" >
 
-      <table class='table' style='width: 75%;'>
+      <table class="table" style="width: 75%;">
         <tr>
-            <button style="margin-bottom:7px;" (click)='showAddTestValueChange()' class='btn btn-success' type='submit'>Add test</button>
+            <button style="margin-bottom:7px;" (click)="showAddTestValueChange()" class="btn btn-success" type="submit">Add test</button>
         </tr>
-        <tr class='tableRowHeaders'>
+        <tr class="tableRowHeaders">
           <th>Test name</th>
           <th>Description</th>
           <th>Test length</th>
@@ -14,45 +14,45 @@
           <th></th>
           <th></th>
         </tr>
-        <tr *ngIf='isShowAddTest' class='tableRowData'>
+        <tr *ngIf="isShowAddTest" class="tableRowData">
           
-            <td><input type='text' class='form-control' [(ngModel)]='newTest.Name' name='testNameInput' placeholder="Test name" required></td>
-            <td><input type='text' class='form-control' [(ngModel)]='newTest.Description' placeholder="Description" name='testDescriptionInput' required></td>
-            <td><input type='time' class='form-control' [(ngModel)]='newTest.TestTimeLimit' name='testTime' step="30" required></td>
-            <td><input type='time' class='form-control' [(ngModel)]='newTest.QuestionTimeLimit' step="30" name='questiontime' required></td>
-            <td><button (click)='confirmAddTest()' class='tableRowData' type='button' [disabled]='!createTestForm.form.valid'>Confirm</button></td>
-            <td><button type='button' (click)='cancelNewTest()' class='tableRowData'>Cancel</button></td>
+            <td><input type="text" class="form-control" [(ngModel)]="newTest.Name" name="testNameInput" placeholder="Test name" required></td>
+            <td><input type="text" class="form-control" [(ngModel)]="newTest.Description" placeholder="Description" name="testDescriptionInput" required></td>
+            <td><input type="time" class="form-control" [(ngModel)]="newTest.TestTimeLimit" name="testTime" step="30" required></td>
+            <td><input type="time" class="form-control" [(ngModel)]="newTest.QuestionTimeLimit" step="30" name="questiontime" required></td>
+            <td><button (click)="confirmAddTest()" class="tableRowData" type="button" [disabled]="!createTestForm.form.valid">Confirm</button></td>
+            <td><button type="button" (click)="cancelNewTest()" class="tableRowData">Cancel</button></td>
           </tr>
-        <tr *ngFor='let test of testsList' class='tableRowData'>
+        <tr *ngFor="let test of testsList" class="tableRowData">
           <td>{{test.Name}}</td>
           <td>{{test.Description}}</td>
           <td>{{test.TestTimeLimit}}</td>
           <td>{{test.QuestionTimeLimit}}</td>
-          <td><a routerLink='../edit-test/{{test.Guid}}'>Update test</a></td>
-          <td><button type='button' (click)='removeTest(test)'>Delete</button></td>
+          <td><a routerLink="../edit-test/{{test.Guid}}">Update test</a></td>
+          <td><button type="button" (click)="removeTest(test)">Delete</button></td>
         </tr>
         
       </table>
     </form>
     
-    <!-- <div *ngIf='showAddTest'>
+    <!-- <div *ngIf="showAddTest">
       <div>
         <label>Name: </label>
-        <input type='text' [(ngModel)]='newTest.Name'>
+        <input type="text" [(ngModel)]="newTest.Name">
       </div>
       <div>
         <label>Description: </label>
-        <input type='text' [(ngModel)]='newTest.Description'>
+        <input type="text" [(ngModel)]="newTest.Description">
       </div>
       <div>
         <label>Test Time Limit: </label>
-        <input type='time' [(ngModel)]='newTest.TestTimeLimit'>
+        <input type="time" [(ngModel)]="newTest.TestTimeLimit">
       </div>
       <div>
         <label>Question Time Limit: </label>
-        <input type='time' [(ngModel)]='newTest.QuestionTimeLimit'>
+        <input type="time" [(ngModel)]="newTest.QuestionTimeLimit">
       </div>
-      <button (click)='confirmAddTest()'>Comfirm</button>
+      <button (click)="confirmAddTest()">Comfirm</button>
     </div>
   </div> -->
   </div>

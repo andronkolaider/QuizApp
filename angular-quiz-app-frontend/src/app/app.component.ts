@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginViewModel } from 'src/assets/Models/LoginViewModel';
 
 @Component({
@@ -6,28 +6,23 @@ import { LoginViewModel } from 'src/assets/Models/LoginViewModel';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  isAdmin: boolean=false;
-  isUser: boolean = false;
+  isAdmin = false;
+  isUser = false;
   currentUser: LoginViewModel;
   errorMessage: string;
   constructor() { }
 
   receiveIsAdmin($event) {
-    this.isAdmin = $event;  
-}
+    this.isAdmin = $event;
+  }
 
   receiveCurrentUser($event) {
     this.currentUser = $event;
   }
-  
+
   receiveIsUser($event) {
     this.isUser = $event;
   }
-  
-  ngOnInit() {
-
-  }
-
 }

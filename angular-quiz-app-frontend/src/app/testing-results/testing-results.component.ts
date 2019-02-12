@@ -9,11 +9,9 @@ import { TestingResultViewModel } from 'src/assets/Models/Managing/TestingResult
 })
 export class TestingResultsComponent implements OnInit {
   testingResults: TestingResultViewModel[];
-  constructor(private http:HttpService) { }
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
     this.http.getAllTestResults().subscribe((x: TestingResultViewModel[]) => this.testingResults = x);
-    
   }
-
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TestViewModel } from 'src/assets/Models/Managing/TestViewModel';
 import { HttpService } from '../services/http/http.service';
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -11,10 +11,12 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class UpdateTestComponent implements OnInit {
   testsList: TestViewModel[];
-  @Input()selectedTest:TestViewModel;
+  @Input()selectedTest: TestViewModel;
   isShowTestEditDiv: boolean;
   testGuid: string;
-  constructor(private http: HttpService, private route: ActivatedRoute,private router:Router) {
+  constructor(private http: HttpService,
+    private route: ActivatedRoute,
+    private router: Router) {
     this.route.params.subscribe(params => this.testGuid = params['guid']);
   }
 
@@ -30,11 +32,12 @@ export class UpdateTestComponent implements OnInit {
   ngOnInit() {
     this.http.getAllTests().subscribe((x: TestViewModel[]) => {
     this.testsList = x;
-    for (var i = 0; i < this.testsList.length; i++) {
+    for (let i = 0; i < this.testsList.length; i++) {
       if (this.testsList[i].Guid === this.testGuid) {
         this.selectedTest = this.testsList[i];
       }
-    }});  
+      }
+    });
   }
 
   confirmUpdateTest() {
@@ -42,7 +45,5 @@ export class UpdateTestComponent implements OnInit {
     this.http.updateTest(this.testGuid, this.selectedTest).subscribe(() =>
       this.router.navigate(['admin-panel/manage-tests'])
     );
-    
 }
-
 }
